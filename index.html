@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freshstart Juice — Cold-Pressed. No Nonsense.</title>
+  <meta name="description" content="Small-batch cold-pressed juice made with real ingredients. No additives, no shortcuts. Locally sourced in the San Francisco Bay Area.">
+  <link rel="canonical" href="https://freshstartjuice.com/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://freshstartjuice.com/">
+  <meta property="og:title" content="Freshstart Juice — Cold-Pressed. No Nonsense.">
+  <meta property="og:description" content="Small-batch cold-pressed juice. Real ingredients. Zero additives. SF Bay Area.">
+  <meta property="og:image" content="images/favicon-512x512.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --green-dark: #1B4332; --green-mid: #2D6A4F; --green-fresh: #40916C;
+      --green-light: #D8F3DC; --cream: #FAFAF7; --warm-white: #FFFFFF;
+      --charcoal: #1A1A1A; --muted: #6B7280; --yellow: #F6C90E;
+      --yellow-light: #FFFBEB; --border: #E5E7EB; --radius: 14px;
+      --shadow: 0 4px 24px rgba(0,0,0,0.07); --shadow-lg: 0 12px 40px rgba(0,0,0,0.11);
+      --max-w: 860px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--charcoal); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 4rem 0 3rem; }
+
+    /* ANNOUNCEMENT */
+    .announcement { background: var(--green-dark); color: white; text-align: center; padding: 0.6rem 1rem; font-size: 0.78rem; font-weight: 500; }
+    .announcement strong { color: var(--yellow); }
+
+    /* HEADER */
+    .site-header { background: rgba(255,255,255,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 0.85rem 0; position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .brand-logo { height: 44px; width: auto; display: block; }
+    .header-nav { display: flex; align-items: center; gap: 2rem; }
+    .header-nav a { font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 600; color: var(--green-mid); text-decoration: none; transition: color 0.15s; }
+    .header-nav a:hover { color: var(--green-dark); }
+    .header-cta { background: var(--green-dark); color: white; font-family: 'Montserrat', sans-serif; font-size: 0.78rem; font-weight: 700; padding: 0.55rem 1.1rem; border-radius: 8px; text-decoration: none; transition: background 0.15s, transform 0.15s; }
+    .header-cta:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero { padding: 4.5rem 0 3.5rem; }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+    .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--yellow-light); border: 1px solid #FDE68A; color: #92400E; font-size: 0.75rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 20px; margin-bottom: 1.5rem; }
+    .hero-eyebrow::before { content: ''; width: 7px; height: 7px; background: var(--yellow); border-radius: 50%; }
+    .hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(2.4rem, 4vw, 3.4rem); color: var(--green-dark); line-height: 1.06; letter-spacing: -1.5px; margin-bottom: 1.25rem; }
+    .hero h1 em { color: var(--green-fresh); font-style: normal; }
+    .hero-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; max-width: 400px; }
+    .hero-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.25rem; }
+    .pill { background: var(--warm-white); border: 1px solid var(--border); color: var(--green-mid); font-size: 0.73rem; font-weight: 600; padding: 0.3rem 0.85rem; border-radius: 20px; }
+    .hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .hero-visual-card { background: var(--warm-white); border-radius: 24px; box-shadow: var(--shadow-lg); padding: 2rem; border: 1px solid var(--border); text-align: center; }
+    .hero-logo { width: 100%; max-width: 280px; margin: 0 auto 1.5rem; display: block; }
+    .hero-stats { display: flex; justify-content: center; gap: 2rem; border-top: 1px solid var(--border); padding-top: 1.25rem; }
+    .hero-stat-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.5rem; color: var(--green-dark); line-height: 1; }
+    .hero-stat-lbl { font-size: 0.68rem; color: var(--muted); margin-top: 3px; font-weight: 500; }
+
+    /* BUTTONS */
+    .btn { display: inline-block; padding: 0.9rem 1.6rem; border-radius: var(--radius); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.88rem; text-align: center; text-decoration: none; cursor: pointer; border: none; transition: transform 0.15s, box-shadow 0.15s, background 0.15s, opacity 0.15s; }
+    .btn:active { transform: scale(0.98); }
+    .btn-full { display: block; width: 100%; }
+    .btn-primary { background: var(--green-dark); color: white; box-shadow: 0 4px 16px rgba(27,67,50,0.28); }
+    .btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--green-dark); border: 2px solid var(--green-dark); }
+    .btn-outline:hover { background: var(--green-light); transform: translateY(-1px); }
+    .btn-yellow { background: var(--yellow); color: var(--green-dark); box-shadow: 0 4px 16px rgba(246,201,14,0.32); }
+    .btn-yellow:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    /* STATS STRIP */
+    .stats-strip { background: var(--green-dark); padding: 1.75rem 0; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; text-align: center; }
+    .stat-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.75rem; color: var(--yellow); line-height: 1; }
+    .stat-lbl { font-size: 0.72rem; color: rgba(255,255,255,0.7); margin-top: 4px; font-weight: 500; }
+
+    /* SECTION LABELS */
+    .section-label { font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green-fresh); margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 2rem; color: var(--green-dark); line-height: 1.15; margin-bottom: 0.65rem; letter-spacing: -0.5px; }
+    .section-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; max-width: 540px; }
+    .divider { height: 1px; background: var(--border); margin: 0.5rem 0; }
+
+    /* STORY */
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .story-img-wrap { position: relative; }
+    .story-img-wrap img { width: 100%; border-radius: 20px; object-fit: cover; max-height: 340px; display: block; }
+    .story-badge { position: absolute; bottom: -16px; right: -16px; background: var(--yellow); color: var(--green-dark); font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.78rem; padding: 0.75rem 1.1rem; border-radius: 12px; box-shadow: var(--shadow-lg); text-align: center; line-height: 1.3; }
+    .story-content blockquote { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--green-dark); line-height: 1.4; margin-bottom: 1rem; border-left: 4px solid var(--yellow); padding-left: 1.25rem; }
+    .story-content p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
+
+    /* FLAVORS */
+    .flavors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    .flavor-card { background: var(--warm-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; display: flex; flex-direction: column; gap: 0.85rem; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+    .flavor-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .flavor-top { display: flex; align-items: flex-start; justify-content: space-between; }
+    .flavor-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+    .flavor-icon-photo { width: 80px; height: 80px; border-radius: 14px; object-fit: cover; flex-shrink: 0; display: block; }
+    .flavor-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; color: var(--green-dark); margin-bottom: 0.2rem; }
+    .flavor-desc { font-size: 0.81rem; color: var(--muted); line-height: 1.5; }
+    .flavor-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.85rem; border-top: 1px solid var(--border); }
+    .flavor-price { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; color: var(--green-dark); }
+    .flavor-badge { font-size: 0.68rem; font-weight: 700; font-family: 'Montserrat', sans-serif; padding: 0.25rem 0.65rem; border-radius: 20px; }
+    .badge-popular { background: var(--green-light); color: var(--green-dark); border: 1px solid #B7E4C7; }
+    .badge-coming { background: #F3F4F6; color: var(--muted); border: 1px solid var(--border); }
+    .notify-btn { font-size: 0.75rem; font-family: 'Montserrat', sans-serif; font-weight: 600; color: var(--green-fresh); background: none; border: none; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+
+    /* TESTIMONIALS */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.1rem; }
+    .testimonial-card { background: var(--warm-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
+    .stars { color: var(--yellow); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
+    .testimonial-text { font-size: 0.87rem; color: var(--charcoal); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.6rem; }
+    .author-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--green-light); display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.72rem; color: var(--green-dark); flex-shrink: 0; }
+    .author-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; color: var(--green-dark); }
+    .author-loc { font-size: 0.7rem; color: var(--muted); margin-top: 1px; }
+
+    /* EARLY ACCESS */
+    .access-section { background: var(--green-dark); border-radius: 24px; padding: 3rem 2rem; text-align: center; }
+    .access-inner { max-width: 500px; margin: 0 auto; }
+    .access-section .section-label { color: #74C69D; }
+    .access-section .section-title { color: white; font-size: 2rem; }
+    .access-section .section-desc { color: rgba(255,255,255,0.72); margin-bottom: 2rem; max-width: 100%; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .form-group { margin-bottom: 0.75rem; }
+    .form-input { width: 100%; padding: 0.9rem 1.1rem; background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 10px; font-size: 0.95rem; color: white; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; }
+    .form-input::placeholder { color: rgba(255,255,255,0.4); }
+    .form-input:focus { border-color: var(--yellow); background: rgba(255,255,255,0.14); }
+    .form-note { font-size: 0.72rem; color: rgba(255,255,255,0.42); margin-top: 0.875rem; line-height: 1.5; }
+    .form-success { display: none; text-align: center; padding: 1.5rem 0; }
+    .form-success .checkmark { width: 64px; height: 64px; background: rgba(116,198,157,0.22); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; font-size: 1.75rem; }
+    .form-success h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: white; font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .form-success p { color: rgba(255,255,255,0.65); font-size: 0.9rem; }
+
+    /* ORDER + PRICING */
+    .order-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .inquire-card { background: var(--warm-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); }
+    .contact-options { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.25rem; }
+    .contact-row { display: flex; align-items: center; gap: 0.875rem; padding: 0.9rem; background: var(--cream); border-radius: 10px; border: 1px solid var(--border); text-decoration: none; color: var(--charcoal); transition: background 0.15s; }
+    .contact-row:hover { background: var(--green-light); }
+    .contact-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-light); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .contact-label { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--green-dark); }
+    .contact-value { font-size: 0.77rem; color: var(--muted); margin-top: 1px; }
+    .contact-arrow { color: var(--muted); font-size: 0.9rem; }
+    /* ORDER FORM */
+    .order-form-input { width: 100%; padding: 0.8rem 1rem; background: var(--cream); border: 1.5px solid var(--border); border-radius: 10px; font-size: 0.9rem; color: var(--charcoal); font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s, background 0.2s; }
+    .order-form-input:focus { border-color: var(--green-mid); background: white; }
+    .order-form-input::placeholder { color: var(--muted); }
+    .flavor-checkboxes { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.25rem; }
+    .flavor-check-label { display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; color: var(--charcoal); cursor: pointer; padding: 0.55rem 0.75rem; border-radius: 8px; border: 1.5px solid var(--border); background: var(--cream); transition: border-color 0.15s, background 0.15s; }
+    .flavor-check-label:hover { background: var(--green-light); border-color: #B7E4C7; }
+    .flavor-check-label input[type="checkbox"] { accent-color: var(--green-dark); width: 16px; height: 16px; flex-shrink: 0; }
+    .order-field-label { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; color: var(--green-dark); letter-spacing: 0.5px; margin-bottom: 0.4rem; display: block; }
+    .order-form-group { margin-bottom: 0.85rem; }
+    .order-success { display: none; text-align: center; padding: 1rem 0 0.5rem; }
+    .order-success .checkmark { width: 52px; height: 52px; background: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.4rem; }
+    .order-success h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--green-dark); font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .order-success p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+    .pricing-box { background: var(--green-light); border: 1.5px solid #B7E4C7; border-radius: var(--radius); padding: 2rem; }
+    .pricing-rows { margin: 1.25rem 0; }
+    .pricing-row { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid #B7E4C7; }
+    .pricing-row:last-child { border-bottom: none; }
+    .pricing-row.featured { background: rgba(27,67,50,0.07); margin: 0 -0.5rem; padding: 0.8rem 0.5rem; border-radius: 8px; border: none; }
+    .pricing-item { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--green-dark); }
+    .pricing-item-sub { font-size: 0.73rem; color: var(--green-mid); font-family: 'Inter', sans-serif; margin-top: 1px; }
+    .pricing-price { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; color: var(--green-dark); }
+    .best-value { font-size: 0.62rem; font-weight: 700; font-family: 'Montserrat', sans-serif; background: var(--yellow); color: var(--green-dark); padding: 0.15rem 0.5rem; border-radius: 6px; margin-left: 0.4rem; vertical-align: middle; }
+    .pricing-note { font-size: 0.75rem; color: var(--green-mid); line-height: 1.65; }
+
+    /* INSTAGRAM */
+    .instagram-section { text-align: center; padding: 3.5rem 0 2rem; }
+    .ig-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; padding: 3px; }
+    .ig-avatar-inner { width: 100%; height: 100%; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; }
+    .ig-avatar-inner img { width: 62px; height: 62px; border-radius: 50%; object-fit: contain; }
+    .ig-handle { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; color: var(--green-dark); margin-bottom: 0.3rem; }
+    .ig-tagline { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.75rem; }
+
+    /* FOOTER */
+    footer { padding: 3rem 0; border-top: 1px solid var(--border); }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.25rem; }
+    .footer-brand img { height: 34px; width: auto; margin: 0 auto 0.5rem; display: block; }
+    .footer-tagline { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.25rem; }
+    .footer-mission { font-size: 0.74rem; color: var(--muted); max-width: 220px; line-height: 1.65; text-align: center; margin: 0 auto; }
+    .footer-links { display: flex; gap: 1.75rem; flex-wrap: wrap; justify-content: center; padding-top: 0.25rem; }
+    .footer-links a { font-size: 0.8rem; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--green-fresh); }
+    .footer-copy { font-size: 0.7rem; color: var(--muted); margin-top: 2.5rem; text-align: center; }
+
+    /* BATCH NOTES */
+    .batch-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .batch-entry { background: var(--warm-white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+    .batch-entry:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .batch-accent { height: 4px; }
+    .batch-accent-red { background: linear-gradient(90deg,#EF4444,#F87171); }
+    .batch-accent-orange { background: linear-gradient(90deg,#F97316,#FB923C); }
+    .batch-accent-green { background: linear-gradient(90deg,var(--green-mid),var(--green-fresh)); }
+    .batch-header { padding: 1.25rem 1.5rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+    .batch-meta { display: flex; align-items: center; gap: 0.75rem; }
+    .batch-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+    .batch-dot-red { background: #EF4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.15); }
+    .batch-dot-orange { background: #F97316; box-shadow: 0 0 0 3px rgba(249,115,22,0.15); }
+    .batch-dot-green { background: var(--green-fresh); box-shadow: 0 0 0 3px rgba(64,145,108,0.15); }
+    .batch-num { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--green-dark); }
+    .batch-name { font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.88rem; color: var(--muted); }
+    .batch-equipment { font-size: 0.73rem; font-weight: 600; font-family: 'Montserrat', sans-serif; color: var(--green-mid); background: var(--green-light); border: 1px solid #B7E4C7; padding: 0.28rem 0.8rem; border-radius: 20px; white-space: nowrap; }
+    .batch-body { padding: 1.25rem 1.5rem; }
+    .batch-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.1rem; }
+    .batch-section-label { font-family: 'Montserrat', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green-fresh); margin-bottom: 0.6rem; }
+    .batch-items { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .batch-items li { font-size: 0.85rem; color: var(--muted); line-height: 1.6; padding-left: 1.1rem; position: relative; }
+    .batch-items li::before { content: '–'; position: absolute; left: 0; color: var(--green-fresh); font-weight: 700; }
+    .batch-takeaway { background: var(--cream); border-radius: 10px; border-left: 3px solid var(--yellow); padding: 0.9rem 1.1rem; }
+    .batch-takeaway-label { font-family: 'Montserrat', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #92400E; margin-bottom: 0.35rem; }
+    .batch-takeaway p { font-size: 0.875rem; color: var(--charcoal); line-height: 1.7; font-weight: 500; }
+    @media (max-width: 600px) { .batch-cols { grid-template-columns: 1fr; gap: 1rem; } .batch-equipment { display: none; } }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* MODAL */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; align-items: center; justify-content: center; }
+    .modal-box { background: white; border-radius: 20px; padding: 2rem; max-width: 380px; width: 90%; text-align: center; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+      .hero-pills, .hero-btns { justify-content: center; }
+      .hero-sub { margin: 0 auto 2rem; }
+      .hero-visual { order: -1; }
+      .hero-visual-card { max-width: 360px; margin: 0 auto; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+      .story-grid, .flavors-grid, .testimonials-grid, .order-grid { grid-template-columns: 1fr; }
+      .story-badge { bottom: -12px; right: 8px; }
+      .access-section { padding: 2rem 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .header-nav { display: none; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.2rem; }
+      .section-title { font-size: 1.65rem; }
+      .hero-btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="announcement">
+  🌿 Next batch dropping soon — <strong>limited bottles available.</strong> Join the early access list to order first.
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <img src="images/logo.png" alt="Freshstart Juice" class="brand-logo">
+    <nav class="header-nav">
+      <a href="#story">Our Story</a>
+      <a href="#flavors">Flavors</a>
+      <a href="#batch-notes">Batch Notes</a>
+      <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+    <a href="#early-access" class="header-cta">Join Early Access</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content reveal">
+        <div class="hero-eyebrow">Join 100+ early access members</div>
+        <h1>Cold-Pressed.<br><em>No Nonsense.</em></h1>
+        <p class="hero-sub">Real ingredients. Small batches. Zero additives — ever. We started this from scratch in the SF Bay Area because we got tired of juice that wasn't actually juice.</p>
+        <div class="hero-pills">
+          <span class="pill">Cold-Pressed</span>
+          <span class="pill">Zero Additives</span>
+          <span class="pill">Small Batch</span>
+          <span class="pill">Locally Sourced</span>
+        </div>
+        <div class="hero-btns">
+          <a href="#early-access" class="btn btn-primary">🧃 Get Early Access</a>
+          <a href="#flavors" class="btn btn-outline">See the Lineup</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="hero-visual-card">
+          <img src="images/logo.png" alt="Freshstart Juice" class="hero-logo">
+          <div class="hero-stats">
+            <div><div class="hero-stat-num">4</div><div class="hero-stat-lbl">Flavors</div></div>
+            <div><div class="hero-stat-num">100%</div><div class="hero-stat-lbl">Cold-Pressed</div></div>
+            <div><div class="hero-stat-num">0</div><div class="hero-stat-lbl">Additives</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div><div class="stat-num">100+</div><div class="stat-lbl">Early Access Members</div></div>
+      <div><div class="stat-num">4</div><div class="stat-lbl">Signature Flavors</div></div>
+      <div><div class="stat-num">0</div><div class="stat-lbl">Additives. Ever.</div></div>
+      <div><div class="stat-num">SF Bay</div><div class="stat-lbl">Locally Sourced</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="story">
+  <div class="container reveal">
+    <div class="story-grid">
+      <div class="story-img-wrap">
+        <img src="Photos/IMG_5104.jpg" alt="Fresh-pressed juice in a jar">
+        <div class="story-badge">Made with<br>intention. 🌿</div>
+      </div>
+      <div class="story-content">
+        <p class="section-label">Why We Exist</p>
+        <blockquote>"Start fresh. Stay fresh."</blockquote>
+        <p>This started in the backyard, with our organic apples, lemons, limes, and oranges. Just using what we had grown and trying to make better choices for my family.</p>
+        <p>Over time, it became something more.</p>
+        <p>A focus on real ingredients. Fresh juice made in small batches. Paying attention to what goes in, how it's made, and how it feels after.</p>
+        <p>Every batch is tested, refined, and dialed in until it's right. Balanced for flavor, made for everyday energy, hydration, and recovery.</p>
+        <p>When it's ready, the Founders List hears first.</p>
+        <p><strong>That's the process.</strong></p>
+        <a href="#early-access" class="btn btn-primary" style="margin-top:0.5rem;">Join the List</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<section id="flavors">
+  <div class="container reveal">
+    <p class="section-label">Current Lineup</p>
+    <h2 class="section-title">The Flavors</h2>
+    <p class="section-desc">Each batch is tested until it's right. Order available flavors now, or get notified when new ones drop.</p>
+    <div class="flavors-grid">
+
+      <div class="flavor-card">
+        <div class="flavor-top">
+          <img src="images/flavor-roots.png" alt="Roots+" class="flavor-icon-photo">
+          <span class="flavor-badge badge-popular">Popular</span>
+        </div>
+        <div>
+          <div class="flavor-name">Roots+</div>
+          <div class="flavor-desc">Beets · Cucumber · Ginger · Carrot · Apple · Lime · Turmeric · Mint</div>
+        </div>
+        <div class="flavor-footer">
+          <div class="flavor-price">$9 / bottle</div>
+          <a href="#early-access" class="btn btn-primary" style="padding:0.45rem 1rem;font-size:0.78rem;border-radius:8px;">Order Now</a>
+        </div>
+      </div>
+
+      <div class="flavor-card">
+        <div class="flavor-top">
+          <img src="images/flavor-citrus.png" alt="Citrus Boost" class="flavor-icon-photo">
+          <span class="flavor-badge badge-popular">Popular</span>
+        </div>
+        <div>
+          <div class="flavor-name">Citrus Boost</div>
+          <div class="flavor-desc">Orange · Lemon · Ginger · Turmeric</div>
+        </div>
+        <div class="flavor-footer">
+          <div class="flavor-price">$9 / bottle</div>
+          <a href="#early-access" class="btn btn-primary" style="padding:0.45rem 1rem;font-size:0.78rem;border-radius:8px;">Order Now</a>
+        </div>
+      </div>
+
+      <div class="flavor-card">
+        <div class="flavor-top">
+          <div class="flavor-icon" style="background:#E8F5E9;">🥬</div>
+          <span class="flavor-badge badge-coming">Coming Soon</span>
+        </div>
+        <div>
+          <div class="flavor-name">Green Blast</div>
+          <div class="flavor-desc">Apple · Spinach · Kale · Celery · Ginger · Lemon · Parsley · Cucumber</div>
+        </div>
+        <div class="flavor-footer">
+          <div class="flavor-price">$9 / bottle</div>
+          <button class="notify-btn" onclick="openNotify('Green Blast')">🔔 Notify me when ready</button>
+        </div>
+      </div>
+
+      <div class="flavor-card">
+        <div class="flavor-top">
+          <div class="flavor-icon" style="background:#E8F8E8;">🍈</div>
+          <span class="flavor-badge badge-coming">Coming Soon</span>
+        </div>
+        <div>
+          <div class="flavor-name">Fresh Limes</div>
+          <div class="flavor-desc">Lime · Lemon · Mint · Ginger</div>
+        </div>
+        <div class="flavor-footer">
+          <div class="flavor-price">$9 / bottle</div>
+          <button class="notify-btn" onclick="openNotify('Fresh Limes')">🔔 Notify me when ready</button>
+        </div>
+      </div>
+
+    </div>
+    <p style="font-size:0.78rem;color:var(--muted);text-align:center;margin-top:1.25rem;line-height:1.6;">
+      Flavors rotate by batch · DM <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener" style="color:var(--green-fresh);font-weight:600;">@freshstart.juice</a> for current availability
+    </p>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<section id="reviews">
+  <div class="container reveal">
+    <p class="section-label">Early Tasters</p>
+    <h2 class="section-title">Don't Take Our Word For It</h2>
+    <p class="section-desc">A few words from our first batch testers across the Bay.</p>
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The Citrus Boost is legit. You can taste the difference right away. My morning routine changed after the first bottle."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SH</div>
+          <div><div class="author-name">Sim H.</div><div class="author-loc">San Leandro, CA</div></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Roots+ is my go-to before school. The mix of beets, carrots, ginger, and apple just works. It actually tastes good too. Zero guilt, all flavor."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">Q</div>
+          <div><div class="author-name">Quincy</div><div class="author-loc">San Leandro, CA</div></div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"No sugar, no additives, and it still tastes this good. As a natural bodybuilder, it gives me the energy and recovery I need for training."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">LH</div>
+          <div><div class="author-name">Leah H.</div><div class="author-loc">San Leandro, CA</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<section id="batch-notes">
+  <div class="container reveal">
+    <p class="section-label">Production Log</p>
+    <h2 class="section-title">Batch Notes</h2>
+    <p class="section-desc">Every batch is documented — equipment, process, yield, and what we learned. We track everything so every run is better than the last.</p>
+    <div class="batch-list">
+
+      <!-- Batch 03 — most recent first -->
+      <div class="batch-entry">
+        <div class="batch-accent batch-accent-green"></div>
+        <div class="batch-header">
+          <div class="batch-meta">
+            <span class="batch-dot batch-dot-green"></span>
+            <span class="batch-num">Batch 03</span>
+            <span class="batch-name">Benchmark</span>
+          </div>
+          <span class="batch-equipment">Nama J2 Cold Press</span>
+        </div>
+        <div class="batch-body">
+          <div class="batch-cols">
+            <div>
+              <div class="batch-section-label">Focus</div>
+              <ul class="batch-items">
+                <li>Consistent prep, flow, and cleanup</li>
+                <li>Balanced ingredient combinations</li>
+                <li>Continued data tracking across every run</li>
+              </ul>
+            </div>
+            <div>
+              <div class="batch-section-label">Outcome</div>
+              <ul class="batch-items">
+                <li>~34% yield — best to date</li>
+                <li>Consistent output (~2+ quarts per run)</li>
+                <li>Controlled pulp and minimal waste</li>
+              </ul>
+            </div>
+          </div>
+          <div class="batch-takeaway">
+            <div class="batch-takeaway-label">Takeaway</div>
+            <p>Established a repeatable, data-backed process. This batch sets the current performance benchmark.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Batch 02 -->
+      <div class="batch-entry">
+        <div class="batch-accent batch-accent-orange"></div>
+        <div class="batch-header">
+          <div class="batch-meta">
+            <span class="batch-dot batch-dot-orange"></span>
+            <span class="batch-num">Batch 02</span>
+            <span class="batch-name">Transition</span>
+          </div>
+          <span class="batch-equipment">Nama J2 Cold Press — Upgrade</span>
+        </div>
+        <div class="batch-body">
+          <div class="batch-cols">
+            <div>
+              <div class="batch-section-label">Focus</div>
+              <ul class="batch-items">
+                <li>Applied process improvements from Batch 01</li>
+                <li>Introduced true cold-press extraction</li>
+              </ul>
+            </div>
+            <div>
+              <div class="batch-section-label">Outcome</div>
+              <ul class="batch-items">
+                <li>Immediate improvement in yield</li>
+                <li>Cleaner juice and better separation</li>
+                <li>Reduced waste and rework</li>
+              </ul>
+            </div>
+          </div>
+          <div class="batch-takeaway">
+            <div class="batch-takeaway-label">Takeaway</div>
+            <p>Key inflection point. Combining process discipline with the right equipment significantly improved performance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Batch 01 -->
+      <div class="batch-entry">
+        <div class="batch-accent batch-accent-red"></div>
+        <div class="batch-header">
+          <div class="batch-meta">
+            <span class="batch-dot batch-dot-red"></span>
+            <span class="batch-num">Batch 01</span>
+            <span class="batch-name">Baseline + Foundation</span>
+          </div>
+          <span class="batch-equipment">Ninja Professional Blender (Auto IQ)</span>
+        </div>
+        <div class="batch-body">
+          <div class="batch-cols">
+            <div>
+              <div class="batch-section-label">Focus</div>
+              <ul class="batch-items">
+                <li>Began capturing data — ingredient weights, output, yield</li>
+                <li>Created initial prep and cleaning guide</li>
+                <li>Established kitchen workflow and process flow</li>
+              </ul>
+            </div>
+            <div>
+              <div class="batch-section-label">Outcome</div>
+              <ul class="batch-items">
+                <li>Lower yield and higher pulp</li>
+                <li>More manual effort to extract usable juice</li>
+              </ul>
+            </div>
+          </div>
+          <div class="batch-takeaway">
+            <div class="batch-takeaway-label">Takeaway</div>
+            <p>Established the foundation. This batch defined the process, exposed limitations, and set the direction for improvement.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:2.25rem;">
+      <a href="#early-access" class="btn btn-primary">Join the Early Access List →</a>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<section id="pricing">
+  <div class="container reveal">
+    <div class="pricing-box">
+      <p class="section-label">Transparent Pricing</p>
+      <h2 class="section-title" style="font-size:1.4rem;">Simple. No Tricks.</h2>
+      <p style="font-size:0.85rem;color:var(--green-mid);margin-bottom:0.25rem;">No subscriptions. No hidden fees. Just juice.</p>
+      <div class="pricing-rows">
+        <div class="pricing-row">
+          <div><div class="pricing-item">Single Bottle</div><div class="pricing-item-sub">Any available flavor</div></div>
+          <div class="pricing-price">$9</div>
+        </div>
+        <div class="pricing-row">
+          <div><div class="pricing-item">3-Pack</div><div class="pricing-item-sub">Mix &amp; match flavors</div></div>
+          <div class="pricing-price">$24</div>
+        </div>
+        <div class="pricing-row featured">
+          <div>
+            <div class="pricing-item">6-Pack <span class="best-value">BEST VALUE</span></div>
+            <div class="pricing-item-sub">Save $6 — most popular order</div>
+          </div>
+          <div class="pricing-price">$48</div>
+        </div>
+        <div class="pricing-row">
+          <div><div class="pricing-item">SF Bay Area Delivery</div><div class="pricing-item-sub">Local drop on batch day</div></div>
+          <div class="pricing-price" style="color:var(--green-fresh);">Free</div>
+        </div>
+      </div>
+      <p class="pricing-note">Early access members get first pick on every limited batch. <a href="#early-access" style="color:var(--green-dark);font-weight:600;">Join the list →</a></p>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<section id="early-access">
+  <div class="container reveal">
+    <div class="access-section">
+      <div class="access-inner">
+        <p class="section-label">Limited Access</p>
+        <h2 class="section-title">Freshstart Juice Founders Club</h2>
+        <p class="section-desc">Be first in line for small-batch releases, new flavors, and early drops. Made in real time. Shared first with you.</p>
+        <div id="signup-form">
+          <div class="form-row">
+            <input type="text" class="form-input" id="access-name" placeholder="First name" autocomplete="given-name">
+            <input type="text" class="form-input" id="access-last" placeholder="Last name" autocomplete="family-name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-input" id="access-email" placeholder="Email address" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-input" id="access-phone" placeholder="Phone / WhatsApp (optional)" autocomplete="tel">
+          </div>
+          <button class="btn btn-yellow btn-full" id="submit-btn" onclick="submitAccess()">Join the Early Access List →</button>
+          <p class="form-note">🔒 No spam. No nonsense. Just juice drops when the next batch is ready.</p>
+          <div id="form-error" style="display:none;background:rgba(248,113,113,0.15);border:1px solid rgba(248,113,113,0.35);border-radius:10px;padding:0.85rem 1rem;margin-top:0.75rem;font-size:0.82rem;color:#FCA5A5;line-height:1.6;text-align:left;">
+            Something went wrong on our end. Email us directly at <a href="mailto:info@freshstartjuiceproject.com" style="color:var(--yellow);font-weight:600;">info@freshstartjuiceproject.com</a> or DM <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener" style="color:var(--yellow);font-weight:600;">@freshstart.juice</a> on Instagram to join the list.
+          </div>
+        </div>
+        <div class="form-success" id="signup-success">
+          <div class="checkmark">✓</div>
+          <h3>You're on the list!</h3>
+          <p>We'll reach out the moment the next batch is ready. Stay fresh.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="instagram-section">
+  <div class="container reveal">
+    <div class="ig-avatar">
+      <div class="ig-avatar-inner">
+        <img src="images/logo.png" alt="freshstart.juice">
+      </div>
+    </div>
+    <div class="ig-handle">@freshstart.juice</div>
+    <div class="ig-tagline">Building in public. Every batch. Every step.</div>
+    <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener" class="btn btn-outline" style="margin:0 auto;">Follow on Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand"><img src="images/logo.png" alt="Freshstart Juice"></div>
+        <div class="footer-tagline">Cold-pressed. No additives. SF Bay Area.</div>
+        <div class="footer-mission">Small batches. Real ingredients. Made for people who actually read labels.</div>
+      </div>
+      <div class="footer-links">
+        <a href="#story">Our Story</a>
+        <a href="#flavors">Flavors</a>
+        <a href="#batch-notes">Batch Notes</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#early-access">Early Access</a>
+        <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:info@freshstartjuiceproject.com">Contact</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 Freshstart Juice. All rights reserved. &nbsp;·&nbsp; San Francisco Bay Area</p>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="notify-modal">
+  <div class="modal-box">
+    <div style="font-size:2rem;margin-bottom:0.75rem;">🔔</div>
+    <div style="font-family:'Montserrat',sans-serif;font-weight:800;color:var(--green-dark);margin-bottom:0.5rem;font-size:1.1rem;" id="notify-title">Notify me</div>
+    <div style="font-size:0.85rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.6;">Drop your email and we'll ping you the moment this flavor is available.</div>
+    <input type="email" style="width:100%;padding:0.85rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-size:0.9rem;font-family:'Inter',sans-serif;outline:none;margin-bottom:0.75rem;" id="notify-email" placeholder="Your email address">
+    <button onclick="submitNotify()" class="btn btn-primary btn-full" style="margin-bottom:0.75rem;">Notify Me →</button>
+    <button onclick="closeNotify()" style="background:none;border:none;color:var(--muted);font-size:0.82rem;cursor:pointer;font-family:'Inter',sans-serif;">Cancel</button>
+  </div>
+</div>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.10 });
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+    else obs.observe(el);
+  });
+
+  const GF_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSd3LnCv1yt-N36IShaZwSdU-fI6VrjOndEEKrBQvZDamDSJmQ/formResponse';
+
+  async function submitAccess() {
+    const name  = document.getElementById('access-name').value.trim();
+    const last  = document.getElementById('access-last').value.trim();
+    const email = document.getElementById('access-email').value.trim();
+    const phone = document.getElementById('access-phone').value.trim();
+    const btn   = document.getElementById('submit-btn');
+    const errEl = document.getElementById('form-error');
+    if (!name)  { pulse('access-name');  return; }
+    if (!email || !email.includes('@')) { pulse('access-email'); return; }
+    if (errEl) errEl.style.display = 'none';
+    btn.textContent = 'Joining…'; btn.disabled = true;
+    try {
+      const fd = new FormData();
+      fd.append('entry.1253968548', name + (last ? ' ' + last : ''));
+      fd.append('entry.2135199585', email);
+      // no-cors: Google Forms doesn't allow cross-origin reads, but the POST still lands in your Sheet
+      await fetch(GF_URL, { method: 'POST', mode: 'no-cors', body: fd });
+      showSuccess();
+    } catch(err) {
+      btn.textContent = 'Join the Early Access List →';
+      btn.disabled = false;
+      if (errEl) errEl.style.display = 'block';
+    }
+  }
+  function showSuccess() {
+    document.getElementById('signup-form').style.display = 'none';
+    document.getElementById('signup-success').style.display = 'block';
+  }
+  function pulse(id) {
+    const el = document.getElementById(id);
+    el.focus(); el.style.borderColor = '#F87171';
+    setTimeout(() => el.style.borderColor = '', 2000);
+  }
+
+  let _flavor = '';
+  function openNotify(f) {
+    _flavor = f;
+    document.getElementById('notify-title').textContent = 'Notify me for ' + f;
+    document.getElementById('notify-email').value = '';
+    document.getElementById('notify-modal').style.display = 'flex';
+  }
+  function closeNotify() { document.getElementById('notify-modal').style.display = 'none'; }
+  async function submitNotify() {
+    const emailEl = document.getElementById('notify-email');
+    const email   = emailEl.value.trim();
+    if (!email || !email.includes('@')) { emailEl.style.borderColor = '#F87171'; return; }
+    emailEl.disabled = true;
+    try {
+      const fd = new FormData();
+      fd.append('email', email);
+      fd.append('flavor', _flavor);
+      fd.append('_subject', '[FreshStart] Flavor Notify — ' + _flavor);
+      fd.append('_captcha', 'false');
+      fd.append('_template', 'table');
+      const res = await fetch('https://formsubmit.co/ajax/info@freshstartjuiceproject.com', { method: 'POST', body: fd });
+      const data = await res.json();
+      closeNotify();
+      if (data.success === 'true' || data.success === true) {
+        alert("You're on it! We'll let you know the moment " + _flavor + " drops. 🌿");
+      } else {
+        alert("Got it! If you don't hear from us, DM @freshstart.juice on Instagram.");
+      }
+    } catch {
+      closeNotify();
+      alert("Heads up — you can also DM @freshstart.juice on Instagram to get notified. 🌿");
+    } finally {
+      emailEl.disabled = false;
+    }
+  }
+  document.getElementById('notify-modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeNotify(); });
+
+  async function submitOrder() {
+    const name   = document.getElementById('order-name').value.trim();
+    const email  = document.getElementById('order-email').value.trim();
+    const qty    = document.getElementById('order-qty').value;
+    const notes  = document.getElementById('order-notes').value.trim();
+    const btn    = document.getElementById('order-submit-btn');
+    const errEl  = document.getElementById('order-error');
+    const flavors = Array.from(document.querySelectorAll('.flavor-checkboxes input:checked')).map(el => el.value);
+    if (!name)  { document.getElementById('order-name').focus();  document.getElementById('order-name').style.borderColor='#F87171'; setTimeout(()=>document.getElementById('order-name').style.borderColor='',2000); return; }
+    if (!email || !email.includes('@')) { document.getElementById('order-email').focus(); document.getElementById('order-email').style.borderColor='#F87171'; setTimeout(()=>document.getElementById('order-email').style.borderColor='',2000); return; }
+    if (errEl) errEl.style.display = 'none';
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try {
+      const fd = new FormData();
+      fd.append('name',    name);
+      fd.append('email',   email);
+      fd.append('flavors', flavors.length ? flavors.join(', ') : 'Not specified');
+      fd.append('quantity', qty || 'Not specified');
+      if (notes) fd.append('notes', notes);
+      fd.append('_subject',  '[FreshStart Juice] New Order Request — ' + name);
+      fd.append('_captcha',  'false');
+      fd.append('_template', 'table');
+      const res  = await fetch('https://formsubmit.co/ajax/info@freshstartjuiceproject.com', { method: 'POST', body: fd });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      if (data.success === 'true' || data.success === true) {
+        document.getElementById('order-form-fields').style.display = 'none';
+        document.getElementById('order-success').style.display     = 'block';
+      } else throw new Error();
+    } catch {
+      btn.textContent = 'Send Order Request →'; btn.disabled = false;
+      if (errEl) errEl.style.display = 'block';
+    }
+  }
+</script>
+</body>
+</html>
