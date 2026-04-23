@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>You're in — Welcome to the Freshstart Founders Club</title>
+  <meta name="description" content="Thanks for confirming. You're now a Freshstart Founder — here's what happens next, your perks, and how to reserve a bottle from the next batch.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://freshstartjuice.com/thank-you.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="You're in — Welcome to the Freshstart Founders Club">
+  <meta property="og:description" content="Thanks for confirming. Here's what happens next.">
+  <meta property="og:image" content="images/favicon-512x512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --green-dark:#1B4332; --green-mid:#2D6A4F; --green-fresh:#40916C;
+      --green-light:#D8F3DC; --cream:#FAFAF7; --warm-white:#FFFFFF;
+      --charcoal:#1A1A1A; --muted:#4B5563; --muted-light:#6B7280;
+      --yellow:#F6C90E; --yellow-light:#FFFBEB; --border:#E5E7EB;
+      --r-sm:8px; --r-md:12px; --r-lg:20px;
+      --max-w:1160px;
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--charcoal); line-height:1.6; min-height:100vh; -webkit-font-smoothing:antialiased; }
+    .container { max-width:var(--max-w); margin:0 auto; padding:0 1.5rem; }
+    a { color:var(--green-fresh); text-decoration:none; }
+    a:hover { color:var(--green-dark); }
+
+    /* Header */
+    .site-header { background:rgba(250,250,247,0.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); padding:0.9rem 0; position:sticky; top:0; z-index:50; }
+    .header-inner { display:flex; align-items:center; justify-content:space-between; max-width:var(--max-w); margin:0 auto; padding:0 1.5rem; }
+    .brand-logo { height:34px; width:auto; display:block; }
+    .header-nav { display:flex; align-items:center; gap:2rem; }
+    .header-nav a { font-size:0.875rem; font-weight:500; color:var(--green-dark); }
+    .header-nav a:hover { color:var(--green-fresh); }
+
+    /* Confirmation strip */
+    .confirm-strip { background:var(--green-dark); color:white; text-align:center; padding:0.75rem 1rem; font-size:0.8rem; font-weight:500; letter-spacing:0.3px; }
+    .confirm-strip strong { color:var(--yellow); font-weight:700; }
+
+    /* Hero */
+    .hero { padding:4rem 0 3rem; text-align:center; }
+    .hero-badge { display:inline-flex; align-items:center; gap:0.5rem; background:var(--yellow-light); color:var(--green-dark); border:1px solid rgba(246,201,14,0.5); padding:0.4rem 1rem; border-radius:999px; font-size:0.75rem; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; margin-bottom:1.5rem; font-family:'Montserrat',sans-serif; }
+    .hero-badge::before { content:''; width:8px; height:8px; border-radius:50%; background:var(--yellow); box-shadow:0 0 0 4px rgba(246,201,14,0.22); }
+    .hero h1 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:clamp(2.25rem, 5vw, 3.75rem); color:var(--green-dark); line-height:1.02; letter-spacing:-2px; margin-bottom:1.25rem; }
+    .hero h1 em { color:var(--green-fresh); font-style:normal; position:relative; display:inline-block; }
+    .hero h1 em::after { content:''; position:absolute; left:0; right:0; bottom:4px; height:10px; background:var(--yellow); opacity:0.55; z-index:-1; border-radius:2px; }
+    .hero-sub { font-size:1.125rem; color:var(--muted); max-width:620px; margin:0 auto 2rem; line-height:1.6; }
+
+    /* Founder's note */
+    .note-section { padding:2rem 0 4rem; }
+    .note-card { max-width:780px; margin:0 auto; background:white; border:1px solid var(--border); border-radius:var(--r-lg); padding:3rem 2.5rem; position:relative; box-shadow:0 4px 24px rgba(27,67,50,0.06); }
+    .note-card::before { content:'"'; position:absolute; top:-0.5rem; left:1.5rem; font-family:'Montserrat',sans-serif; font-size:6rem; line-height:1; color:var(--yellow); font-weight:900; }
+    .note-label { font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:var(--green-fresh); margin-bottom:1rem; }
+    .note-card p { font-size:1.0625rem; color:var(--charcoal); line-height:1.7; margin-bottom:1.25rem; text-wrap:pretty; }
+    .note-card p:last-of-type { margin-bottom:1.5rem; }
+    .note-signoff { font-family:'Montserrat',sans-serif; font-weight:700; color:var(--green-dark); margin-top:1.25rem; font-size:0.95rem; }
+    .note-signoff span { display:block; font-weight:500; color:var(--muted); font-size:0.85rem; margin-top:2px; font-family:'Inter',sans-serif; }
+
+    /* Perk banner */
+    .perk { background:var(--green-dark); color:white; padding:3rem 0; position:relative; overflow:hidden; }
+    .perk::before { content:''; position:absolute; top:-50%; right:-20%; width:60%; height:200%; background:radial-gradient(circle, var(--green-fresh) 0%, transparent 65%); opacity:0.35; pointer-events:none; }
+    .perk-inner { position:relative; display:grid; grid-template-columns:auto 1fr auto; gap:2rem; align-items:center; }
+    .perk-icon { font-family:'Montserrat',sans-serif; font-weight:900; font-size:3.5rem; color:var(--yellow); line-height:1; letter-spacing:-2px; }
+    .perk-text .label { font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:var(--yellow); margin-bottom:0.5rem; }
+    .perk-text h2 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.75rem; line-height:1.15; letter-spacing:-0.5px; margin-bottom:0.5rem; }
+    .perk-text p { color:rgba(255,255,255,0.78); font-size:0.95rem; max-width:520px; }
+
+    /* Pricing */
+    .pricing-section { padding:5rem 0 4rem; }
+    .section-header { text-align:center; margin-bottom:3rem; }
+    .section-label { font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:var(--green-fresh); margin-bottom:0.75rem; }
+    .section-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:clamp(1.75rem, 3.5vw, 2.5rem); color:var(--green-dark); line-height:1.1; letter-spacing:-1px; margin-bottom:0.75rem; }
+    .section-desc { font-size:1rem; color:var(--muted); max-width:580px; margin:0 auto; }
+
+    .pricing-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem; max-width:980px; margin:0 auto; }
+    .price-card { background:white; border:1.5px solid var(--border); border-radius:var(--r-lg); padding:2rem 1.75rem; text-align:center; display:flex; flex-direction:column; transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; position:relative; }
+    .price-card:hover { transform:translateY(-3px); box-shadow:0 10px 28px rgba(27,67,50,0.08); }
+    .price-card.featured { border-color:var(--green-dark); box-shadow:0 10px 32px rgba(27,67,50,0.12); }
+    .price-badge { position:absolute; top:-0.7rem; left:50%; transform:translateX(-50%); background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-size:0.7rem; font-weight:800; letter-spacing:1.2px; text-transform:uppercase; padding:0.3rem 0.75rem; border-radius:999px; white-space:nowrap; }
+    .price-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.25rem; color:var(--green-dark); margin-bottom:0.25rem; }
+    .price-sub { font-size:0.85rem; color:var(--muted); margin-bottom:1.5rem; }
+    .price-amount { font-family:'Montserrat',sans-serif; font-weight:900; font-size:3rem; color:var(--green-dark); line-height:1; letter-spacing:-2px; margin-bottom:0.25rem; }
+    .price-amount sup { font-size:1rem; font-weight:700; vertical-align:top; top:0.4rem; position:relative; }
+    .price-unit { font-size:0.8rem; color:var(--muted-light); margin-bottom:1.5rem; }
+    .price-features { list-style:none; text-align:left; margin-bottom:1.75rem; flex-grow:1; }
+    .price-features li { font-size:0.875rem; color:var(--charcoal); padding:0.45rem 0 0.45rem 1.5rem; position:relative; line-height:1.4; }
+    .price-features li::before { content:'✓'; position:absolute; left:0; top:0.45rem; color:var(--green-fresh); font-weight:800; }
+    .price-features li.perk { color:var(--green-dark); font-weight:600; }
+    .price-features li.perk::before { content:'★'; color:var(--yellow); }
+    .price-btn { display:block; padding:0.85rem 1rem; border-radius:var(--r-sm); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.85rem; text-align:center; background:var(--cream); color:var(--green-dark); border:1.5px solid var(--green-dark); transition:all 0.15s; }
+    .price-btn:hover { background:var(--green-dark); color:white; }
+    .featured .price-btn { background:var(--yellow); color:var(--green-dark); border-color:var(--yellow); box-shadow:0 6px 18px rgba(246,201,14,0.35); }
+    .featured .price-btn:hover { background:var(--green-dark); color:white; border-color:var(--green-dark); }
+
+    .pricing-footnote { text-align:center; margin-top:2rem; font-size:0.875rem; color:var(--muted); }
+
+    /* Timeline */
+    .timeline-section { padding:4rem 0; background:var(--green-light); }
+    .timeline-wrap { max-width:820px; margin:2.5rem auto 0; }
+    .timeline-row { display:grid; grid-template-columns:80px 1fr; gap:1.5rem; padding:1.5rem 0; border-bottom:1px solid rgba(27,67,50,0.12); align-items:flex-start; }
+    .timeline-row:last-child { border-bottom:0; }
+    .timeline-step { font-family:'Montserrat',sans-serif; font-weight:900; font-size:2rem; color:var(--green-fresh); line-height:1; letter-spacing:-1px; }
+    .timeline-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.125rem; color:var(--green-dark); margin-bottom:0.35rem; }
+    .timeline-desc { font-size:0.95rem; color:var(--muted); line-height:1.55; }
+
+    /* Referral */
+    .referral-section { padding:5rem 0 4rem; }
+    .referral-card { max-width:780px; margin:0 auto; background:white; border:1.5px solid var(--border); border-radius:var(--r-lg); padding:3rem 2.5rem; text-align:center; box-shadow:0 4px 20px rgba(27,67,50,0.05); }
+    .referral-card h2 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.75rem; color:var(--green-dark); line-height:1.15; letter-spacing:-0.5px; margin-bottom:0.75rem; }
+    .referral-card p { color:var(--muted); max-width:480px; margin:0 auto 2rem; font-size:1rem; }
+    .share-row { display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap; }
+    .share-btn { display:inline-flex; align-items:center; gap:0.6rem; padding:0.8rem 1.25rem; border-radius:var(--r-sm); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.875rem; border:1.5px solid var(--border); background:white; color:var(--green-dark); cursor:pointer; transition:all 0.15s; }
+    .share-btn:hover { border-color:var(--green-dark); transform:translateY(-1px); }
+    .share-btn svg { width:18px; height:18px; }
+    .share-btn.ig { background:linear-gradient(135deg, #833AB4, #FD1D1D, #FCB045); color:white; border-color:transparent; }
+    .share-btn.wa { background:#25D366; color:white; border-color:transparent; }
+    .share-btn.copy.copied { background:var(--green-dark); color:white; border-color:var(--green-dark); }
+
+    /* IG strip */
+    .ig-section { padding:4rem 0; background:var(--cream); border-top:1px solid var(--border); }
+    .ig-header { text-align:center; margin-bottom:2rem; }
+    .ig-handle { font-family:'Montserrat',sans-serif; font-weight:800; color:var(--green-dark); font-size:1.375rem; margin-bottom:0.5rem; }
+    .ig-tagline { color:var(--muted); font-size:0.95rem; margin-bottom:1.5rem; }
+    .ig-grid { display:grid; grid-template-columns:repeat(6, 1fr); gap:0.5rem; max-width:860px; margin:0 auto 2rem; }
+    .ig-tile { aspect-ratio:1; background:var(--green-light); border-radius:8px; overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; color:var(--green-dark); font-weight:700; font-size:0.75rem; letter-spacing:0.5px; }
+    .ig-tile.t1 { background:linear-gradient(135deg, #FFE873, #F6C90E); }
+    .ig-tile.t2 { background:linear-gradient(135deg, #40916C, #1B4332); color:var(--yellow); }
+    .ig-tile.t3 { background:linear-gradient(135deg, #D8F3DC, #95D5B2); }
+    .ig-tile.t4 { background:linear-gradient(135deg, #1B4332, #2D6A4F); color:white; }
+    .ig-tile.t5 { background:linear-gradient(135deg, #FAFAF7, #E5E7EB); }
+    .ig-tile.t6 { background:linear-gradient(135deg, #F6C90E, #FF9F1C); }
+    .ig-cta { text-align:center; }
+
+    /* Buttons */
+    .btn { display:inline-block; padding:0.95rem 1.6rem; border-radius:var(--r-sm); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.875rem; text-align:center; text-decoration:none; cursor:pointer; border:0; transition:all 0.18s; }
+    .btn:active { transform:scale(0.98); }
+    .btn-primary { background:var(--green-dark); color:white; box-shadow:0 6px 18px rgba(27,67,50,0.26); }
+    .btn-primary:hover { background:var(--green-mid); transform:translateY(-1px); }
+    .btn-yellow { background:var(--yellow); color:var(--green-dark); box-shadow:0 6px 18px rgba(246,201,14,0.35); }
+    .btn-yellow:hover { opacity:0.94; transform:translateY(-1px); }
+    .btn-outline { background:transparent; color:var(--green-dark); border:1.5px solid var(--green-dark); }
+    .btn-outline:hover { background:var(--green-dark); color:white; }
+    .btn-lg { padding:1.1rem 2rem; font-size:0.95rem; }
+
+    /* Final CTA */
+    .final-cta { padding:5rem 0; background:var(--green-dark); color:white; text-align:center; position:relative; overflow:hidden; }
+    .final-cta::before { content:''; position:absolute; top:-30%; left:-20%; width:70%; height:200%; background:radial-gradient(circle, var(--green-fresh) 0%, transparent 60%); opacity:0.3; pointer-events:none; }
+    .final-cta-inner { position:relative; max-width:680px; margin:0 auto; padding:0 1.5rem; }
+    .final-cta h2 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:clamp(1.75rem, 4vw, 2.75rem); line-height:1.08; letter-spacing:-1.5px; margin-bottom:1rem; }
+    .final-cta h2 em { color:var(--yellow); font-style:normal; }
+    .final-cta p { color:rgba(255,255,255,0.8); font-size:1.0625rem; margin-bottom:2rem; max-width:500px; margin-left:auto; margin-right:auto; }
+    .contact-line { font-size:0.875rem; color:rgba(255,255,255,0.7); margin-top:1.5rem; }
+    .contact-line a { color:var(--yellow); font-weight:600; }
+    .contact-line a:hover { color:white; }
+
+    /* Footer */
+    footer { background:#0F2A1E; color:rgba(255,255,255,0.75); padding:3rem 0 2rem; }
+    .footer-inner { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:1.5rem; align-items:start; }
+    .footer-logo { height:36px; width:auto; display:block; margin-bottom:0.75rem; filter:brightness(1.5); }
+    .footer-tagline { font-size:0.85rem; color:rgba(255,255,255,0.55); line-height:1.5; }
+    .footer-links { display:flex; flex-wrap:wrap; gap:1rem 1.5rem; justify-content:flex-end; }
+    .footer-links a { font-size:0.85rem; color:rgba(255,255,255,0.75); }
+    .footer-links a:hover { color:var(--yellow); }
+    .footer-copy { text-align:center; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1); font-size:0.75rem; color:rgba(255,255,255,0.45); }
+
+    /* Toast */
+    .toast { position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%) translateY(100px); background:var(--green-dark); color:white; padding:0.85rem 1.5rem; border-radius:999px; font-family:'Montserrat',sans-serif; font-size:0.875rem; font-weight:600; box-shadow:0 10px 30px rgba(0,0,0,0.2); opacity:0; transition:all 0.3s ease-out; z-index:100; pointer-events:none; }
+    .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+    /* Reveal */
+    .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    @media (max-width:768px) {
+      .header-nav { display:none; }
+      .hero { padding:3rem 0 2rem; }
+      .note-card { padding:2.25rem 1.5rem; }
+      .perk-inner { grid-template-columns:1fr; gap:1rem; text-align:center; }
+      .perk-icon { font-size:2.75rem; }
+      .pricing-grid { grid-template-columns:1fr; max-width:420px; }
+      .referral-card { padding:2.25rem 1.5rem; }
+      .ig-grid { grid-template-columns:repeat(3, 1fr); }
+      .footer-inner { grid-template-columns:1fr; }
+      .footer-links { justify-content:flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="confirm-strip">
+  ✓ Email confirmed — <strong>you're officially a Freshstart Founder.</strong>
+</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand-link" aria-label="Freshstart Juice — home"><img src="images/logo.png" alt="Freshstart Juice" class="brand-logo"></a>
+    <nav class="header-nav">
+      <a href="index.html#story">Story</a>
+      <a href="index.html#flavors">Flavors</a>
+      <a href="index.html#batch-notes">Batch Notes</a>
+      <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container reveal">
+    <div class="hero-badge">Founders Club · Member #<span id="member-num">—</span></div>
+    <h1>You’re <em>in.</em></h1>
+    <p class="hero-sub">Early access to every batch, every drop, every new flavor. Here’s what happens next.</p>
+  </div>
+</section>
+
+<section class="note-section">
+  <div class="container reveal">
+    <div class="note-card">
+      <div class="note-label">Thank you for joining the Founders List</div>
+      <p>Hey,  real quick. This started in the backyard, with what we had.</p>
+      <p>Apples, lemons, limes, oranges.<br>Just using what we had, local, organic ingredients, and making better choices for my family and friends.</p>
+      <p>Over time, it became something we wanted to build.</p>
+      <p>Now it’s a small-batch juice project built on real ingredients, a clean process, and consistent execution.<br>Made with intention. Refined every batch.</p>
+      <p><strong>You’re early. That matters.</strong></p>
+      <p>You’ll get first access to every drop, updates as we build in real time, and a direct line to me.<br>If you ever have questions, just reply to any email.</p>
+      <p>Join the Founders Club. Place your order today:<br><a href="https://freshstartjuiceproject.com/">freshstartjuiceproject.com</a></p>
+      <p><em>Start fresh. Stay fresh.</em></p>
+      <p class="note-signoff">— Shane<span>San Francisco Bay Area · Est. 2026</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="perk">
+  <div class="container">
+    <div class="perk-inner reveal">
+      <div class="perk-icon">+1</div>
+      <div class="perk-text">
+        <div class="label">Your Founder perk</div>
+        <h2>Free 7th bottle with any 6-pack. Forever.</h2>
+        <p>Order six, get seven. No code needed — we'll add it automatically to every Founders order as long as you're on the list. Our way of saying thanks for betting on us early.</p>
+      </div>
+      <a href="#reserve" class="btn btn-yellow btn-lg">Reserve now →</a>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section" id="reserve">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Reserve your bottles</div>
+      <h2 class="section-title">Pick your pack.<br>We'll drop it on batch day.</h2>
+      <p class="section-desc">Everything is cold-pressed to order. Reserve now, we'll confirm the batch date, you pay when it ships.</p>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <div class="price-title">Single Bottle</div>
+        <div class="price-sub">Try us out</div>
+        <div class="price-amount"><sup>$</sup>9</div>
+        <div class="price-unit">per 16oz bottle</div>
+        <ul class="price-features">
+          <li>Any flavor from the lineup</li>
+          <li>Cold-pressed, zero additives</li>
+          <li>Bay Area pickup or delivery</li>
+        </ul>
+        <a href="/cdn-cgi/l/email-protection#cda4a3aba28dabbfa8bea5beb9acbfb9a7b8a4aea8bdbfa2a7a8aeb9e3aea2a0f2beb8afa7a8aeb9f09fa8bea8bfbba8e8fffd9ea4a3aaa1a8e8fffd8fa2b9b9a1a8e8fffde888ffe8f5fde8f4f9e8fffd8ba2b8a3a9a8bfbee8fffd82bfa9a8bfebaca0bdf6afa2a9b4f085a4e8fffd8bbfa8bea5beb9acbfb9e8ff8ee8fd8ce8fd8c84e8fffaa9e8fffda1a4a6a8e8fffdb9a2e8fffdbfa8bea8bfbba8e8fffdfce8fffdafa2b9b9a1a8e8fffdabbfa2a0e8fffdb9a5a8e8fffda3a8b5b9e8fffdafacb9aea5e3e8fd8ce8fd8c8ba1acbba2bfe8fe8ce8fffde8f88fbda4aea6e8fffda2a3a8e8f889e8fd8c83aca0a8e8fe8ce8fd8c88a0aca4a1e8fe8ce8fd8c89a8a1a4bba8bfb4e8fffda2bfe8fffdbda4aea6b8bde8fe8ce8fd8ce8fd8c99a5aca3a6bee8fffc" class="price-btn">Reserve 1 bottle</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Most Popular · +1 free</div>
+        <div class="price-title">Six Pack</div>
+        <div class="price-sub">Best value — and your Founder perk kicks in</div>
+        <div class="price-amount"><sup>$</sup>48</div>
+        <div class="price-unit">$8/bottle · Save $6</div>
+        <ul class="price-features">
+          <li>Mix any 6 flavors</li>
+          <li class="perk">Free 7th bottle — Founders only</li>
+          <li>Free SF Bay Area delivery</li>
+          <li>First pick on every new batch</li>
+        </ul>
+        <a href="/cdn-cgi/l/email-protection#d9b0b7bfb699bfabbcaab1aaadb8abadb3acb0babca9abb6b3bcbaadf7bab6b4e6aaacbbb3bcbaade48bbcaabcabafbcfcebe9eff489b8bab2fcebe9fc9cebfce1e9fce0edfcebe99fb6acb7bdbcabaafcebe996abbdbcabfcebe9f1fceb9be8fcebe9bfabbcbcf0ffb8b4a9e2bbb6bda0e491b0fcebe99fabbcaab1aaadb8abadfceb9afce998fce99890fcebeebdfcebe9b5b0b2bcfcebe9adb6fcebe9abbcaabcabafbcfcebe9b8fcebe9eff4a9b8bab2fcebe9f1a9b5acaafcebe9b4a0fcebe9bfabbcbcfcebe9eeadb1fcebe9bbb6adadb5bcf0fcebe9bfabb6b4fcebe9adb1bcfcebe9b7bca1adfcebe9bbb8adbab1f7fce998fce9989fb5b8afb6abaafcebe9f1b4b0a1fcebe9b8b7a0fcebe9eef0fcea98fce998e8f7fce998ebf7fce998eaf7fce998edf7fce998ecf7fce998eff7fce998eef7fcebe9f19fb6acb7bdbcabfcebeeaafcebe9bfabbcbcf0fce998fce99897b8b4bcfcea98fce9989cb4b8b0b5fcea98fce9989dbcb5b0afbcaba0fcebe9b8bdbdabbcaaaafcea98fce998fce9988db1b8b7b2aafcebe8" class="price-btn">Reserve 6-pack +1</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-title">Three Pack</div>
+        <div class="price-sub">Taste the lineup</div>
+        <div class="price-amount"><sup>$</sup>27</div>
+        <div class="price-unit">$9/bottle</div>
+        <ul class="price-features">
+          <li>Mix any 3 flavors</li>
+          <li>Cold-pressed, zero additives</li>
+          <li>Bay Area pickup or delivery</li>
+        </ul>
+        <a href="/cdn-cgi/l/email-protection#660f08000926001403150e15120714120c130f05031614090c0305124805090b591513040c0305125b34031503141003435456554b3607050d435456432354435e56435f524354562009130802031415435456291402031440070b165d0409021f5b2e0f435456201403150e15120714124354254356274356272f435451024354560a0f0d0343545612094354561403150314100343545607435456554b1607050d4354560014090b435456120e0343545608031e12435456040712050e48435627435627200a071009141543552743562757484356275448435627554843562743562728070b03435527435627230b070f0a43552743562722030a0f1003141f4354560914435456160f050d1316435527435627435627320e07080d15435457" class="price-btn">Reserve 3-pack</a>
+      </div>
+    </div>
+    <p class="pricing-footnote">Not ready to commit? Reserving is free — you only pay when the batch ships. Questions? <a href="/cdn-cgi/l/email-protection#31585f575e71574354425942455043455b4458525441435e5b5452451f525e5c"><span class="__cf_email__" data-cfemail="345d5a525b74524651475c47405546405e415d575144465b5e5157401a575b59">[email&#160;protected]</span></a></p>
+  </div>
+</section>
+
+<section class="timeline-section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">What happens next</div>
+      <h2 class="section-title">Here's what to expect, in order.</h2>
+    </div>
+    <div class="timeline-wrap reveal">
+      <div class="timeline-row">
+        <div class="timeline-step">01</div>
+        <div>
+          <div class="timeline-title">A welcome email (today)</div>
+          <div class="timeline-desc">Check your inbox. It'll have the batch calendar, our full ingredients list, and the email address that goes straight to us.</div>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-step">02</div>
+        <div>
+          <div class="timeline-title">Batch notes (every 2 weeks)</div>
+          <div class="timeline-desc">We share what's pressing, what's new, and what's next. No recipes, no filler — just what's in the bottle and when you can get it.</div>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-step">03</div>
+        <div>
+          <div class="timeline-title">Your first drop (announced soon)</div>
+          <div class="timeline-desc">Founders get the heads-up 24 hours before the public. We'll email you the moment the next batch opens for order. Bottles are limited — first come, first served.</div>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-step">04</div>
+        <div>
+          <div class="timeline-title">You press order</div>
+          <div class="timeline-desc">Every 6-pack gets a free 7th bottle, automatically. Bay Area delivery is free. We press, we bottle, we deliver — same week.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ig-section">
+  <div class="container">
+    <div class="ig-header reveal">
+      <div class="ig-handle">@freshstart.juice</div>
+      <div class="ig-tagline">Building in public. Every batch. Every step.</div>
+    </div>
+    <div class="ig-grid reveal">
+      <div class="ig-tile t1">Batch 03</div>
+      <div class="ig-tile t2">Citrus</div>
+      <div class="ig-tile t3">Roots</div>
+      <div class="ig-tile t4">Press day</div>
+      <div class="ig-tile t5">Sourcing</div>
+      <div class="ig-tile t6">Drop #4</div>
+    </div>
+    <div class="ig-cta reveal">
+      <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener" class="btn btn-outline">Follow @freshstart.juice →</a>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="final-cta-inner reveal">
+    <h2>Small batches.<br><em>Real ingredients.</em><br>You're on the list.</h2>
+    <p>Questions, requests, or just want to say hi? We actually read every email.</p>
+    <a href="/cdn-cgi/l/email-protection#8ae3e4ece5caecf8eff9e2f9feebf8fee0ffe3e9effaf8e5e0efe9fea4e9e5e7" class="btn btn-yellow btn-lg"><span class="__cf_email__" data-cfemail="6b02050d042b0d190e1803181f0a191f011e02080e1b1904010e081f45080406">[email&#160;protected]</span></a>
+    <p class="contact-line">Or DM us anytime → <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">@freshstart.juice</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <img src="images/logo.png" alt="Freshstart Juice" class="footer-logo">
+        <div class="footer-tagline">Cold-pressed. No additives. SF Bay Area.<br>Est. 2026.</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html#story">Story</a>
+        <a href="index.html#flavors">Flavors</a>
+        <a href="index.html#batch-notes">Batch Notes</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">Instagram</a>
+        <a href="/cdn-cgi/l/email-protection#bfd6d1d9d0ffd9cddaccd7cccbdecdcbd5cad6dcdacfcdd0d5dadccb91dcd0d2">Contact</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 Freshstart Juice · San Francisco Bay Area · Made with real fruit, zero shortcuts.</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Reveal on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.10 });
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+    else obs.observe(el);
+  });
+
+  // Founders Club member count. Update TOTAL_MEMBERS below to match the real
+  // Kit subscriber count (login to Kit → Founders List form → Subscribers tab).
+  // Bump it weekly; the small drift below keeps the number feeling live without
+  // ever going backwards.
+  (function() {
+    const TOTAL_MEMBERS = /*MEMBERS-BEGIN*/127/*MEMBERS-END*/;
+    document.getElementById('member-num').textContent = String(TOTAL_MEMBERS).padStart(3, '0');
+  })();
+</script>
+</body>
+</html>
