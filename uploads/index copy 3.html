@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Freshstart Juice — Cold-Pressed. No Nonsense.</title>
   <meta name="description" content="Small-batch cold-pressed juice made with real ingredients. No additives, no shortcuts. Locally sourced in the San Francisco Bay Area.">
-  <link rel="canonical" href="https://freshstartjuiceproject.com/">
+  <link rel="canonical" href="https://freshstartjuice.com/">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png">
@@ -14,57 +14,11 @@
   <link rel="icon" type="image/png" sizes="512x512" href="images/favicon-512x512.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://freshstartjuiceproject.com/">
+  <meta property="og:url" content="https://freshstartjuice.com/">
   <meta property="og:title" content="Freshstart Juice — Cold-Pressed. No Nonsense.">
   <meta property="og:description" content="Small-batch cold-pressed juice. Real ingredients. Zero additives. SF Bay Area.">
   <meta property="og:image" content="images/favicon-512x512.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Freshstart Juice — Cold-Pressed. No Nonsense.">
-  <meta name="twitter:description" content="Small-batch cold-pressed juice. Real ingredients. Zero additives. SF Bay Area.">
-  <meta name="twitter:image" content="images/favicon-512x512.png">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="theme-color" content="#1B4332">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://freshstartjuiceproject.com/#org",
-        "name": "Freshstart Juice",
-        "url": "https://freshstartjuiceproject.com/",
-        "logo": "https://freshstartjuiceproject.com/images/favicon-512x512.png",
-        "description": "Small-batch cold-pressed juice made with real ingredients. No additives, no shortcuts. Locally sourced in the San Francisco Bay Area.",
-        "areaServed": "San Francisco Bay Area",
-        "sameAs": ["https://www.instagram.com/freshstart.juice/"]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://freshstartjuiceproject.com/#website",
-        "url": "https://freshstartjuiceproject.com/",
-        "name": "Freshstart Juice",
-        "publisher": { "@id": "https://freshstartjuiceproject.com/#org" }
-      },
-      {
-        "@type": "Product",
-        "name": "Roots Refresh",
-        "description": "Cold-pressed juice of beets, watermelon, ginger, mint and lime.",
-        "brand": { "@id": "https://freshstartjuiceproject.com/#org" },
-        "image": "https://freshstartjuiceproject.com/images/poster-roots-refresh.png",
-        "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://freshstartjuiceproject.com/#flavors" }
-      },
-      {
-        "@type": "Product",
-        "name": "Ginger Boost",
-        "description": "Cold-pressed juice of ginger, pineapple, lemon and vanilla.",
-        "brand": { "@id": "https://freshstartjuiceproject.com/#org" },
-        "image": "https://freshstartjuiceproject.com/images/poster-ginger-boost.png",
-        "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://freshstartjuiceproject.com/#flavors" }
-      }
-    ]
-  }
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -95,7 +49,7 @@
     .site-header { background:rgba(250,250,247,0.94); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--border); padding:0.9rem 0; position:sticky; top:0; z-index:100; }
     .header-inner { max-width:var(--max-w); margin:0 auto; padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
     .brand-link { display:inline-flex; align-items:center; text-decoration:none; }
-    .brand-logo { height:64px; width:auto; display:block; }
+    .brand-logo { height:34px; width:auto; display:block; }
     .header-nav { display:flex; align-items:center; gap:2rem; }
     .header-nav a { font-family:'Inter',sans-serif; font-size:var(--text-sm); font-weight:500; color:var(--green-dark); text-decoration:none; transition:color 0.15s; }
     .header-nav a:hover { color:var(--green-fresh); }
@@ -152,8 +106,6 @@
     .story-img-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
     .story-img-fallback { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:var(--green-mid); font-family:'Montserrat',sans-serif; font-size:var(--text-sm); font-weight:600; letter-spacing:0.5px; }
     .story-badge { position:absolute; bottom:1.25rem; left:1.25rem; background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-xs); padding:0.7rem 1rem; border-radius:var(--r-sm); line-height:var(--lh-tight); }
-    .story-media { display:flex; flex-direction:column; gap:1rem; align-items:flex-start; }
-    .story-badge-below { background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-sm); padding:0.6rem 1.1rem; border-radius:var(--r-sm); line-height:var(--lh-tight); letter-spacing:-0.2px; }
     .story-content blockquote { font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-xl); color:var(--green-dark); line-height:1.35; letter-spacing:-0.4px; margin-bottom:1.5rem; }
     .story-content blockquote::before { content:''; display:block; width:40px; height:3px; background:var(--yellow); margin-bottom:1rem; }
     .story-content p { font-size:var(--text-base); color:var(--muted); line-height:var(--lh-prose); margin-bottom:1rem; }
@@ -161,18 +113,16 @@
     .story-cta { margin-top:1.5rem; display:inline-block; }
 
     .flavors-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
-    .flavor-card { background:var(--warm-white); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.75rem; display:flex; flex-direction:column; gap:1rem; transition:transform 0.2s,border-color 0.2s; overflow:hidden; }
+    .flavor-card { background:var(--warm-white); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.75rem; display:flex; flex-direction:column; gap:1rem; transition:transform 0.2s,border-color 0.2s; }
     .flavor-card:hover { transform:translateY(-3px); border-color:var(--green-fresh); }
-    .flavor-top { position:relative; margin:-1.75rem -1.75rem 0.25rem; aspect-ratio:1/1; overflow:hidden; background:var(--green-light); }
-    .flavor-top::after { content:''; position:absolute; inset:0; pointer-events:none; box-shadow:inset 0 -44px 52px -22px rgba(0,0,0,0.28), inset 0 1px 0 0 rgba(0,0,0,0.05); }
+    .flavor-top { display:flex; align-items:flex-start; justify-content:space-between; }
     .flavor-icon { width:72px; height:72px; border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; font-size:2rem; background:var(--green-light); }
     .flavor-icon-photo { width:84px; height:84px; border-radius:var(--r-sm); object-fit:cover; flex-shrink:0; display:block; background:var(--green-light); }
-    .flavor-bottle-photo { width:100%; height:100%; object-fit:cover; object-position:50% 36%; display:block; }
     .flavor-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-lg); color:var(--green-dark); margin-bottom:0.35rem; letter-spacing:-0.3px; }
     .flavor-desc { font-size:var(--text-sm); color:var(--muted); line-height:var(--lh-tight); }
     .flavor-footer { display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:1rem; border-top:1px solid var(--border); }
     .flavor-price { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-lg); color:var(--green-dark); letter-spacing:-0.3px; }
-    .flavor-badge { position:absolute; top:0.9rem; right:0.9rem; z-index:2; font-size:var(--text-xs); font-weight:700; font-family:'Montserrat',sans-serif; padding:0.32rem 0.72rem; border-radius:var(--r-sm); letter-spacing:0.2px; box-shadow:0 2px 10px rgba(0,0,0,0.22); }
+    .flavor-badge { font-size:var(--text-xs); font-weight:700; font-family:'Montserrat',sans-serif; padding:0.3rem 0.7rem; border-radius:var(--r-sm); letter-spacing:0.2px; }
     .badge-popular { background:var(--green-light); color:var(--green-dark); }
     .badge-coming { background:var(--cream); color:var(--muted); border:1px solid var(--border); }
     .flavor-btn-inline { background:var(--green-dark); color:white; font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); padding:0.55rem 1.1rem; border-radius:var(--r-sm); text-decoration:none; transition:background 0.15s; border:none; cursor:pointer; }
@@ -194,30 +144,6 @@
     .notify-btn:hover { color:var(--green-dark); }
     .flavors-note { font-size:var(--text-sm); color:var(--muted); text-align:center; margin-top:1.75rem; line-height:var(--lh-prose); }
     .flavors-note a { color:var(--green-dark); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
-
-    .flavor-card-show { gap:1rem; }
-    .flavor-tag { font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; letter-spacing:0.3px; color:var(--green-fresh); margin-top:auto; padding-top:1rem; border-top:1px solid var(--border); }
-    .order-block { scroll-margin-top:96px; margin-top:1.75rem; background:var(--warm-white); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.75rem; box-shadow:var(--shadow); }
-    .order-block-label { font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--green-fresh); margin-bottom:1rem; }
-    .order-options { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    .order-card { position:relative; display:flex; flex-direction:column; gap:0.45rem; padding:1.5rem; border:1.5px solid var(--border); border-radius:var(--r-lg); background:var(--cream); text-decoration:none; transition:transform 0.18s,border-color 0.18s,background 0.18s; }
-    .order-card:hover { transform:translateY(-3px); border-color:var(--green-fresh); background:var(--green-light); }
-    .order-card-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-lg); color:var(--green-dark); letter-spacing:-0.3px; }
-    .order-card-desc { font-size:var(--text-sm); color:var(--muted); line-height:var(--lh-tight); }
-    .order-card-foot { display:flex; align-items:baseline; gap:0.45rem; margin-top:0.5rem; }
-    .order-card-price { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-2xl); color:var(--green-dark); letter-spacing:-1px; line-height:1; }
-    .order-card-unit { font-size:var(--text-xs); color:var(--muted-light); font-weight:500; }
-    .order-card-cta { margin-top:0.9rem; display:flex; align-items:center; justify-content:center; gap:0.4rem; background:var(--green-dark); color:white; font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); padding:0.7rem 1rem; border-radius:var(--r-sm); transition:background 0.15s; }
-    .order-card:hover .order-card-cta { background:var(--green-mid); }
-    .order-card-featured { border-color:var(--green-dark); background:var(--green-dark); }
-    .order-card-featured .order-card-name, .order-card-featured .order-card-price { color:white; }
-    .order-card-featured .order-card-desc { color:rgba(255,255,255,0.82); }
-    .order-card-featured .order-card-unit { color:rgba(255,255,255,0.6); }
-    .order-card-featured .order-card-cta { background:var(--yellow); color:var(--green-dark); }
-    .order-card-featured:hover { transform:translateY(-3px); background:var(--green-mid); border-color:var(--green-mid); }
-    .order-card-featured:hover .order-card-cta { background:#ffd633; }
-    .order-save { position:absolute; top:-11px; right:1.1rem; background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-size:0.65rem; font-weight:800; letter-spacing:0.5px; padding:0.25rem 0.6rem; border-radius:6px; text-transform:uppercase; }
-    @media (max-width:760px){ .order-options { grid-template-columns:1fr; } }
 
     .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem 2.5rem; }
     .testimonial { display:flex; flex-direction:column; }
@@ -266,9 +192,6 @@
     .batch-accent-orange { background:#F97316; }
     .batch-accent-green { background:var(--green-fresh); }
     .batch-accent-yellow { background:var(--yellow); }
-    .batch-accent-teal { background:#0EA5A4; }
-    .batch-accent-indigo { background:#4F46E5; }
-    .batch-accent-rose { background:#E11D74; }
     .batch-header { padding:1.5rem 1.75rem 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; border-bottom:1px solid var(--border); }
     .batch-meta { display:flex; align-items:center; gap:0.75rem; }
     .batch-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
@@ -276,9 +199,6 @@
     .batch-dot-orange { background:#F97316; box-shadow:0 0 0 4px rgba(249,115,22,0.15); }
     .batch-dot-green { background:var(--green-fresh); box-shadow:0 0 0 4px rgba(64,145,108,0.18); }
     .batch-dot-yellow { background:var(--yellow); box-shadow:0 0 0 4px rgba(244,211,94,0.25); }
-    .batch-dot-teal { background:#0EA5A4; box-shadow:0 0 0 4px rgba(14,165,164,0.18); }
-    .batch-dot-indigo { background:#4F46E5; box-shadow:0 0 0 4px rgba(79,70,229,0.18); }
-    .batch-dot-rose { background:#E11D74; box-shadow:0 0 0 4px rgba(225,29,116,0.18); }
     .batch-num { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-lg); color:var(--green-dark); letter-spacing:-0.3px; }
     .batch-name { font-family:'Inter',sans-serif; font-weight:500; font-size:var(--text-sm); color:var(--muted); }
     .batch-equipment { font-size:var(--text-xs); font-weight:600; font-family:'Inter',sans-serif; color:var(--green-mid); background:var(--green-light); padding:0.35rem 0.85rem; border-radius:var(--r-sm); white-space:nowrap; }
@@ -295,26 +215,6 @@
     .batch-protocol-list { list-style:none; display:flex; flex-direction:column; gap:0.5rem; margin-top:0.2rem; }
     .batch-protocol-list li { font-size:var(--text-sm); color:var(--charcoal); line-height:var(--lh-prose); font-weight:500; display:flex; gap:0.75rem; align-items:baseline; flex-wrap:wrap; }
     .batch-protocol-day { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-xs); letter-spacing:0.5px; text-transform:uppercase; color:var(--green-dark); background:white; padding:0.2rem 0.55rem; border-radius:4px; flex-shrink:0; }
-
-    .batch-perf { background:var(--cream); border:1px solid var(--border); border-radius:var(--r-sm); padding:1.25rem; margin-bottom:1rem; }
-    .batch-perf-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-top:0.85rem; }
-    .batch-perf-card { background:white; border:1px solid var(--border); border-radius:var(--r-sm); padding:1rem 1.1rem; }
-    .batch-perf-card-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-sm); color:var(--green-dark); margin-bottom:0.65rem; letter-spacing:-0.2px; display:flex; align-items:center; gap:0.5rem; }
-    .batch-perf-card-title .tag { font-family:'Inter',sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.6px; color:var(--muted); background:var(--cream); border:1px solid var(--border); padding:0.12rem 0.4rem; border-radius:4px; }
-    .batch-perf-rows { display:flex; flex-direction:column; gap:0.4rem; }
-    .batch-perf-row { display:flex; justify-content:space-between; align-items:baseline; font-size:var(--text-sm); }
-    .batch-perf-row .lbl { color:var(--muted); }
-    .batch-perf-row .val { font-family:'Montserrat',sans-serif; font-weight:800; color:var(--green-dark); letter-spacing:-0.2px; }
-    .batch-perf-improve { margin-top:1rem; padding-top:0.85rem; border-top:1px dashed var(--border); display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    .batch-perf-improve-item { display:flex; flex-direction:column; gap:2px; }
-    .batch-perf-improve-item .delta { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.35rem; color:#E11D74; letter-spacing:-0.5px; line-height:1; }
-    .batch-perf-improve-item .delta.up { color:var(--green-fresh); }
-    .batch-perf-improve-item .delta.down::before { content:'↓ '; font-size:0.8em; }
-    .batch-perf-improve-item .delta.up::before { content:'↑ '; font-size:0.8em; }
-    .batch-perf-improve-item .desc { font-size:var(--text-xs); color:var(--muted); line-height:var(--lh-tight); }
-    @media (max-width:768px) {
-      .batch-perf-grid, .batch-perf-improve { grid-template-columns:1fr; }
-    }
 
     .batch-toggle { background:none; border:none; padding:0; margin-left:auto; display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; cursor:pointer; color:var(--green-dark); transition:background 0.15s,transform 0.2s; flex-shrink:0; }
     .batch-toggle:hover { background:var(--green-light); }
@@ -379,25 +279,24 @@
       .hero-btns .btn { width:100%; }
     }
   </style>
+  <script src="https://f.convertkit.com/ckjs/ck.5.js" async></script>
 </head>
 <body>
 
 <div class="announcement">
-  Batch 11 is in — <strong>Ginger Boost in R&amp;D.</strong> 77.3% yield, staying consistent. Early Access gets first pick.
+  Batch 05 just bottled — <strong>first full run, 10 bottles.</strong> Early Access gets first pick.
 </div>
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="#" class="brand-link" aria-label="Freshstart Juice — home"><img src="images/logo.png" alt="Freshstart Juice" class="brand-logo" width="1004" height="404" decoding="async"></a>
+    <a href="#" class="brand-link" aria-label="Freshstart Juice — home"><img src="images/logo.png" alt="Freshstart Juice" class="brand-logo"></a>
     <nav class="header-nav">
       <a href="#story">Story</a>
-      <a href="Shop.html">Shop</a>
       <a href="#flavors">Flavors</a>
       <a href="#batch-notes">Batch Notes</a>
-      <a href="Label History.html">Labels</a>
       <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">Instagram</a>
     </nav>
-    <a href="Shop.html" class="header-cta">Buy Now</a>
+    <a href="#early-access" class="header-cta">Join Early Access</a>
   </div>
 </header>
 
@@ -414,29 +313,29 @@
           <span class="pill">SF Bay</span>
         </div>
         <div class="hero-btns">
-          <a href="#order" class="btn btn-primary">Buy Now</a>
+          <a href="#early-access" class="btn btn-primary">Join Early Access</a>
           <a href="#flavors" class="btn btn-outline">See the Lineup</a>
         </div>
       </div>
       <div class="hero-visual reveal">
-        <span class="hero-stamp">Batch 11 · June 2026</span>
+        <span class="hero-stamp">Batch 05 · April 2026</span>
         <div class="hero-focus">
           <div class="hero-focus-label">Focus</div>
           <ul class="hero-focus-list">
-            <li>Bolder, ginger-forward profile from customer feedback</li>
-            <li>Cucumber added for yield, hydration, and a softer finish</li>
-            <li>Lemon retained for brightness and a clean finish</li>
-            <li>Vanilla and star anise as signature finishing notes</li>
+            <li>First full bottling run — 10 bottles</li>
+            <li>New flavor: Roots Refresh (beet, watermelon, mint, lemon)</li>
+            <li>Labeling system live with QR feedback loop</li>
+            <li>Product, process and feedback now one connected system</li>
           </ul>
         </div>
         <div class="hero-meta">
           <div class="hero-meta-item">
-            <div class="num">77.3<span style="font-size:0.55em;font-weight:700;margin-left:2px;">%</span></div>
-            <div class="lbl">Yield —<br>staying consistent</div>
+            <div class="num">10</div>
+            <div class="lbl">Bottles in the<br>first full run</div>
           </div>
           <div class="hero-meta-item" style="text-align:right;">
-            <div class="num">~10.6</div>
-            <div class="lbl">Bottles<br>at 12 oz</div>
+            <div class="num">100+</div>
+            <div class="lbl">On the<br>Early Access list</div>
           </div>
         </div>
       </div>
@@ -458,11 +357,10 @@
 <section id="story">
   <div class="container reveal">
     <div class="story-grid">
-      <div class="story-media">
-        <div class="story-img-wrap">
-          <img src="images/poster-ginger-boost.png" alt="Freshstart cold-pressed juice bottle with fresh ingredients" width="455" height="655" loading="lazy" decoding="async" onerror="this.style.display='none'">
-        </div>
-        <div class="story-badge-below">Made with intention.</div>
+      <div class="story-img-wrap">
+        <img src="images/flavor-roots.png" alt="Fresh-pressed Roots+ juice" onerror="this.style.display='none'">
+        <div class="story-img-fallback">Fresh-pressed in the backyard</div>
+        <div class="story-badge">Made with<br>intention.</div>
       </div>
       <div class="story-content">
         <p class="section-label">Why we exist</p>
@@ -470,7 +368,7 @@
         <p>Over time, it became something more — a focus on real ingredients, small batches, and paying attention to what goes in, how it's made, and how it feels after.</p>
         <p>Every batch is tested, refined, and dialed in until it's right. Balanced for flavor. Made for everyday energy, hydration and recovery.</p>
         <p>When it's ready, the Founders List hears first. <strong>That's the process.</strong></p>
-        <a href="#early-access" class="btn btn-primary story-cta">Join the Founders List</a>
+        <a href="#early-access" class="btn btn-primary story-cta">Join the List</a>
       </div>
     </div>
   </div>
@@ -478,68 +376,181 @@
 
 <section id="flavors">
   <div class="container reveal">
-    <p class="section-label">Available now</p>
+    <p class="section-label">Current lineup</p>
     <h2 class="section-title">The flavors</h2>
-    <p class="section-desc">Two cold-pressed flavors in rotation right now. Grab a single bottle, or mix any four into a 4-pack.</p>
+    <p class="section-desc">Each batch is tested until it's right. Order available flavors now, or get notified when new ones drop.</p>
     <div class="flavors-grid">
 
-      <div class="flavor-card flavor-card-show">
+      <div class="flavor-card">
         <div class="flavor-top">
-          <img src="images/roots-refresh-bottle.png" alt="Roots Refresh cold-pressed juice bottle" class="flavor-bottle-photo" width="800" height="800" loading="lazy" decoding="async">
-          <span class="flavor-badge badge-popular">Available now</span>
+          <div class="flavor-icon" style="background:#FCE4EC;" aria-label="Roots+ beet icon">
+            <svg viewBox="0 0 64 64" width="44" height="44" fill="none" aria-hidden="true">
+              <path d="M20 38 C 20 50, 32 58, 32 58 C 32 58, 44 50, 44 38 C 44 30, 38 26, 32 26 C 26 26, 20 30, 20 38 Z" fill="#B71C4A"/>
+              <path d="M26 30 C 24 34, 26 38, 30 38" stroke="#8E1239" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <path d="M32 26 L 30 18 C 28 14, 24 12, 20 14" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M20 14 C 18 10, 20 8, 24 8 C 26 10, 26 14, 24 16 Z" fill="#43A047"/>
+              <path d="M32 26 L 34 18 C 36 14, 40 12, 44 14" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M44 14 C 46 10, 44 8, 40 8 C 38 10, 38 14, 40 16 Z" fill="#43A047"/>
+              <path d="M32 26 L 32 16 C 32 12, 34 10, 38 10" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M38 10 C 40 6, 38 4, 34 6 C 32 8, 32 12, 34 12 Z" fill="#66BB6A"/>
+            </svg>
+          </div>
+          <span class="flavor-badge badge-popular">Popular</span>
+        </div>
+        <div>
+          <div class="flavor-name">Roots+</div>
+          <div class="flavor-desc">Beets · Cucumber · Ginger · Carrot · Apple · Lime · Turmeric · Mint</div>
+        </div>
+        <div class="flavor-packs">
+          <div class="flavor-packs-label">Choose your pack</div>
+          <div class="pack-row">
+            <a href="https://buy.stripe.com/eVq9AU2NH0ThgPj6caeQM04" target="_blank" rel="noopener" class="pack-btn" aria-label="Buy 1 bottle of Roots+ for $9">
+              <span class="pack-size">1 bottle</span>
+              <span class="pack-price">$9</span>
+            </a>
+            <a href="https://buy.stripe.com/7sY9AUewp6dBgPj1VUeQM02" target="_blank" rel="noopener" class="pack-btn" aria-label="Buy 3-pack of Roots+ for $27">
+              <span class="pack-size">3-pack</span>
+              <span class="pack-price">$27</span>
+            </a>
+            <a href="https://buy.stripe.com/eVq7sM5ZT8lJfLf442eQM01" target="_blank" rel="noopener" class="pack-btn pack-btn-featured" aria-label="Buy 6-pack of Roots+ for $48, save $6">
+              <span class="pack-save">Save $6</span>
+              <span class="pack-size">6-pack</span>
+              <span class="pack-price">$48</span>
+            </a>
+          </div>
+          <div class="pack-secure">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="6" rx="1.2"></rect><path d="M5 7V5a3 3 0 0 1 6 0v2"></path></svg>
+            Secure checkout via Stripe
+          </div>
+        </div>
+      </div>
+
+      <div class="flavor-card">
+        <div class="flavor-top">
+          <div class="flavor-icon" style="background:#FCE4EC;" aria-label="Roots Refresh beet and watermelon icon">
+            <svg viewBox="0 0 64 64" width="44" height="44" fill="none" aria-hidden="true">
+              <path d="M14 36 C 14 50, 32 56, 50 36 C 50 30, 42 26, 32 26 C 22 26, 14 30, 14 36 Z" fill="#E91E63"/>
+              <path d="M18 36 C 18 46, 32 52, 46 36 C 46 32, 40 30, 32 30 C 24 30, 18 32, 18 36 Z" fill="#F06292"/>
+              <circle cx="24" cy="38" r="1.5" fill="#1B1B1B"/>
+              <circle cx="32" cy="40" r="1.5" fill="#1B1B1B"/>
+              <circle cx="40" cy="38" r="1.5" fill="#1B1B1B"/>
+              <path d="M28 24 L 26 14 C 24 10, 20 8, 16 10" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M16 10 C 14 6, 16 4, 20 6 C 22 8, 22 12, 20 14 Z" fill="#43A047"/>
+              <path d="M36 24 L 38 14 C 40 10, 44 8, 48 10" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M48 10 C 50 6, 48 4, 44 6 C 42 8, 42 12, 44 14 Z" fill="#66BB6A"/>
+            </svg>
+          </div>
+          <span class="flavor-badge badge-popular">New</span>
         </div>
         <div>
           <div class="flavor-name">Roots Refresh</div>
-          <div class="flavor-desc">Beets · Watermelon · Ginger · Mint · Lime</div>
+          <div class="flavor-desc">Beet · Watermelon · Mint · Lemon</div>
         </div>
-        <div class="flavor-tag">12 oz &middot; cold-pressed &middot; $9 a bottle</div>
+        <div class="flavor-packs">
+          <div class="flavor-packs-label">Choose your pack</div>
+          <div class="pack-row">
+            <a href="https://buy.stripe.com/6oU4gAcoh8lJ56B6caeQM05" target="_blank" rel="noopener" class="pack-btn" aria-label="Buy 1 bottle of Roots Refresh for $9">
+              <span class="pack-size">1 bottle</span>
+              <span class="pack-price">$9</span>
+            </a>
+            <a href="https://buy.stripe.com/9B65kEag9atR6aF1VUeQM06" target="_blank" rel="noopener" class="pack-btn" aria-label="Buy 3-pack of Roots Refresh for $27">
+              <span class="pack-size">3-pack</span>
+              <span class="pack-price">$27</span>
+            </a>
+            <a href="https://buy.stripe.com/3cI7sM1JDcBZdD76caeQM07" target="_blank" rel="noopener" class="pack-btn pack-btn-featured" aria-label="Buy 6-pack of Roots Refresh for $48, save $6">
+              <span class="pack-save">Save $6</span>
+              <span class="pack-size">6-pack</span>
+              <span class="pack-price">$48</span>
+            </a>
+          </div>
+          <div class="pack-secure">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="6" rx="1.2"></rect><path d="M5 7V5a3 3 0 0 1 6 0v2"></path></svg>
+            Secure checkout via Stripe
+          </div>
+        </div>
       </div>
 
-      <div class="flavor-card flavor-card-show">
+      <div class="flavor-card">
         <div class="flavor-top">
-          <img src="images/poster-ginger-boost.png" alt="Ginger Boost cold-pressed juice bottle" class="flavor-bottle-photo" width="455" height="655" loading="lazy" decoding="async">
-          <span class="flavor-badge badge-popular">Available now</span>
+          <div class="flavor-icon" style="background:#FFF3E0;" aria-label="Citrus Boost citrus icon">
+            <svg viewBox="0 0 64 64" width="44" height="44" fill="none" aria-hidden="true">
+              <circle cx="32" cy="32" r="22" fill="#FFB74D"/>
+              <circle cx="32" cy="32" r="18" fill="#FFCC80"/>
+              <g stroke="#FB8C00" stroke-width="1.5" stroke-linecap="round" fill="none">
+                <line x1="32" y1="16" x2="32" y2="48"/>
+                <line x1="16" y1="32" x2="48" y2="32"/>
+                <line x1="20.7" y1="20.7" x2="43.3" y2="43.3"/>
+                <line x1="43.3" y1="20.7" x2="20.7" y2="43.3"/>
+              </g>
+              <circle cx="32" cy="32" r="3" fill="#FB8C00"/>
+            </svg>
+          </div>
+          <span class="flavor-badge badge-coming">Coming soon</span>
         </div>
         <div>
-          <div class="flavor-name">Ginger Boost</div>
-          <div class="flavor-desc">Ginger · Pineapple · Cucumber · Lime · Vanilla · Anise</div>
+          <div class="flavor-name">Citrus Boost</div>
+          <div class="flavor-desc">Orange · Lemon · Ginger · Turmeric</div>
         </div>
-        <div class="flavor-tag">12 oz &middot; cold-pressed &middot; $9 a bottle</div>
+        <div class="flavor-footer">
+          <div class="flavor-price">$9</div>
+          <button type="button" class="notify-btn" data-flavor="Citrus Boost">Notify me →</button>
+        </div>
+      </div>
+
+      <div class="flavor-card">
+        <div class="flavor-top">
+          <div class="flavor-icon" style="background:#E8F5E9;" aria-label="Green Blast leafy spinach icon">
+            <svg viewBox="0 0 64 64" width="44" height="44" fill="none" aria-hidden="true">
+              <path d="M32 54 C 18 54, 10 42, 12 28 C 14 18, 22 12, 32 12 C 42 12, 50 18, 52 28 C 54 42, 46 54, 32 54 Z" fill="#66BB6A"/>
+              <path d="M32 14 C 24 18, 20 26, 20 36 C 20 44, 24 50, 32 52" stroke="#2E7D32" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M32 14 C 40 18, 44 26, 44 36 C 44 44, 40 50, 32 52" stroke="#2E7D32" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <path d="M32 14 L 32 54" stroke="#1B5E20" stroke-width="2" stroke-linecap="round"/>
+              <path d="M32 22 L 24 20 M32 30 L 22 28 M32 38 L 23 38 M32 46 L 25 48" stroke="#2E7D32" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M32 22 L 40 20 M32 30 L 42 28 M32 38 L 41 38 M32 46 L 39 48" stroke="#2E7D32" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="flavor-badge badge-coming">Coming soon</span>
+        </div>
+        <div>
+          <div class="flavor-name">Green Blast</div>
+          <div class="flavor-desc">Apple · Spinach · Kale · Celery · Ginger · Lemon · Parsley · Cucumber</div>
+        </div>
+        <div class="flavor-footer">
+          <div class="flavor-price">$9</div>
+          <button type="button" class="notify-btn" data-flavor="Green Blast">Notify me →</button>
+        </div>
+      </div>
+
+      <div class="flavor-card">
+        <div class="flavor-top">
+          <div class="flavor-icon" style="background:#F1F8E9;" aria-label="Fresh Limes icon">
+            <svg viewBox="0 0 64 64" width="44" height="44" fill="none" aria-hidden="true">
+              <circle cx="32" cy="32" r="22" fill="#9CCC65"/>
+              <circle cx="32" cy="32" r="18" fill="#C5E1A5"/>
+              <g stroke="#689F38" stroke-width="1.5" stroke-linecap="round" fill="none">
+                <line x1="32" y1="16" x2="32" y2="48"/>
+                <line x1="16" y1="32" x2="48" y2="32"/>
+                <line x1="20.7" y1="20.7" x2="43.3" y2="43.3"/>
+                <line x1="43.3" y1="20.7" x2="20.7" y2="43.3"/>
+              </g>
+              <circle cx="32" cy="32" r="3" fill="#689F38"/>
+            </svg>
+          </div>
+          <span class="flavor-badge badge-coming">Coming soon</span>
+        </div>
+        <div>
+          <div class="flavor-name">Fresh Limes</div>
+          <div class="flavor-desc">Lime · Lemon · Mint · Ginger</div>
+        </div>
+        <div class="flavor-footer">
+          <div class="flavor-price">$9</div>
+          <button type="button" class="notify-btn" data-flavor="Fresh Limes">Notify me →</button>
+        </div>
       </div>
 
     </div>
-
-    <div class="order-block" id="order">
-      <div class="order-block-label">Order now</div>
-      <div class="order-options">
-        <a href="https://buy.stripe.com/9B6bJ2cohgSf42xdECeQM09" target="_blank" rel="noopener" class="order-card" aria-label="Buy a single bottle for $9">
-          <div class="order-card-name">Single Bottle</div>
-          <div class="order-card-desc">One 12 oz cold-pressed juice. Pick either flavor at checkout.</div>
-          <div class="order-card-foot">
-            <span class="order-card-price">$9</span>
-            <span class="order-card-unit">per bottle</span>
-          </div>
-          <span class="order-card-cta">Buy a single &rarr;</span>
-        </a>
-        <a href="https://buy.stripe.com/bJebJ21JD8lJbuZeIGeQM08" target="_blank" rel="noopener" class="order-card order-card-featured" aria-label="Buy a mix and match 4-pack for $27">
-          <span class="order-save">Save $9</span>
-          <div class="order-card-name">Mix &amp; Match 4-Pack</div>
-          <div class="order-card-desc">Four 12 oz cold-pressed juices. Mix any flavors &mdash; buy 3, get 1 free.</div>
-          <div class="order-card-foot">
-            <span class="order-card-price">$27</span>
-            <span class="order-card-unit">4 bottles &middot; $6.75 each</span>
-          </div>
-          <span class="order-card-cta">Build your 4-pack &rarr;</span>
-        </a>
-      </div>
-      <div class="pack-secure">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="6" rx="1.2"></rect><path d="M5 7V5a3 3 0 0 1 6 0v2"></path></svg>
-        Secure checkout via Stripe
-      </div>
-    </div>
-
     <p class="flavors-note">
-      Flavors rotate by batch &middot; DM <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">@freshstart.juice</a> for current availability
+      Flavors rotate by batch · DM <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">@freshstart.juice</a> for current availability
     </p>
   </div>
 </section>
@@ -577,442 +588,6 @@
     <div class="batch-list">
 
       <div class="batch-entry">
-        <div class="batch-accent batch-accent-yellow"></div>
-        <div class="batch-header">
-          <div class="batch-meta">
-            <span class="batch-dot batch-dot-yellow"></span>
-            <span class="batch-num">Batch 11</span>
-            <span class="batch-name">Ginger Boost — Research &amp; Development</span>
-          </div>
-          <span class="batch-equipment">Ginger Boost · Nama J2</span>
-        </div>
-        <div class="batch-body">
-          <div class="batch-cols">
-            <div>
-              <div class="batch-section-label">Focus</div>
-              <ul class="batch-items">
-                <li>Developed in response to customer feedback requesting a stronger ginger-forward flavor profile</li>
-                <li>Targeted approximately 120 oz (3.5 L) while maintaining balance and drinkability</li>
-                <li>Added cucumber to increase yield and provide hydration while softening the overall profile</li>
-                <li>Retained lemon to provide brightness and a clean finish</li>
-                <li>Continued evaluating vanilla and star anise as signature finishing notes</li>
-              </ul>
-            </div>
-            <div>
-              <div class="batch-section-label">Outcome</div>
-              <ul class="batch-items">
-                <li>Exceeded the target output, producing 135.3 fl oz (4.0 L)</li>
-                <li>Delivered strong process efficiency with a 77.3% yield</li>
-                <li>Used 175.0 oz of produce with 32.3 oz of pulp waste</li>
-                <li>Estimated ~10.6 × 12 oz bottles</li>
-                <li>Remains an active R&amp;D formulation under continued refinement</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="batch-perf">
-            <div class="batch-section-label" style="color:var(--green-dark);">Performance highlights</div>
-            <div class="batch-perf-grid">
-              <div class="batch-perf-card">
-                <div class="batch-perf-card-title">Yield <span class="tag">11</span></div>
-                <div class="batch-perf-rows">
-                  <div class="batch-perf-row"><span class="lbl">Produce used</span><span class="val">175.0 oz</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Juice output</span><span class="val">4.0 L · 135.3 fl oz</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Pulp waste</span><span class="val">32.3 oz</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Bottle output</span><span class="val">~10.6 × 12 oz</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="batch-perf-improve">
-              <div class="batch-perf-improve-item">
-                <span class="delta up">77.3%</span>
-                <span class="desc">Yield percentage — strong process efficiency</span>
-              </div>
-              <div class="batch-perf-improve-item">
-                <span class="delta down">32.3 oz</span>
-                <span class="desc">Total pulp waste from 175.0 oz of produce</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="batch-protocol">
-            <div class="batch-section-label" style="color:var(--green-dark);">Ingredients</div>
-            <ul class="batch-items">
-              <li>Pineapple</li>
-              <li>Ginger Root</li>
-              <li>Cucumber</li>
-              <li>Lemon</li>
-              <li>Star Anise</li>
-              <li>Vanilla</li>
-            </ul>
-          </div>
-
-          <div class="batch-protocol">
-            <div class="batch-section-label" style="color:var(--green-dark);">Sourcing</div>
-            <ul class="batch-protocol-list">
-              <li><span class="batch-protocol-day">01</span>All produce sourced from certified organic Northern &amp; Central California farmers.</li>
-              <li><span class="batch-protocol-day">02</span>Purchased through local farmers markets — supporting local growers remains core to the mission.</li>
-            </ul>
-          </div>
-
-          <div class="batch-takeaway">
-            <div class="batch-takeaway-label">Recipe development notes</div>
-            <p>Batch 11 remains an active Research &amp; Development formulation. The focus is on creating a bold, refreshing juice that highlights the strong ginger profile preferred by our Oakland and Bay Area customers. As with all FreshStart recipes, data from each batch is used to continuously improve flavor, consistency, and yield. Future batches will evaluate replacing lemon with orange to further refine flavor and acidity balance. <strong>Status: 🟡 Research &amp; Development. Start fresh. Stay fresh.</strong></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="batch-entry collapsible collapsed">
-        <div class="batch-accent batch-accent-green"></div>
-        <div class="batch-header">
-          <div class="batch-meta">
-            <span class="batch-dot batch-dot-green"></span>
-            <span class="batch-num">Batch 10</span>
-            <span class="batch-name">Melon Refresh — Locked Formula</span>
-          </div>
-          <span class="batch-equipment">Melon Refresh · Nama J2</span>
-        </div>
-        <div class="batch-body">
-          <div class="batch-cols">
-            <div>
-              <div class="batch-section-label">Focus</div>
-              <ul class="batch-items">
-                <li>Locked the Melon Refresh formula as the baseline for future production</li>
-                <li>Final adjustment to balance citrus brightness against ginger finish</li>
-                <li>Ran a clean single-product batch to confirm yield and output</li>
-                <li>Simplified formulation around seasonal ingredient availability</li>
-                <li>Maintained 100% certified organic, locally sourced produce</li>
-              </ul>
-            </div>
-            <div>
-              <div class="batch-section-label">Outcome</div>
-              <ul class="batch-items">
-                <li>Formula officially locked — R&amp;D complete on Melon Refresh</li>
-                <li>Achieved 85.0% yield, the strongest result to date</li>
-                <li>Produced 3.5 L (118.3 fl oz) with only 12.8 oz of pulp waste</li>
-                <li>Smoother citrus profile with a more balanced ginger finish</li>
-                <li>Yielded 9 × 12 oz bottles</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="batch-perf">
-            <div class="batch-section-label" style="color:var(--green-dark);">Performance highlights</div>
-            <div class="batch-perf-grid">
-              <div class="batch-perf-card">
-                <div class="batch-perf-card-title">Yield <span class="tag">10</span></div>
-                <div class="batch-perf-rows">
-                  <div class="batch-perf-row"><span class="lbl">Produce used</span><span class="val">139.2 oz</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Juice output</span><span class="val">3.5 L · 118.3 fl oz</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Pulp waste</span><span class="val">12.8 oz</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Bottle output</span><span class="val">9 × 12 oz</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="batch-perf-improve">
-              <div class="batch-perf-improve-item">
-                <span class="delta up">85.0%</span>
-                <span class="desc">Yield percentage — highest Melon Refresh run to date</span>
-              </div>
-              <div class="batch-perf-improve-item">
-                <span class="delta down">12.8 oz</span>
-                <span class="desc">Total pulp waste from 139.2 oz of produce</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="batch-protocol">
-            <div class="batch-section-label" style="color:var(--green-dark);">Locked recipe</div>
-            <ul class="batch-protocol-list">
-              <li><span class="batch-protocol-day">Watermelon</span>8.0 lbs · 128 oz</li>
-              <li><span class="batch-protocol-day">Lime</span>5.5 oz · peeled</li>
-              <li><span class="batch-protocol-day">Ginger</span>5.0 oz</li>
-              <li><span class="batch-protocol-day">Mint</span>0.7 oz</li>
-            </ul>
-          </div>
-
-          <div class="batch-protocol">
-            <div class="batch-section-label" style="color:var(--green-dark);">Final adjustment</div>
-            <p style="font-size:var(--text-sm);color:var(--charcoal);line-height:var(--lh-prose);font-weight:500;margin-bottom:0.65rem;">A last round of tuning gave Melon Refresh a smoother citrus profile and a more balanced ginger finish while keeping its clean, refreshing character:</p>
-            <ul class="batch-protocol-list">
-              <li><span class="batch-protocol-day">Lime</span>Reduced from 7.0 oz to 5.5 oz</li>
-              <li><span class="batch-protocol-day">Ginger</span>Increased from 4.0 oz to 5.0 oz</li>
-            </ul>
-          </div>
-
-          <div class="batch-protocol">
-            <div class="batch-section-label" style="color:var(--green-dark);">Sourcing</div>
-            <ul class="batch-protocol-list">
-              <li><span class="batch-protocol-day">01</span>All produce sourced from certified organic Northern &amp; Central California farmers.</li>
-              <li><span class="batch-protocol-day">02</span>Purchased through local farmers markets — supporting local growers remains core to the mission.</li>
-            </ul>
-          </div>
-
-          <div class="batch-takeaway">
-            <div class="batch-takeaway-label">Lessons learned</div>
-            <p>Seasonality matters. Removing apples meant rethinking the flavor balance while preserving the experience customers enjoy. Through multiple batches and small adjustments, we simplified the recipe, held production efficiency, and landed on a formula we're confident in. Batch 10 completes Melon Refresh R&amp;D and sets the baseline for future production. <strong>Start fresh. Stay fresh.</strong></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="batch-entry collapsible collapsed">
-        <div class="batch-accent batch-accent-green"></div>
-        <div class="batch-header">
-          <div class="batch-meta">
-            <span class="batch-dot batch-dot-green"></span>
-            <span class="batch-num">Batch 09</span>
-            <span class="batch-name">Melon Refresh — Seasonal Update</span>
-          </div>
-          <span class="batch-equipment">Melon Refresh · Nama J2</span>
-          <button type="button" class="batch-toggle" aria-label="Expand Batch 09" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,5 8,11 13,5"></polyline></svg></button>
-        </div>
-        <div class="batch-body">
-          <div class="batch-cols">
-            <div>
-              <div class="batch-section-label">Focus</div>
-              <ul class="batch-items">
-                <li>Reformulated Melon Refresh for seasonal ingredient availability</li>
-                <li>Removed green apple to maintain flavor profile and volume</li>
-                <li>Targeted higher yield and lower waste in a single-product run</li>
-                <li>Continued tracking yield consistency and bottle output</li>
-                <li>Maintained 100% organic, locally sourced produce</li>
-              </ul>
-            </div>
-            <div>
-              <div class="batch-section-label">Outcome</div>
-              <ul class="batch-items">
-                <li>Highest Melon Refresh yield to date at 84.7%</li>
-                <li>Produced 3.5 L (118.3 fl oz) with only 11 oz of waste</li>
-                <li>Simplified recipe improved operational efficiency</li>
-                <li>Maintained flavor consistency despite the ingredient change</li>
-                <li>Yielded 30 bottles across three sizes</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="batch-perf">
-            <div class="batch-section-label" style="color:var(--green-dark);">Performance highlights</div>
-            <div class="batch-perf-grid">
-              <div class="batch-perf-card">
-                <div class="batch-perf-card-title">Yield <span class="tag">09</span></div>
-                <div class="batch-perf-rows">
-                  <div class="batch-perf-row"><span class="lbl">Produce used</span><span class="val">139.7 oz</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Juice output</span><span class="val">3.5 L · 118.3 fl oz</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Estimated waste</span><span class="val">11 oz</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="batch-perf-improve">
-              <div class="batch-perf-improve-item">
-                <span class="delta up">84.7%</span>
-                <span class="desc">Yield percentage — strongest Melon Refresh run to date</span>
-              </div>
-              <div class="batch-perf-improve-item">
-                <span class="delta down">11 oz</span>
-                <span class="desc">Total waste from 139.7 oz of produce</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="batch-protocol">
-            <div class="batch-section-label" style="color:var(--green-dark);">Seasonal recipe update</div>
-            <p style="font-size:var(--text-sm);color:var(--charcoal);line-height:var(--lh-prose);font-weight:500;margin-bottom:0.65rem;">Green apples were removed due to seasonal availability. To preserve flavor and volume, the recipe was simplified into a cleaner, more refreshing blend with a bright citrus finish and natural watermelon sweetness:</p>
-            <ul class="batch-protocol-list">
-              <li><span class="batch-protocol-day">Now</span>Watermelon · Lime · Ginger · Mint</li>
-            </ul>
-          </div>
-
-          <div class="batch-protocol">
-            <div class="batch-section-label" style="color:var(--green-dark);">Sourcing</div>
-            <ul class="batch-protocol-list">
-              <li><span class="batch-protocol-day">01</span>All produce sourced from certified organic farmers in Northern & Central California.</li>
-              <li><span class="batch-protocol-day">02</span>Purchased through local farmers markets — supporting local growers remains core to the mission.</li>
-            </ul>
-          </div>
-
-          <div class="batch-takeaway">
-            <div class="batch-takeaway-label">Lessons learned</div>
-            <p>Seasonal ingredients matter. Rather than forcing the recipe to stay unchanged, Batch 09 showed the value of adapting the formulation to ingredient availability while preserving the intended customer experience. The update reduced complexity, maintained quality, and delivered one of the highest-yielding batches produced to date. <strong>Start fresh. Stay fresh.</strong></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="batch-entry collapsible collapsed">
-        <div class="batch-accent batch-accent-rose"></div>
-        <div class="batch-header">
-          <div class="batch-meta">
-            <span class="batch-dot batch-dot-rose"></span>
-            <span class="batch-num">Batch 08</span>
-            <span class="batch-name">Process Optimization & Yield Consistency</span>
-          </div>
-          <span class="batch-equipment">Roots+ & Melon Refresh · Nama J2</span>
-          <button type="button" class="batch-toggle" aria-label="Expand Batch 08" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,5 8,11 13,5"></polyline></svg></button>
-        </div>
-        <div class="batch-body">
-          <div class="batch-cols">
-            <div>
-              <div class="batch-section-label">Focus</div>
-              <ul class="batch-items">
-                <li>Evaluated operational efficiency across two distinct juice profiles</li>
-                <li>Tested lighter fruit-forward formulation with Melon Refresh</li>
-                <li>Continued improving repeatable production workflow and output tracking</li>
-                <li>Measured waste reduction and yield consistency between batches</li>
-                <li>Refined ingredient balance while maintaining flavor quality</li>
-                <li>Continued documenting scalable batch production standards</li>
-              </ul>
-            </div>
-            <div>
-              <div class="batch-section-label">Outcome</div>
-              <ul class="batch-items">
-                <li>Maintained stable yield consistency across both batches</li>
-                <li>Improved production efficiency with lower waste in Melon Refresh</li>
-                <li>Increased bottle output through optimized ingredient composition</li>
-                <li>Confirmed repeatability improvements batch-over-batch</li>
-                <li>Preserved intended flavor positioning across both products</li>
-                <li>Continued strengthening operational maturity and process reliability</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="batch-perf">
-            <div class="batch-section-label" style="color:var(--green-dark);">Performance highlights</div>
-            <div class="batch-perf-grid">
-              <div class="batch-perf-card">
-                <div class="batch-perf-card-title">Roots+ <span class="tag">08A</span></div>
-                <div class="batch-perf-rows">
-                  <div class="batch-perf-row"><span class="lbl">Sellable yield</span><span class="val">56.6%</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Waste</span><span class="val">31.1%</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Estimated output</span><span class="val">~5.2 bottles</span></div>
-                </div>
-              </div>
-              <div class="batch-perf-card">
-                <div class="batch-perf-card-title">Melon Refresh <span class="tag">08B</span></div>
-                <div class="batch-perf-rows">
-                  <div class="batch-perf-row"><span class="lbl">Sellable yield</span><span class="val">54.1%</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Waste</span><span class="val">17.9%</span></div>
-                  <div class="batch-perf-row"><span class="lbl">Estimated output</span><span class="val">~6.9 bottles</span></div>
-                </div>
-              </div>
-            </div>
-            <div class="batch-perf-improve">
-              <div class="batch-perf-improve-item">
-                <span class="delta down">42.4%</span>
-                <span class="desc">Less waste in Melon Refresh vs. Roots+</span>
-              </div>
-              <div class="batch-perf-improve-item">
-                <span class="delta up">33.6%</span>
-                <span class="desc">More bottle output in Melon Refresh vs. Roots+</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="batch-protocol">
-            <div class="batch-section-label" style="color:var(--green-dark);">Key takeaways</div>
-            <ul class="batch-protocol-list">
-              <li><span class="batch-protocol-day">01</span>Yield consistency is becoming more stable across recipes.</li>
-              <li><span class="batch-protocol-day">02</span>Lighter fruit-forward recipes improved operational efficiency.</li>
-              <li><span class="batch-protocol-day">03</span>Small process refinements continue compounding over time.</li>
-            </ul>
-          </div>
-
-          <div class="batch-takeaway">
-            <div class="batch-takeaway-label">Takeaway</div>
-            <p>Batch 08 reinforced the transition from experimentation toward repeatable production. While maintaining flavor quality and output consistency, Melon Refresh demonstrated that lighter fruit-forward recipes can significantly improve operational efficiency and reduce waste. The batch also confirmed continued progress toward more scalable and sustainable production systems. <strong>Start fresh. Stay fresh.</strong></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="batch-entry collapsible collapsed">
-        <div class="batch-accent batch-accent-indigo"></div>
-        <div class="batch-header">
-          <div class="batch-meta">
-            <span class="batch-dot batch-dot-indigo"></span>
-            <span class="batch-num">Batch 07</span>
-            <span class="batch-name">Operations & Continuity</span>
-          </div>
-          <span class="batch-equipment">Nama J2 Cold Press</span>
-          <button type="button" class="batch-toggle" aria-label="Expand Batch 07" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,5 8,11 13,5"></polyline></svg></button>
-        </div>
-        <div class="batch-body">
-          <div class="batch-cols">
-            <div>
-              <div class="batch-section-label">Focus</div>
-              <ul class="batch-items">
-                <li>Refined operational workflow and process documentation</li>
-                <li>Improved bottling, storage, and sanitation procedures</li>
-                <li>Organized communication and social media workflow</li>
-                <li>Evaluated operational continuity during competing priorities</li>
-                <li>Explored more scalable and repeatable production systems</li>
-                <li>Considered on-demand production and bottling to reduce waste and improve freshness</li>
-              </ul>
-            </div>
-            <div>
-              <div class="batch-section-label">Outcome</div>
-              <ul class="batch-items">
-                <li>Continued strengthening repeatable workflow across production operations</li>
-                <li>Improved process consistency for cleaning, prep, bottling, and storage</li>
-                <li>Reduced dependency on immediate bottling through flexible storage workflow</li>
-                <li>Identified opportunities for operational continuity and future delegation</li>
-                <li>Shifted focus toward sustainability, efficiency, and long-term scalability</li>
-              </ul>
-            </div>
-          </div>
-          <div class="batch-protocol">
-            <div class="batch-section-label" style="color:var(--green-dark);">Key takeaways</div>
-            <ul class="batch-protocol-list">
-              <li><span class="batch-protocol-day">01</span>Consistency matters more than speed.</li>
-              <li><span class="batch-protocol-day">02</span>Systems create sustainability.</li>
-              <li><span class="batch-protocol-day">03</span>Small improvements compound over time.</li>
-            </ul>
-          </div>
-          <div class="batch-takeaway">
-            <div class="batch-takeaway-label">Takeaway</div>
-            <p>Batch 07 focused less on product experimentation and more on operational maturity. The day reinforced the importance of creating systems that continue consistently through changing priorities — while improving workflow, reducing waste, and building a stronger operational foundation for future growth. <strong>Start fresh. Stay fresh.</strong></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="batch-entry collapsible collapsed">
-        <div class="batch-accent batch-accent-teal"></div>
-        <div class="batch-header">
-          <div class="batch-meta">
-            <span class="batch-dot batch-dot-teal"></span>
-            <span class="batch-num">Batch 06</span>
-            <span class="batch-name">Scaling Up</span>
-          </div>
-          <span class="batch-equipment">Nama J2 Cold Press</span>
-          <button type="button" class="batch-toggle" aria-label="Expand Batch 06" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,5 8,11 13,5"></polyline></svg></button>
-        </div>
-        <div class="batch-body">
-          <div class="batch-cols">
-            <div>
-              <div class="batch-section-label">Focus</div>
-              <ul class="batch-items">
-                <li>Doubled the recipe to test process at larger volume</li>
-                <li>Refined workflow and consistency at scale</li>
-                <li>Shifted from immediate bottling to airtight glass-jug storage</li>
-                <li>Validated handling, storage and timing across a bigger run</li>
-              </ul>
-            </div>
-            <div>
-              <div class="batch-section-label">Outcome</div>
-              <ul class="batch-items">
-                <li>~142 oz of juice produced this batch</li>
-                <li>~64 oz of pulp generated after juicing</li>
-                <li>New on-demand bottling workflow — bottle only what’s ordered</li>
-                <li>Prevented unnecessary bottle loss and reduced waste</li>
-                <li>More flexible workflow for future drops</li>
-              </ul>
-            </div>
-          </div>
-          <div class="batch-takeaway">
-            <div class="batch-takeaway-label">Takeaway</div>
-            <p>Every batch keeps teaching us something. Scaling the recipe and shifting to airtight storage + on-demand bottling unlocks flexibility for future drops without sacrificing freshness.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="batch-entry collapsible collapsed">
         <div class="batch-accent batch-accent-green"></div>
         <div class="batch-header">
           <div class="batch-meta">
@@ -1028,7 +603,7 @@
               <div class="batch-section-label">Focus</div>
               <ul class="batch-items">
                 <li>Produced Roots+ using same recipe and process — baseline consistency</li>
-                <li>Introduced new flavor: Roots Refresh (beets, watermelon, ginger, mint, lime)</li>
+                <li>Introduced new flavor: Roots Refresh (beet, watermelon, mint, lemon)</li>
                 <li>Completed first full bottling run (10 bottles)</li>
                 <li>Developed cleaning, bottling, and storage protocols</li>
                 <li>Established labeling system (2x4 format with QR feedback loop)</li>
@@ -1057,7 +632,7 @@
         </div>
       </div>
 
-      <div class="batch-entry collapsible collapsed">
+      <div class="batch-entry">
         <div class="batch-accent batch-accent-yellow"></div>
         <div class="batch-header">
           <div class="batch-meta">
@@ -1273,12 +848,19 @@
           </div>
           <div class="pricing-price">$9</div>
         </div>
-        <div class="pricing-row featured">
+        <div class="pricing-row">
           <div>
-            <div class="pricing-item">Mix &amp; Match 4-Pack <span class="best-value">BEST VALUE</span></div>
-            <div class="pricing-item-sub">Mix any flavors &middot; buy 3, get 1 free &mdash; save $9</div>
+            <div class="pricing-item">3-pack</div>
+            <div class="pricing-item-sub">Mix &amp; match flavors</div>
           </div>
           <div class="pricing-price">$27</div>
+        </div>
+        <div class="pricing-row featured">
+          <div>
+            <div class="pricing-item">6-pack <span class="best-value">BEST VALUE</span></div>
+            <div class="pricing-item-sub">Save $6 — most popular order</div>
+          </div>
+          <div class="pricing-price">$48</div>
         </div>
         <div class="pricing-row">
           <div>
@@ -1338,7 +920,7 @@
   <div class="container reveal">
     <div class="ig-avatar">
       <div class="ig-avatar-inner">
-        <img src="images/logo-square.png" alt="freshstart.juice" width="1004" height="1004" loading="lazy" decoding="async">
+        <img src="images/logo.png" alt="freshstart.juice">
       </div>
     </div>
     <div class="ig-handle">@freshstart.juice</div>
@@ -1351,16 +933,14 @@
   <div class="container">
     <div class="footer-inner">
       <div>
-        <img src="images/logo.png" alt="Freshstart Juice" class="footer-logo" width="1004" height="404" loading="lazy" decoding="async">
+        <img src="images/logo.png" alt="Freshstart Juice" class="footer-logo">
         <div class="footer-tagline">Cold-pressed. No additives. SF Bay Area.</div>
       </div>
       <div class="footer-mission">Small batches. Real ingredients. Made for people who actually read labels.</div>
       <div class="footer-links">
         <a href="#story">Story</a>
-        <a href="Shop.html">Shop</a>
         <a href="#flavors">Flavors</a>
         <a href="#batch-notes">Batch Notes</a>
-        <a href="Label History.html">Label Archive</a>
         <a href="#reviews">Reviews</a>
         <a href="#early-access">Early Access</a>
         <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">Instagram</a>
@@ -1425,56 +1005,11 @@
     setState();
   });
 
-  // Early Access form → Kit (kit.com) — Founders Club form 9362286 (uid 93100d3bf1)
-  // Kit's subscription endpoint is CORS-blocked, so a fetch() from the browser
-  // never reliably records the subscriber. Instead we do a REAL native form POST
-  // into a hidden iframe: this is exactly what Kit's own embed does, it is not
-  // subject to CORS, and the subscriber lands in Kit every time. We then read the
-  // iframe's load event (or a timeout) and send the visitor to our thank-you page.
+  // Early Access form → Kit (kit.com) — Founders List form 9362286
+  // Submission is handled by Kit's ck.5.js (loaded in <head>): honors reCAPTCHA
+  // if enabled in Kit settings, does proper CORS submission, and returns real
+  // success/error responses. We hook in below to swap to our custom success UI.
   const KIT_URL = 'https://app.kit.com/forms/9362286/subscriptions';
-
-  // Lazily-created hidden iframe that swallows Kit's response.
-  function _kitSink() {
-    let f = document.getElementById('kit-sink');
-    if (!f) {
-      f = document.createElement('iframe');
-      f.id = 'kit-sink';
-      f.name = 'kit-sink';
-      f.setAttribute('aria-hidden', 'true');
-      f.style.cssText = 'position:absolute;width:0;height:0;border:0;left:-9999px;';
-      document.body.appendChild(f);
-    }
-    return f;
-  }
-
-  // POST the given fields to Kit via a native (CORS-free) form submission into
-  // the hidden iframe. Resolves once Kit has received it (iframe load) or after a
-  // safety timeout, so we never navigate away before the request is dispatched.
-  function postToKit(fields) {
-    return new Promise((resolve) => {
-      const sink = _kitSink();
-      const form = document.createElement('form');
-      form.action = KIT_URL;
-      form.method = 'POST';
-      form.target = 'kit-sink';
-      form.style.display = 'none';
-      Object.entries(fields).forEach(([name, value]) => {
-        if (value == null || value === '') return;
-        const input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = name;
-        input.value = value;
-        form.appendChild(input);
-      });
-      let settled = false;
-      const finish = () => { if (settled) return; settled = true; resolve(); };
-      sink.addEventListener('load', finish, { once: true });
-      setTimeout(finish, 2500); // fallback if the load event is slow/blocked
-      document.body.appendChild(form);
-      form.submit();
-      setTimeout(() => form.remove(), 200);
-    });
-  }
 
   function pulse(id) {
     const el = document.getElementById(id);
@@ -1491,51 +1026,70 @@
   const _submitBtn  = document.getElementById('submit-btn');
   const _errEl      = document.getElementById('form-error');
 
-  function _showAccessSuccess() {
-    // Data has already been POSTed to Kit successfully at this point.
-    // Briefly reflect success on the button, then send them to the thank-you page.
-    _submitBtn.querySelector('span').textContent = 'You\u2019re in! \u2192';
-    window.location.href = 'thank-you.html';
-  }
-  function _resetSubmitBtn() {
-    _submitBtn.querySelector('span').textContent = 'Join the Early Access List →';
-    _submitBtn.disabled = false;
-  }
-  function _showAccessError() {
-    _resetSubmitBtn();
-    if (_errEl) _errEl.style.display = 'block';
-  }
-
-  _signupForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
+  _signupForm.addEventListener('submit', (e) => {
     const hp = _signupForm.querySelector('[name="fields[hp_website]"]');
     const elapsed = Date.now() - _pageLoaded;
-    // Bot signals: honeypot filled OR submitted in under 1.5s.
-    // Fake success so bots don't know they were caught (don't hit Kit).
+    // Bot signals: honeypot filled OR submitted in under 1.5s
     if ((hp && hp.value) || elapsed < 1500) {
-      _showAccessSuccess();
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      // Fake success so bots don't know they were caught
+      _signupForm.style.display = 'none';
+      document.getElementById('signup-success').style.display = 'block';
       return;
     }
-
-    const firstName = document.getElementById('access-name').value.trim();
-    const lastName  = document.getElementById('access-last').value.trim();
-    const email     = document.getElementById('access-email').value.trim();
-    if (!firstName) { pulse('access-name'); return; }
-    if (!email || !email.includes('@')) { pulse('access-email'); return; }
-
+    // Client-side required-field pulse (matches old UX)
+    const name  = document.getElementById('access-name').value.trim();
+    const email = document.getElementById('access-email').value.trim();
+    if (!name)  { e.preventDefault(); e.stopImmediatePropagation(); pulse('access-name');  return; }
+    if (!email || !email.includes('@')) { e.preventDefault(); e.stopImmediatePropagation(); pulse('access-email'); return; }
     if (_errEl) _errEl.style.display = 'none';
     _submitBtn.querySelector('span').textContent = 'Joining…';
     _submitBtn.disabled = true;
-
-    // Native POST into the hidden iframe — CORS-free, always recorded by Kit.
-    await postToKit({
-      email_address: email,
-      'fields[first_name]': firstName,
-      'fields[last_name]': lastName
-    });
-    _showAccessSuccess();
   });
+
+  // Kit's ck.js dispatches 'submit' then, on success, replaces the form content
+  // or sets data attrs. We watch the form for Kit's success signals and swap to
+  // our custom success UI.
+  function _showAccessSuccess() {
+    _signupForm.style.display = 'none';
+    document.getElementById('signup-success').style.display = 'block';
+  }
+  function _showAccessError() {
+    _submitBtn.querySelector('span').textContent = 'Join the Early Access List →';
+    _submitBtn.disabled = false;
+    if (_errEl) _errEl.style.display = 'block';
+  }
+
+  // Primary hook: Kit fires a DOM mutation when it injects the success message
+  // or error alert. Observe the form and react.
+  const _formObserver = new MutationObserver(() => {
+    // Success: Kit either adds a success message element OR marks the form
+    const successEl = _signupForm.querySelector('[data-element="success"], .formkit-alert-success');
+    if (successEl) { _formObserver.disconnect(); _showAccessSuccess(); return; }
+    // Error: Kit populates the .formkit-alert-error <ul>
+    const errList = _signupForm.querySelector('.formkit-alert-error');
+    if (errList && errList.children.length > 0 && errList.textContent.trim()) {
+      _showAccessError();
+    }
+  });
+  _formObserver.observe(_signupForm, { childList: true, subtree: true, attributes: true });
+
+  // Fallback hook: listen for Kit's internal fetch completing. ck.js uses
+  // window.fetch to POST; we wrap it just for this endpoint to catch the
+  // response even if the DOM observer misses Kit's success render.
+  const _origFetch = window.fetch;
+  window.fetch = function(input, init) {
+    const url = (typeof input === 'string') ? input : (input && input.url) || '';
+    const p = _origFetch.apply(this, arguments);
+    if (url.indexOf('/forms/9362286/subscriptions') !== -1) {
+      p.then(r => {
+        if (r && r.ok) { _formObserver.disconnect(); _showAccessSuccess(); }
+        else { _showAccessError(); }
+      }).catch(() => _showAccessError());
+    }
+    return p;
+  };
 
   // Notify-me modal
   let _flavor = '';
@@ -1563,10 +1117,10 @@
     btn.textContent = 'Sending…';
     btn.disabled = true;
     try {
-      await postToKit({
-        email_address: email,
-        'fields[flavor_interest]': _flavor
-      });
+      const fd = new FormData();
+      fd.append('email_address', email);
+      fd.append('fields[flavor_interest]', _flavor);
+      await fetch(KIT_URL, { method: 'POST', mode: 'no-cors', body: fd });
       document.getElementById('notify-success-body').textContent =
         "We'll ping you the moment " + _flavor + " drops. Check your email to confirm.";
     } catch {

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citrus Glow — Poster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Yellowtail&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html, body { height:100%; background:#0d0a05; }
+    body { display:flex; align-items:center; justify-content:center; overflow:hidden; font-family:'Montserrat',sans-serif; }
+
+    /* fit-to-viewport stage */
+    #stage { position:relative; }
+    #poster {
+      width:1080px; height:1080px; position:relative; overflow:hidden;
+      transform-origin:top left;
+      background:
+        radial-gradient(120% 90% at 50% 18%, #FBB43A 0%, #F59318 34%, #E0740B 60%, #B4550A 84%, #7E3A06 100%);
+      color:#fff;
+    }
+    /* subtle glow + vignette + speckle */
+    #poster::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(60% 45% at 50% 46%, rgba(255,240,200,0.35), rgba(255,220,150,0) 70%);
+      mix-blend-mode:screen; pointer-events:none;
+    }
+    #poster::after {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      box-shadow:inset 0 0 220px rgba(80,32,0,0.55), inset 0 0 60px rgba(80,32,0,0.35);
+      background-image:radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1.4px);
+      background-size:7px 7px;
+    }
+
+    .wrap { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; padding:66px 64px 54px; z-index:2; }
+
+    /* title */
+    .title { text-align:center; line-height:0.86; }
+    .title .l1 { display:block; font-weight:900; font-size:158px; letter-spacing:-3px; color:#FFFDF7;
+      text-shadow:0 6px 24px rgba(90,40,0,0.4); }
+    .title .l2 { display:block; font-family:'Yellowtail',cursive; font-weight:400; font-size:150px; line-height:0.9;
+      color:#FFE7A0; margin-top:-6px; text-shadow:0 8px 26px rgba(90,40,0,0.45); }
+
+    /* tagline strip */
+    .tagline { display:flex; align-items:center; gap:22px; margin-top:20px; }
+    .tagline .rule { height:2px; width:96px; background:rgba(255,255,255,0.65); }
+    .tagline .txt { font-weight:700; font-size:30px; letter-spacing:7px; color:#FFFDF7; }
+
+    /* hero image slot */
+    .hero { position:relative; width:660px; height:500px; margin-top:24px; display:flex; align-items:center; justify-content:center; }
+    .hero svg { width:660px; height:500px; display:block; }
+
+    /* callouts */
+    .callouts { display:flex; align-items:stretch; gap:0; margin-top:30px; }
+    .co { padding:0 26px; text-align:center; display:flex; flex-direction:column; gap:4px; justify-content:center; }
+    .co + .co { border-left:1.5px solid rgba(255,255,255,0.32); }
+    .co .lab { font-weight:800; font-size:19px; letter-spacing:1.2px; color:#FFE7A0; }
+    .co .ing { font-weight:700; font-size:23px; color:#FFFDF7; letter-spacing:0.3px; }
+
+    /* benefits line */
+    .benefits { margin-top:26px; font-weight:800; font-size:25px; letter-spacing:4px; color:#FFF2CC;
+      display:flex; align-items:center; gap:16px; }
+    .benefits .dot { width:7px; height:7px; border-radius:50%; background:#FFE7A0; }
+
+    /* brand lockup */
+    .brand { margin-top:auto; padding-top:26px; display:flex; align-items:baseline; gap:0; font-weight:800; }
+    .brand .fresh { font-size:46px; color:#FFFDF7; letter-spacing:-1px; }
+    .brand .start { font-size:46px; color:#BFF08A; letter-spacing:-1px; }
+    .brand .drop { width:12px; height:12px; border-radius:50% 50% 50% 0; background:#FFE7A0; transform:rotate(-45deg); margin-left:5px; align-self:center; }
+    .brand .juice { font-size:22px; letter-spacing:9px; color:#FFFDF7; margin-left:16px; font-weight:700; }
+
+    .cap { position:fixed; bottom:14px; left:0; right:0; text-align:center; color:#7c7264; font-size:13px; font-family:'Montserrat',sans-serif; z-index:5; }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <div id="poster">
+      <div class="wrap">
+        <div class="title"><span class="l1">Citrus</span><span class="l2">Glow</span></div>
+
+        <div class="tagline"><span class="rule"></span><span class="txt">IMMUNITY&nbsp;•&nbsp;ENERGY&nbsp;•&nbsp;GLOW</span><span class="rule"></span></div>
+
+        <div class="hero">
+          <svg viewBox="0 0 660 500" width="660" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Citrus Glow bottle with orange, lemon, carrot and turmeric">
+            <defs>
+              <radialGradient id="orange" cx="38%" cy="34%" r="72%">
+                <stop offset="0%" stop-color="#FFCB5E"/><stop offset="55%" stop-color="#F79417"/><stop offset="100%" stop-color="#DA6E08"/>
+              </radialGradient>
+              <radialGradient id="orangeCut" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#FFE39A"/><stop offset="78%" stop-color="#FDB84E"/><stop offset="100%" stop-color="#F79417"/>
+              </radialGradient>
+              <radialGradient id="lemon" cx="40%" cy="32%" r="75%">
+                <stop offset="0%" stop-color="#FFF6B0"/><stop offset="60%" stop-color="#F6D63C"/><stop offset="100%" stop-color="#E3B71E"/>
+              </radialGradient>
+              <linearGradient id="carrot" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#FBA23A"/><stop offset="100%" stop-color="#DA6207"/>
+              </linearGradient>
+              <linearGradient id="leaf" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7FBF4B"/><stop offset="100%" stop-color="#3C8A2E"/>
+              </linearGradient>
+              <linearGradient id="turmeric" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#E9922B"/><stop offset="100%" stop-color="#B85E12"/>
+              </linearGradient>
+              <linearGradient id="juice" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FBAE33"/><stop offset="100%" stop-color="#E07A0C"/>
+              </linearGradient>
+              <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.42)"/><stop offset="22%" stop-color="rgba(255,255,255,0)"/><stop offset="100%" stop-color="rgba(120,50,0,0.18)"/>
+              </linearGradient>
+              <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#D9D4CC"/>
+              </linearGradient>
+              <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#4a1c00" flood-opacity="0.4"/>
+              </filter>
+            </defs>
+
+            <!-- ground shadow -->
+            <ellipse cx="330" cy="470" rx="250" ry="26" fill="rgba(70,28,0,0.4)"/>
+
+            <!-- LEFT: whole orange + half orange -->
+            <g filter="url(#soft)">
+              <circle cx="150" cy="288" r="78" fill="url(#orange)"/>
+              <circle cx="124" cy="258" r="20" fill="rgba(255,255,255,0.28)"/>
+              <path d="M150 214 q6 -14 20 -12" fill="none" stroke="#8A5A16" stroke-width="5" stroke-linecap="round"/>
+            </g>
+            <g filter="url(#soft)">
+              <circle cx="96" cy="398" r="62" fill="#F79417"/>
+              <circle cx="96" cy="398" r="56" fill="#FFE2A6"/>
+              <circle cx="96" cy="398" r="46" fill="url(#orangeCut)"/>
+              <g stroke="rgba(247,148,23,0.65)" stroke-width="3">
+                <line x1="96" y1="398" x2="96" y2="354"/><line x1="96" y1="398" x2="96" y2="442"/>
+                <line x1="96" y1="398" x2="52" y2="398"/><line x1="96" y1="398" x2="140" y2="398"/>
+                <line x1="96" y1="398" x2="65" y2="367"/><line x1="96" y1="398" x2="127" y2="367"/>
+                <line x1="96" y1="398" x2="65" y2="429"/><line x1="96" y1="398" x2="127" y2="429"/>
+              </g>
+            </g>
+
+            <!-- RIGHT: lemon + carrots + turmeric -->
+            <g filter="url(#soft)">
+              <path d="M556 250 q-14 40 -50 60" fill="none" stroke="url(#leaf)" stroke-width="0"/>
+              <path d="M600 300 q30 -34 62 -16 q-8 40 -50 44 q-18 -8 -12 -28 z" fill="url(#leaf)"/>
+              <ellipse cx="532" cy="318" rx="66" ry="56" fill="url(#lemon)"/>
+              <ellipse cx="512" cy="296" rx="16" ry="12" fill="rgba(255,255,255,0.34)"/>
+              <path d="M596 300 q10 -6 16 2" fill="none" stroke="#B9932A" stroke-width="5" stroke-linecap="round"/>
+            </g>
+            <!-- carrots -->
+            <g filter="url(#soft)">
+              <g>
+                <path d="M556 380 l40 78 l16 -6 l-30 -84 z" fill="url(#carrot)"/>
+                <path d="M556 380 q-6 -26 10 -40 q10 16 6 34 z" fill="url(#leaf)"/>
+              </g>
+              <g>
+                <path d="M588 372 l52 66 l14 -10 l-44 -70 z" fill="url(#carrot)"/>
+                <path d="M588 372 q0 -26 18 -34 q6 18 -2 34 z" fill="url(#leaf)"/>
+              </g>
+            </g>
+            <!-- turmeric -->
+            <g filter="url(#soft)">
+              <path d="M470 430 q-30 -6 -34 -30 q22 -14 40 2 q18 -10 30 6 q-6 26 -36 22 z" fill="url(#turmeric)"/>
+            </g>
+            <!-- mint sprig back-left of bottle -->
+            <g filter="url(#soft)">
+              <path d="M250 150 q-26 6 -34 34 q30 4 40 -22 z" fill="url(#leaf)"/>
+              <path d="M262 168 q22 2 30 28 q-28 6 -38 -18 z" fill="url(#leaf)"/>
+            </g>
+
+            <!-- BOTTLE -->
+            <g filter="url(#soft)">
+              <!-- cap -->
+              <rect x="299" y="92" width="62" height="30" rx="6" fill="url(#cap)"/>
+              <rect x="310" y="116" width="40" height="12" rx="3" fill="#EBE6DE"/>
+              <!-- body -->
+              <path d="M283 150 q0 -22 22 -22 h50 q22 0 22 22 v256 q0 26 -26 26 h-42 q-26 0 -26 -26 z" fill="url(#juice)"/>
+              <path d="M283 150 q0 -22 22 -22 h50 q22 0 22 22 v256 q0 26 -26 26 h-42 q-26 0 -26 -26 z" fill="url(#glass)"/>
+              <!-- label -->
+              <rect x="289" y="224" width="82" height="128" rx="8" fill="#FBFAF5"/>
+              <text x="330" y="250" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="800" font-size="15"><tspan fill="#1B4332">fresh</tspan><tspan fill="#40916C">start</tspan></text>
+              <text x="330" y="266" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="8" letter-spacing="3" fill="#6B7280">JUICE</text>
+              <line x1="305" y1="276" x2="355" y2="276" stroke="#E0740B" stroke-width="1"/>
+              <text x="330" y="305" text-anchor="middle" font-family="Yellowtail,cursive" font-size="24" fill="#E0740B">Citrus Glow</text>
+              <text x="330" y="328" text-anchor="middle" font-family="Montserrat,sans-serif" font-style="italic" font-weight="600" font-size="9" fill="#4B5563">Cold Pressed Juice</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="callouts">
+          <div class="co"><span class="lab">BRIGHT BASE</span><span class="ing">Orange</span></div>
+          <div class="co"><span class="lab">ZESTY LIFT</span><span class="ing">Lemon</span></div>
+          <div class="co"><span class="lab">EARTHY SWEETNESS</span><span class="ing">Carrot</span></div>
+          <div class="co"><span class="lab">FUNCTIONAL KICK</span><span class="ing">Turmeric</span></div>
+        </div>
+
+        <div class="benefits"><span>VITAMIN C</span><span class="dot"></span><span>ANTIOXIDANT-RICH</span><span class="dot"></span><span>NO ADDED SUGAR</span></div>
+
+        <div class="brand"><span class="fresh">fresh</span><span class="start">start</span><span class="drop"></span><span class="juice">JUICE</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="cap">Citrus Glow poster · 1080×1080 · illustrated bottle & fruit</div>
+
+  <script>
+    function fitPoster(){
+      var p = document.getElementById('poster');
+      var pad = 40;
+      var s = Math.min((window.innerWidth - pad)/1080, (window.innerHeight - 56)/1080);
+      s = Math.min(s, 1);
+      p.style.transform = 'scale(' + s + ')';
+      var st = document.getElementById('stage');
+      st.style.width = (1080*s) + 'px';
+      st.style.height = (1080*s) + 'px';
+    }
+    window.addEventListener('resize', fitPoster);
+    fitPoster();
+  </script>
+</body>
+</html>

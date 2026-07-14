@@ -48,10 +48,18 @@
       },
       {
         "@type": "Product",
-        "name": "Roots Refresh",
-        "description": "Cold-pressed juice of beets, watermelon, ginger, mint and lime.",
+        "name": "Roots+",
+        "description": "Cold-pressed juice of beets, cucumber, ginger, carrot, apple, lime, turmeric and mint.",
         "brand": { "@id": "https://freshstartjuiceproject.com/#org" },
-        "image": "https://freshstartjuiceproject.com/images/poster-roots-refresh.png",
+        "image": "https://freshstartjuiceproject.com/images/roots-bottle-v3.png",
+        "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://freshstartjuiceproject.com/#flavors" }
+      },
+      {
+        "@type": "Product",
+        "name": "Melon Refresh",
+        "description": "Cold-pressed juice of watermelon, lime, ginger and mint.",
+        "brand": { "@id": "https://freshstartjuiceproject.com/#org" },
+        "image": "https://freshstartjuiceproject.com/images/melon-bottle-v3.png",
         "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://freshstartjuiceproject.com/#flavors" }
       },
       {
@@ -59,8 +67,8 @@
         "name": "Ginger Boost",
         "description": "Cold-pressed juice of ginger, pineapple, lemon and vanilla.",
         "brand": { "@id": "https://freshstartjuiceproject.com/#org" },
-        "image": "https://freshstartjuiceproject.com/images/poster-ginger-boost.png",
-        "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD", "availability": "https://schema.org/InStock", "url": "https://freshstartjuiceproject.com/#flavors" }
+        "image": "https://freshstartjuiceproject.com/images/ginger-boost-bottle-v2.jpg",
+        "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder", "url": "https://freshstartjuiceproject.com/#flavors" }
       }
     ]
   }
@@ -95,7 +103,7 @@
     .site-header { background:rgba(250,250,247,0.94); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--border); padding:0.9rem 0; position:sticky; top:0; z-index:100; }
     .header-inner { max-width:var(--max-w); margin:0 auto; padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
     .brand-link { display:inline-flex; align-items:center; text-decoration:none; }
-    .brand-logo { height:64px; width:auto; display:block; }
+    .brand-logo { height:34px; width:auto; display:block; }
     .header-nav { display:flex; align-items:center; gap:2rem; }
     .header-nav a { font-family:'Inter',sans-serif; font-size:var(--text-sm); font-weight:500; color:var(--green-dark); text-decoration:none; transition:color 0.15s; }
     .header-nav a:hover { color:var(--green-fresh); }
@@ -194,30 +202,6 @@
     .notify-btn:hover { color:var(--green-dark); }
     .flavors-note { font-size:var(--text-sm); color:var(--muted); text-align:center; margin-top:1.75rem; line-height:var(--lh-prose); }
     .flavors-note a { color:var(--green-dark); font-weight:600; text-decoration:underline; text-underline-offset:3px; }
-
-    .flavor-card-show { gap:1rem; }
-    .flavor-tag { font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; letter-spacing:0.3px; color:var(--green-fresh); margin-top:auto; padding-top:1rem; border-top:1px solid var(--border); }
-    .order-block { scroll-margin-top:96px; margin-top:1.75rem; background:var(--warm-white); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.75rem; box-shadow:var(--shadow); }
-    .order-block-label { font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--green-fresh); margin-bottom:1rem; }
-    .order-options { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    .order-card { position:relative; display:flex; flex-direction:column; gap:0.45rem; padding:1.5rem; border:1.5px solid var(--border); border-radius:var(--r-lg); background:var(--cream); text-decoration:none; transition:transform 0.18s,border-color 0.18s,background 0.18s; }
-    .order-card:hover { transform:translateY(-3px); border-color:var(--green-fresh); background:var(--green-light); }
-    .order-card-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-lg); color:var(--green-dark); letter-spacing:-0.3px; }
-    .order-card-desc { font-size:var(--text-sm); color:var(--muted); line-height:var(--lh-tight); }
-    .order-card-foot { display:flex; align-items:baseline; gap:0.45rem; margin-top:0.5rem; }
-    .order-card-price { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-2xl); color:var(--green-dark); letter-spacing:-1px; line-height:1; }
-    .order-card-unit { font-size:var(--text-xs); color:var(--muted-light); font-weight:500; }
-    .order-card-cta { margin-top:0.9rem; display:flex; align-items:center; justify-content:center; gap:0.4rem; background:var(--green-dark); color:white; font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); padding:0.7rem 1rem; border-radius:var(--r-sm); transition:background 0.15s; }
-    .order-card:hover .order-card-cta { background:var(--green-mid); }
-    .order-card-featured { border-color:var(--green-dark); background:var(--green-dark); }
-    .order-card-featured .order-card-name, .order-card-featured .order-card-price { color:white; }
-    .order-card-featured .order-card-desc { color:rgba(255,255,255,0.82); }
-    .order-card-featured .order-card-unit { color:rgba(255,255,255,0.6); }
-    .order-card-featured .order-card-cta { background:var(--yellow); color:var(--green-dark); }
-    .order-card-featured:hover { transform:translateY(-3px); background:var(--green-mid); border-color:var(--green-mid); }
-    .order-card-featured:hover .order-card-cta { background:#ffd633; }
-    .order-save { position:absolute; top:-11px; right:1.1rem; background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-size:0.65rem; font-weight:800; letter-spacing:0.5px; padding:0.25rem 0.6rem; border-radius:6px; text-transform:uppercase; }
-    @media (max-width:760px){ .order-options { grid-template-columns:1fr; } }
 
     .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem 2.5rem; }
     .testimonial { display:flex; flex-direction:column; }
@@ -391,13 +375,11 @@
     <a href="#" class="brand-link" aria-label="Freshstart Juice — home"><img src="images/logo.png" alt="Freshstart Juice" class="brand-logo" width="1004" height="404" decoding="async"></a>
     <nav class="header-nav">
       <a href="#story">Story</a>
-      <a href="Shop.html">Shop</a>
       <a href="#flavors">Flavors</a>
       <a href="#batch-notes">Batch Notes</a>
-      <a href="Label History.html">Labels</a>
       <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">Instagram</a>
     </nav>
-    <a href="Shop.html" class="header-cta">Buy Now</a>
+    <a href="#early-access" class="header-cta">Join Early Access</a>
   </div>
 </header>
 
@@ -414,7 +396,7 @@
           <span class="pill">SF Bay</span>
         </div>
         <div class="hero-btns">
-          <a href="#order" class="btn btn-primary">Buy Now</a>
+          <a href="#early-access" class="btn btn-primary">Join Early Access</a>
           <a href="#flavors" class="btn btn-outline">See the Lineup</a>
         </div>
       </div>
@@ -460,7 +442,7 @@
     <div class="story-grid">
       <div class="story-media">
         <div class="story-img-wrap">
-          <img src="images/poster-ginger-boost.png" alt="Freshstart cold-pressed juice bottle with fresh ingredients" width="455" height="655" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <img src="images/ginger-boost-bottle-v2.jpg" alt="Freshstart cold-pressed juice bottle with fresh ingredients" width="455" height="655" loading="lazy" decoding="async" onerror="this.style.display='none'">
         </div>
         <div class="story-badge-below">Made with intention.</div>
       </div>
@@ -478,68 +460,113 @@
 
 <section id="flavors">
   <div class="container reveal">
-    <p class="section-label">Available now</p>
+    <p class="section-label">Current lineup</p>
     <h2 class="section-title">The flavors</h2>
-    <p class="section-desc">Two cold-pressed flavors in rotation right now. Grab a single bottle, or mix any four into a 4-pack.</p>
+    <p class="section-desc">Each batch is tested until it's right. Order available flavors now, or get notified when new ones drop.</p>
     <div class="flavors-grid">
 
-      <div class="flavor-card flavor-card-show">
+      <div class="flavor-card">
         <div class="flavor-top">
-          <img src="images/roots-refresh-bottle.png" alt="Roots Refresh cold-pressed juice bottle" class="flavor-bottle-photo" width="800" height="800" loading="lazy" decoding="async">
-          <span class="flavor-badge badge-popular">Available now</span>
+          <img src="images/roots-bottle-v3.png" alt="Roots+ cold-pressed juice bottle" class="flavor-bottle-photo" width="336" height="436" loading="lazy" decoding="async">
+          <span class="flavor-badge badge-popular">Popular</span>
         </div>
         <div>
-          <div class="flavor-name">Roots Refresh</div>
-          <div class="flavor-desc">Beets · Watermelon · Ginger · Mint · Lime</div>
+          <div class="flavor-name">Roots+</div>
+          <div class="flavor-desc">Beets · Cucumber · Ginger · Carrot · Apple · Lime · Turmeric · Mint</div>
         </div>
-        <div class="flavor-tag">12 oz &middot; cold-pressed &middot; $9 a bottle</div>
+        <div class="flavor-packs">
+          <div class="flavor-packs-label">Choose your pack</div>
+          <div class="pack-row">
+            <a href="https://buy.stripe.com/eVq9AU2NH0ThgPj6caeQM04" target="_blank" rel="noopener" class="pack-btn" aria-label="Buy 1 bottle of Roots+ for $9">
+              <span class="pack-size">1 bottle</span>
+              <span class="pack-price">$9</span>
+            </a>
+            <a href="https://buy.stripe.com/7sY9AUewp6dBgPj1VUeQM02" target="_blank" rel="noopener" class="pack-btn" aria-label="Buy 3-pack of Roots+ for $27">
+              <span class="pack-size">3-pack</span>
+              <span class="pack-price">$27</span>
+            </a>
+            <a href="https://buy.stripe.com/eVq7sM5ZT8lJfLf442eQM01" target="_blank" rel="noopener" class="pack-btn pack-btn-featured" aria-label="Buy 6-pack of Roots+ for $48, save $6">
+              <span class="pack-save">Save $6</span>
+              <span class="pack-size">6-pack</span>
+              <span class="pack-price">$48</span>
+            </a>
+          </div>
+          <div class="pack-secure">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="6" rx="1.2"></rect><path d="M5 7V5a3 3 0 0 1 6 0v2"></path></svg>
+            Secure checkout via Stripe
+          </div>
+        </div>
       </div>
 
-      <div class="flavor-card flavor-card-show">
+      <div class="flavor-card">
         <div class="flavor-top">
-          <img src="images/poster-ginger-boost.png" alt="Ginger Boost cold-pressed juice bottle" class="flavor-bottle-photo" width="455" height="655" loading="lazy" decoding="async">
-          <span class="flavor-badge badge-popular">Available now</span>
+          <img src="images/melon-bottle-v3.png" alt="Melon Refresh cold-pressed juice bottle" class="flavor-bottle-photo" width="455" height="655" loading="lazy" decoding="async">
+          <span class="flavor-badge badge-popular">New</span>
+        </div>
+        <div>
+          <div class="flavor-name">Melon Refresh</div>
+          <div class="flavor-desc">Watermelon · Lime · Ginger · Mint</div>
+        </div>
+        <div class="flavor-packs">
+          <div class="flavor-packs-label">Choose your pack</div>
+          <div class="pack-row">
+            <a href="#" target="_blank" rel="noopener" class="pack-btn" aria-label="Buy 1 bottle of Melon Refresh for $9">
+              <span class="pack-size">1 bottle</span>
+              <span class="pack-price">$9</span>
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="pack-btn" aria-label="Buy 3-pack of Melon Refresh for $27">
+              <span class="pack-size">3-pack</span>
+              <span class="pack-price">$27</span>
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="pack-btn pack-btn-featured" aria-label="Buy 6-pack of Melon Refresh for $48, save $6">
+              <span class="pack-save">Save $6</span>
+              <span class="pack-size">6-pack</span>
+              <span class="pack-price">$48</span>
+            </a>
+          </div>
+          <div class="pack-secure">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="6" rx="1.2"></rect><path d="M5 7V5a3 3 0 0 1 6 0v2"></path></svg>
+            Secure checkout via Stripe
+          </div>
+        </div>
+      </div>
+
+      <div class="flavor-card">
+        <div class="flavor-top">
+          <img src="images/ginger-boost-bottle-v2.jpg" alt="Ginger Boost cold-pressed juice bottle" class="flavor-bottle-photo" width="455" height="655" loading="lazy" decoding="async">
+          <span class="flavor-badge badge-popular">New</span>
         </div>
         <div>
           <div class="flavor-name">Ginger Boost</div>
-          <div class="flavor-desc">Ginger · Pineapple · Cucumber · Lime · Vanilla · Anise</div>
+          <div class="flavor-desc">Ginger · Pineapple · Cucumber · Lemon · Vanilla · Anise </div>
         </div>
-        <div class="flavor-tag">12 oz &middot; cold-pressed &middot; $9 a bottle</div>
+        <div class="flavor-packs">
+          <div class="flavor-packs-label">Choose your pack</div>
+          <div class="pack-row">
+            <a href="#" target="_blank" rel="noopener" class="pack-btn" aria-label="Buy 1 bottle of Ginger Boost for $9">
+              <span class="pack-size">1 bottle</span>
+              <span class="pack-price">$9</span>
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="pack-btn" aria-label="Buy 3-pack of Ginger Boost for $27">
+              <span class="pack-size">3-pack</span>
+              <span class="pack-price">$27</span>
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="pack-btn pack-btn-featured" aria-label="Buy 6-pack of Ginger Boost for $48, save $6">
+              <span class="pack-save">Save $6</span>
+              <span class="pack-size">6-pack</span>
+              <span class="pack-price">$48</span>
+            </a>
+          </div>
+          <div class="pack-secure">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="6" rx="1.2"></rect><path d="M5 7V5a3 3 0 0 1 6 0v2"></path></svg>
+            Secure checkout via Stripe
+          </div>
+        </div>
       </div>
 
     </div>
-
-    <div class="order-block" id="order">
-      <div class="order-block-label">Order now</div>
-      <div class="order-options">
-        <a href="https://buy.stripe.com/9B6bJ2cohgSf42xdECeQM09" target="_blank" rel="noopener" class="order-card" aria-label="Buy a single bottle for $9">
-          <div class="order-card-name">Single Bottle</div>
-          <div class="order-card-desc">One 12 oz cold-pressed juice. Pick either flavor at checkout.</div>
-          <div class="order-card-foot">
-            <span class="order-card-price">$9</span>
-            <span class="order-card-unit">per bottle</span>
-          </div>
-          <span class="order-card-cta">Buy a single &rarr;</span>
-        </a>
-        <a href="https://buy.stripe.com/bJebJ21JD8lJbuZeIGeQM08" target="_blank" rel="noopener" class="order-card order-card-featured" aria-label="Buy a mix and match 4-pack for $27">
-          <span class="order-save">Save $9</span>
-          <div class="order-card-name">Mix &amp; Match 4-Pack</div>
-          <div class="order-card-desc">Four 12 oz cold-pressed juices. Mix any flavors &mdash; buy 3, get 1 free.</div>
-          <div class="order-card-foot">
-            <span class="order-card-price">$27</span>
-            <span class="order-card-unit">4 bottles &middot; $6.75 each</span>
-          </div>
-          <span class="order-card-cta">Build your 4-pack &rarr;</span>
-        </a>
-      </div>
-      <div class="pack-secure">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="10" height="6" rx="1.2"></rect><path d="M5 7V5a3 3 0 0 1 6 0v2"></path></svg>
-        Secure checkout via Stripe
-      </div>
-    </div>
-
     <p class="flavors-note">
-      Flavors rotate by batch &middot; DM <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">@freshstart.juice</a> for current availability
+      Flavors rotate by batch · DM <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">@freshstart.juice</a> for current availability
     </p>
   </div>
 </section>
@@ -1028,7 +1055,7 @@
               <div class="batch-section-label">Focus</div>
               <ul class="batch-items">
                 <li>Produced Roots+ using same recipe and process — baseline consistency</li>
-                <li>Introduced new flavor: Roots Refresh (beets, watermelon, ginger, mint, lime)</li>
+                <li>Introduced new flavor: Roots Refresh (beet, watermelon, mint, lemon)</li>
                 <li>Completed first full bottling run (10 bottles)</li>
                 <li>Developed cleaning, bottling, and storage protocols</li>
                 <li>Established labeling system (2x4 format with QR feedback loop)</li>
@@ -1273,12 +1300,19 @@
           </div>
           <div class="pricing-price">$9</div>
         </div>
-        <div class="pricing-row featured">
+        <div class="pricing-row">
           <div>
-            <div class="pricing-item">Mix &amp; Match 4-Pack <span class="best-value">BEST VALUE</span></div>
-            <div class="pricing-item-sub">Mix any flavors &middot; buy 3, get 1 free &mdash; save $9</div>
+            <div class="pricing-item">3-pack</div>
+            <div class="pricing-item-sub">Mix &amp; match flavors</div>
           </div>
           <div class="pricing-price">$27</div>
+        </div>
+        <div class="pricing-row featured">
+          <div>
+            <div class="pricing-item">6-pack <span class="best-value">BEST VALUE</span></div>
+            <div class="pricing-item-sub">Save $6 — most popular order</div>
+          </div>
+          <div class="pricing-price">$48</div>
         </div>
         <div class="pricing-row">
           <div>
@@ -1357,10 +1391,8 @@
       <div class="footer-mission">Small batches. Real ingredients. Made for people who actually read labels.</div>
       <div class="footer-links">
         <a href="#story">Story</a>
-        <a href="Shop.html">Shop</a>
         <a href="#flavors">Flavors</a>
         <a href="#batch-notes">Batch Notes</a>
-        <a href="Label History.html">Label Archive</a>
         <a href="#reviews">Reviews</a>
         <a href="#early-access">Early Access</a>
         <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">Instagram</a>
