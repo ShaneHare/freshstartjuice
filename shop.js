@@ -58,9 +58,9 @@ const PROGRESSION = ['pure-celery', 'melon-refresh', 'citrus-glow', 'ginger-boos
    All four packs are wired live. Kits (below) still need links. */
 const PACKS = [
   { id: 'single',   size: 1,  price: 9,   name: 'Single Bottle',    tag: 'One 12 oz cold-pressed juice',              per: 9.00, stripe: 'https://buy.stripe.com/9B6bJ2cohgSf42xdECeQM09', noSub: true },
-  { id: 'wellness', size: 6,  price: 49,  name: 'Freshstart Juice - Wellness Pack (6 Pack)', tag: '6 juices · mix & match any flavors', per: 8.17, stripe: 'https://buy.stripe.com/14AcN64VPdG38iN442eQM0a', featured: true },
-  { id: 'family',   size: 12, price: 96,  name: 'Freshstart Juice - Family Pack (12 Pack)',   tag: '12 juices · stock the fridge',       per: 8.00, stripe: 'https://buy.stripe.com/aFa28scohbxVcz37geeQM0b' },
-  { id: 'reset3',   size: 18, price: 145, name: 'Freshstart Juice - 3-Day Reset (18 Pack)',   tag: '18 juices · guided wellness program', per: 8.06, stripe: 'https://buy.stripe.com/aFa00kdsl45taqVbwueQM0c', guided: true }
+  { id: 'wellness', size: 6,  price: 49,  name: 'Freshstart Juices - Wellness Pack (6 Pack)', tag: '6 juices · mix & match any flavors', per: 8.17, stripe: 'https://buy.stripe.com/14AcN64VPdG38iN442eQM0a', featured: true },
+  { id: 'family',   size: 12, price: 96,  name: 'Freshstart Juices - Family Pack (12 Pack)',   tag: '12 juices · stock the fridge',       per: 8.00, stripe: 'https://buy.stripe.com/aFa28scohbxVcz37geeQM0b' },
+  { id: 'reset3',   size: 18, price: 145, name: 'Freshstart Juices - 3-Day Reset (18 Pack)',   tag: '18 juices · guided wellness program', per: 8.06, stripe: 'https://buy.stripe.com/aFa00kdsl45taqVbwueQM0c', guided: true }
 ];
 
 /* ---- FULFILLMENT ------------------------------------------- */
@@ -187,7 +187,7 @@ function renderPacks() {
     return `<button class="packcard ${active ? 'is-active' : ''}" data-pack="${p.id}">
       ${save}
       <span class="pc-size">${p.size} ${p.size === 1 ? 'bottle' : 'bottles'}</span>
-      <span class="pc-name">${p.name.replace('Freshstart Juice - ', '')}</span>
+      <span class="pc-name">${p.name.replace('Freshstart Juices - ', '')}</span>
       <span class="pc-price">${money(p.price)}</span>
       <span class="pc-per">${money(p.per)}/bottle</span>
     </button>`;
