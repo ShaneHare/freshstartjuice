@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe &amp; Save — Freshstart Juices</title>
+  <meta name="description" content="Set up your Freshstart Juices subscription — pick your pack, flavors, and delivery schedule, and save 5% on every order.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --green-dark:#1B4332; --green-mid:#2D6A4F; --green-fresh:#40916C;
+      --green-light:#D8F3DC; --cream:#FAFAF7; --warm-white:#FFFFFF;
+      --charcoal:#1A1A1A; --muted:#4B5563; --muted-light:#6B7280;
+      --yellow:#F6C90E; --border:#E5E7EB;
+      --text-xs:0.75rem; --text-sm:0.875rem; --text-base:1rem;
+      --text-lg:1.125rem; --text-xl:1.375rem; --text-2xl:2.25rem;
+      --lh-tight:1.6; --lh-prose:1.75; --r-sm:10px; --r-lg:20px;
+      --shadow:0 4px 24px rgba(0,0,0,0.06);
+      --max-w:860px;
+    }
+    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--charcoal); font-size:var(--text-base); line-height:var(--lh-prose); -webkit-font-smoothing:antialiased; }
+    .container { max-width:var(--max-w); margin:0 auto; padding:0 1.25rem; }
+    .site-header { background:var(--warm-white); border-bottom:1px solid var(--border); }
+    .header-inner { display:flex; align-items:center; justify-content:space-between; padding:0.5rem 0; max-width:var(--max-w); margin:0 auto; padding-left:1.25rem; padding-right:1.25rem; }
+    .brand-logo { height:72px; width:auto; display:block; }
+    .back-link { font-size:var(--text-sm); font-weight:600; color:var(--green-dark); text-decoration:none; }
+    .back-link:hover { color:var(--green-fresh); }
+    h1 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:var(--text-2xl); color:var(--green-dark); letter-spacing:-1px; line-height:1.1; margin:2rem 0 0.4rem; }
+    .lede { color:var(--muted); margin-bottom:0.75rem; max-width:560px; }
+    .save-pill { display:inline-block; background:var(--green-light); color:var(--green-mid); font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); padding:0.25rem 0.7rem; border-radius:var(--r-sm); margin-bottom:1.75rem; }
+    .card { background:var(--warm-white); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.5rem; margin-bottom:1.25rem; box-shadow:var(--shadow); }
+    .step-head { display:flex; align-items:center; gap:0.6rem; margin-bottom:1rem; }
+    .step-num { width:26px; height:26px; border-radius:50%; background:var(--green-dark); color:white; font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-xs); display:grid; place-items:center; flex-shrink:0; }
+    .step-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-lg); color:var(--green-dark); }
+    .opt-row { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; }
+    .opt { border:1.5px solid var(--border); border-radius:var(--r-sm); background:var(--warm-white); padding:0.85rem 1rem; text-align:left; cursor:pointer; font-family:'Inter',sans-serif; transition:border-color 0.15s, background 0.15s; }
+    .opt.is-active { border-color:var(--green-dark); background:var(--green-light); }
+    .opt strong { display:block; font-size:var(--text-sm); color:var(--green-dark); font-weight:700; }
+    .opt span { display:block; font-size:var(--text-xs); color:var(--muted); line-height:1.5; }
+    .opt em { font-style:normal; background:var(--yellow); color:var(--green-dark); font-size:0.65rem; font-weight:700; padding:0.1rem 0.4rem; border-radius:4px; margin-left:0.35rem; vertical-align:1px; }
+    .flavor-row { display:flex; align-items:center; justify-content:space-between; padding:0.55rem 0; border-bottom:1px solid var(--border); }
+    .flavor-row:last-child { border-bottom:none; }
+    .flavor-label { font-size:var(--text-sm); font-weight:600; color:var(--charcoal); }
+    .flavor-blend { font-size:var(--text-xs); color:var(--muted-light); display:block; }
+    .stepper { display:flex; align-items:center; gap:0.6rem; }
+    .stepper button { width:30px; height:30px; border-radius:50%; border:1.5px solid var(--border); background:var(--warm-white); font-size:1rem; font-weight:600; color:var(--green-dark); cursor:pointer; line-height:1; }
+    .stepper button:hover { border-color:var(--green-fresh); }
+    .stepper .cnt { min-width:20px; text-align:center; font-weight:700; font-size:var(--text-sm); }
+    .box-note { font-size:var(--text-sm); font-weight:600; margin-top:0.75rem; }
+    .box-note.ok { color:var(--green-fresh); }
+    .box-note.warn { color:#B45309; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; }
+    .form-grid .full { grid-column:1 / -1; }
+    label.f-label { display:block; font-size:var(--text-xs); font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.4px; margin-bottom:0.3rem; }
+    input, textarea { width:100%; font-family:'Inter',sans-serif; font-size:var(--text-sm); padding:0.65rem 0.8rem; border:1.5px solid var(--border); border-radius:var(--r-sm); background:var(--warm-white); color:var(--charcoal); }
+    input:focus, textarea:focus { outline:none; border-color:var(--green-fresh); }
+    textarea { resize:vertical; min-height:70px; }
+    .summary { background:var(--green-dark); color:white; border-radius:var(--r-lg); padding:1.5rem; }
+    .sum-row { display:flex; justify-content:space-between; font-size:var(--text-sm); padding:0.3rem 0; }
+    .sum-row.save { color:var(--yellow); font-weight:600; }
+    .sum-total { display:flex; justify-content:space-between; font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-lg); border-top:1px solid rgba(255,255,255,0.25); margin-top:0.6rem; padding-top:0.7rem; }
+    .sum-cadence { font-size:var(--text-xs); opacity:0.85; margin-top:0.35rem; }
+    .go-btn { display:block; width:100%; text-align:center; background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-base); padding:0.9rem; border:none; border-radius:var(--r-sm); cursor:pointer; margin-top:1.1rem; transition:transform 0.15s, filter 0.15s; }
+    .go-btn:hover { transform:translateY(-1px); filter:brightness(1.05); }
+    .go-btn:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
+    .secure-note { text-align:center; font-size:var(--text-xs); opacity:0.8; margin-top:0.6rem; }
+    .fine { font-size:var(--text-xs); color:var(--muted-light); text-align:center; margin:1.25rem 0 3rem; line-height:1.7; }
+    .success-wrap { display:none; text-align:center; padding:3rem 1rem; }
+    .success-wrap .check { width:56px; height:56px; border-radius:50%; background:var(--green-light); color:var(--green-mid); font-size:1.6rem; display:grid; place-items:center; margin:0 auto 1rem; }
+    @media (max-width:640px) { .opt-row, .form-grid { grid-template-columns:1fr; } h1 { font-size:1.6rem; } }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" aria-label="Freshstart Juices — home"><img src="images/logo-2026-v2.png" alt="Freshstart Juices" class="brand-logo" width="848" height="854" decoding="async"></a>
+    <a href="Shop.html" class="back-link">&larr; Back to shop</a>
+  </div>
+</header>
+
+<div class="container">
+  <h1>Set up your subscription</h1>
+  <p class="lede">Tell us how you'd like your juice delivered. You'll review everything, then head to secure Stripe checkout.</p>
+  <span class="save-pill">Subscribe &amp; Save 5% on every delivery</span>
+
+  <form id="subForm">
+
+    <div class="card">
+      <div class="step-head"><span class="step-num">1</span><span class="step-title">Your pack</span></div>
+      <div class="opt-row" id="packRow"></div>
+    </div>
+
+    <div class="card">
+      <div class="step-head"><span class="step-num">2</span><span class="step-title">Delivery schedule</span></div>
+      <div class="opt-row">
+        <button type="button" class="opt" data-cadence="biweekly"><strong>Every 2 weeks<em>Recommended</em></strong><span>Fresh juice twice a month — never run out.</span></button>
+        <button type="button" class="opt" data-cadence="monthly"><strong>Monthly</strong><span>One delivery per month.</span></button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="step-head"><span class="step-num">3</span><span class="step-title">Your flavor mix</span></div>
+      <div id="flavorList"></div>
+      <div class="box-note" id="boxNote"></div>
+    </div>
+
+    <div class="card">
+      <div class="step-head"><span class="step-num">4</span><span class="step-title">Your details</span></div>
+      <div class="form-grid">
+        <div><label class="f-label" for="subName">Full name</label><input type="text" id="subName" autocomplete="name" required></div>
+        <div><label class="f-label" for="subPhone">Phone</label><input type="tel" id="subPhone" autocomplete="tel" placeholder="(510) 555-0123" required></div>
+        <div class="full"><label class="f-label" for="subEmail">Email</label><input type="email" id="subEmail" autocomplete="email" required></div>
+        <div class="full"><label class="f-label" for="subAddress">Delivery address</label><input type="text" id="subAddress" autocomplete="street-address" placeholder="Street, city, ZIP" required></div>
+        <div class="full"><label class="f-label" for="subNotes">Delivery notes (optional)</label><textarea id="subNotes" placeholder="Gate code, preferred drop-off spot, allergies…"></textarea></div>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div class="sum-row"><span id="sumPackName"></span><span id="sumSubtotal"></span></div>
+      <div class="sum-row save"><span>Subscribe &amp; Save (5%)</span><span id="sumSave"></span></div>
+      <div class="sum-total"><span>Per delivery</span><span id="sumTotal"></span></div>
+      <div class="sum-cadence" id="sumCadence"></div>
+      <button type="submit" class="go-btn" id="goBtn">Continue to secure payment &rarr;</button>
+      <div class="secure-note">Automatic payment each delivery · pause or cancel anytime · powered by Stripe</div>
+    </div>
+  </form>
+
+  <div class="success-wrap" id="successWrap">
+    <div class="check">&#10003;</div>
+    <h1 style="margin-top:0;">You're almost set!</h1>
+    <p class="lede" style="margin:0 auto 1rem;">We've received your subscription details. Your secure Stripe payment link is on its way to your email — complete payment there and your first delivery is locked in. <strong>Start Fresh. Stay Fresh.</strong></p>
+    <a href="index.html" class="back-link">&larr; Back to Freshstart Juices</a>
+  </div>
+
+  <p class="fine">Questions? Email <a href="mailto:info@freshstartjuiceproject.com">info@freshstartjuiceproject.com</a> or DM <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">@freshstart.juice</a>.<br>Prices shown per delivery. You can change flavors, pause, or cancel your subscription anytime.</p>
+</div>
+
+<script>
+/* ============================================================
+   STRIPE SUBSCRIPTION LINKS — paste your discounted recurring
+   payment links from Stripe here. Create one recurring price per
+   pack + cadence (5% off the one-time price), then a Payment Link
+   for each. Leave '' to fall back to email follow-up.
+   ============================================================ */
+const STRIPE_SUB_LINKS = {
+  wellness: { biweekly: 'https://buy.stripe.com/9B6eVe3RL7hF42xasqeQM0j', monthly: 'https://buy.stripe.com/9B6eVe3RL7hF42xasqeQM0j' },   /* 6-pack  · $46.55/delivery */
+  family:   { biweekly: 'https://buy.stripe.com/6oUdRa3RL59xbuZ6caeQM0i', monthly: 'https://buy.stripe.com/6oUdRa3RL59xbuZ6caeQM0i' },   /* 12-pack · $91.20/delivery */
+  reset3:   { biweekly: 'https://buy.stripe.com/dRmfZi1JDeK7eHb6caeQM0g', monthly: 'https://buy.stripe.com/dRmfZi1JDeK7eHb6caeQM0g' }    /* 18-pack · $137.75/delivery */
+};
+
+const SUB_DISCOUNT = 0.05;
+const PACKS = [
+  { id:'wellness', size:6,  price:49,  name:'Wellness Pack (6)' },
+  { id:'family',   size:12, price:96,  name:'Family Pack (12)' },
+  { id:'reset3',   size:18, price:145, name:'3-Day Reset (18)' }
+];
+const FLAVORS = [
+  { id:'pure-celery',  name:'Pure Celery',  blend:'100% Celery' },
+  { id:'melon-refresh',name:'Melon Refresh',blend:'Watermelon · Lime · Ginger · Mint' },
+  { id:'citrus-glow',  name:'Citrus Glow',  blend:'Orange · Lemon · Carrot · Turmeric' },
+  { id:'ginger-boost', name:'Ginger Boost', blend:'Pineapple · Ginger · Cucumber · Citrus' },
+  { id:'roots-plus',   name:'Roots+',       blend:'Beets · Carrot · Apple · Turmeric' },
+  { id:'roots-refresh',name:'Roots Refresh',blend:'Beets · Watermelon · Ginger · Mint' }
+];
+
+const qs = new URLSearchParams(location.search);
+const state = {
+  packId: PACKS.some(p => p.id === qs.get('pack')) ? qs.get('pack') : 'wellness',
+  cadence: qs.get('cadence') === 'monthly' ? 'monthly' : 'biweekly',
+  box: {}
+};
+FLAVORS.forEach(f => state.box[f.id] = 0);
+(qs.get('box') || '').split(',').forEach(pair => {
+  const [id, n] = pair.split(':');
+  if (state.box[id] !== undefined) state.box[id] = Math.max(0, parseInt(n, 10) || 0);
+});
+
+const $ = s => document.querySelector(s);
+const money = n => '$' + n.toFixed(2);
+const getPack = () => PACKS.find(p => p.id === state.packId);
+const boxCount = () => Object.values(state.box).reduce((a, b) => a + b, 0);
+
+function render() {
+  const pack = getPack();
+  $('#packRow').innerHTML = PACKS.map(p => `
+    <button type="button" class="opt ${p.id === state.packId ? 'is-active' : ''}" data-pack="${p.id}">
+      <strong>${p.name}</strong><span>${money(p.price * (1 - SUB_DISCOUNT))} per delivery &middot; ${money(p.price * (1 - SUB_DISCOUNT) / p.size)}/bottle</span>
+    </button>`).join('');
+  document.querySelectorAll('[data-cadence]').forEach(b =>
+    b.classList.toggle('is-active', b.dataset.cadence === state.cadence));
+  $('#flavorList').innerHTML = FLAVORS.map(f => `
+    <div class="flavor-row">
+      <div><span class="flavor-label">${f.name}</span><span class="flavor-blend">${f.blend}</span></div>
+      <div class="stepper">
+        <button type="button" data-dec="${f.id}" aria-label="Fewer ${f.name}">&minus;</button>
+        <span class="cnt">${state.box[f.id]}</span>
+        <button type="button" data-inc="${f.id}" aria-label="More ${f.name}">+</button>
+      </div>
+    </div>`).join('');
+  const remaining = pack.size - boxCount();
+  const note = $('#boxNote');
+  if (remaining === 0) { note.textContent = 'Perfect — your box is full.'; note.className = 'box-note ok'; }
+  else if (remaining > 0) { note.textContent = remaining + ' more bottle' + (remaining === 1 ? '' : 's') + ' to fill your ' + pack.size + '-pack.'; note.className = 'box-note warn'; }
+  else { note.textContent = 'Remove ' + (-remaining) + ' bottle' + (remaining === -1 ? '' : 's') + ' — this pack holds ' + pack.size + '.'; note.className = 'box-note warn'; }
+  const sub = pack.price, save = sub * SUB_DISCOUNT;
+  $('#sumPackName').textContent = pack.name;
+  $('#sumSubtotal').textContent = money(sub);
+  $('#sumSave').textContent = '−' + money(save);
+  $('#sumTotal').textContent = money(sub - save);
+  $('#sumCadence').textContent = 'Billed automatically ' + (state.cadence === 'biweekly' ? 'every 2 weeks' : 'once a month') + ' · first delivery after checkout';
+}
+
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-pack],[data-cadence],[data-inc],[data-dec]');
+  if (!el) return;
+  if (el.dataset.pack) state.packId = el.dataset.pack;
+  else if (el.dataset.cadence) state.cadence = el.dataset.cadence;
+  else if (el.dataset.inc) { if (boxCount() < getPack().size) state.box[el.dataset.inc]++; }
+  else if (el.dataset.dec) state.box[el.dataset.dec] = Math.max(0, state.box[el.dataset.dec] - 1);
+  render();
+});
+
+$('#subForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const pack = getPack();
+  if (boxCount() !== pack.size) { $('#boxNote').scrollIntoView({ behavior:'smooth', block:'center' }); return; }
+  const btn = $('#goBtn');
+  btn.disabled = true; btn.textContent = 'Saving your details…';
+  const flavorsTxt = FLAVORS.filter(f => state.box[f.id] > 0).map(f => state.box[f.id] + '× ' + f.name).join(', ');
+  const fd = new FormData();
+  fd.append('_subject', '[Freshstart Juices] New Subscription — ' + $('#subName').value);
+  fd.append('Name', $('#subName').value);
+  fd.append('Email', $('#subEmail').value);
+  fd.append('Phone', $('#subPhone').value);
+  fd.append('Pack', pack.name);
+  fd.append('Cadence', state.cadence === 'biweekly' ? 'Every 2 weeks' : 'Monthly');
+  fd.append('Flavors', flavorsTxt);
+  fd.append('Address', $('#subAddress').value);
+  fd.append('Notes', $('#subNotes').value);
+  fd.append('Per-delivery total', money(pack.price * (1 - SUB_DISCOUNT)));
+  try { await fetch('https://formsubmit.co/ajax/info@freshstartjuiceproject.com', { method:'POST', body:fd }); } catch (_) {}
+  const link = (STRIPE_SUB_LINKS[state.packId] || {})[state.cadence] || '';
+  if (link) {
+    window.location.href = link;
+  } else {
+    $('#subForm').style.display = 'none';
+    document.querySelector('h1').style.display = 'none';
+    document.querySelector('.lede').style.display = 'none';
+    document.querySelector('.save-pill').style.display = 'none';
+    $('#successWrap').style.display = 'block';
+    window.scrollTo({ top:0 });
+  }
+});
+
+render();
+</script>
+</body>
+</html>

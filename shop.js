@@ -66,9 +66,9 @@ const PACKS = [
 /* ---- FULFILLMENT ------------------------------------------- */
 const SUB_DISCOUNT = 0.05; // Subscribe & Save 5%
 const ZONES = [
-  { id: 'z1', name: 'San Leandro', fee: 0 },
-  { id: 'z2', name: 'Oakland · Alameda · San Lorenzo · Castro Valley', fee: 5 },
-  { id: 'z3', name: 'Hayward · Union City', fee: 8 }
+  { id: 'z1', name: 'San Leandro', fee: 7 },
+  { id: 'z2', name: 'Oakland · Alameda · San Lorenzo · Castro Valley', fee: 10 },
+  { id: 'z3', name: 'Hayward · Union City', fee: 20 }
 ];
 
 /* ---- GOAL BUNDLES ------------------------------------------ */
@@ -97,7 +97,7 @@ const KIT_EXTRAS = ['Freshstart Wellness Guide', 'Wellness checklist', 'Welcome 
 const state = {
   packId: 'wellness',
   purchase: 'subscribe',   // 'subscribe' | 'onetime'
-  cadence: 'monthly',
+  cadence: 'biweekly',
   box: {},                 // flavorId -> count
   focus: 'roots-refresh',
   fulfill: 'pickup',       // 'pickup' | 'delivery' | 'ship'
@@ -214,8 +214,8 @@ function renderPurchase() {
   $('#cadenceWrap').innerHTML = sub ? `
     <div class="field-label">Delivers every</div>
     <div class="cadence-row">
-      <button class="cad ${state.cadence === 'monthly' ? 'is-active' : ''}" data-cadence="monthly">Monthly <em>Recommended</em></button>
-      <button class="cad is-disabled" disabled>Every 2 weeks <em>Coming soon</em></button>
+      <button class="cad ${state.cadence === 'biweekly' ? 'is-active' : ''}" data-cadence="biweekly">Every 2 weeks <em>Recommended</em></button>
+      <button class="cad ${state.cadence === 'monthly' ? 'is-active' : ''}" data-cadence="monthly">Monthly</button>
     </div>` : '';
 }
 
@@ -325,12 +325,12 @@ function openCart() {
   const lines = FLAVORS.filter(f => state.box[f.id] > 0)
     .map(f => `<div class="cart-line"><span>${state.box[f.id]} × ${f.name}</span></div>`).join('');
   const fulfillName = { pickup: 'Local Pickup', delivery: 'Local Delivery', ship: 'California Shipping' }[state.fulfill];
-  const purchaseLabel = t.sub ? `Subscription · delivers monthly` : 'One-time purchase';
+  const purchaseLabel = t.sub ? `Subscription · delivers ${state.cadence === 'biweekly' ? 'every 2 weeks' : 'monthly'}` : 'One-time purchase';
 
   // contextual cross-sell
   let upsell = '';
   if (!t.sub && !t.pack.noSub) {
-    upsell = `<div class="cart-upsell"><div><strong>Subscribe & save 5%</strong><span>Same box, delivered monthly — pause anytime.</span></div><button class="upsell-btn" data-upsell="subscribe">Switch</button></div>`;
+    upsell = `<div class="cart-upsell"><div><strong>Subscribe & save 5%</strong><span>Same box, delivered every 2 weeks or monthly — pause anytime.</span></div><button class="upsell-btn" data-upsell="subscribe">Switch</button></div>`;
   } else if (t.pack.size <= 6) {
     upsell = `<div class="cart-upsell"><div><strong>Upgrade to the 12-bottle Family Pack</strong><span>Drop to $8.00/bottle and stock the fridge.</span></div><button class="upsell-btn" data-upsell="family">Add</button></div>`;
   }
@@ -351,7 +351,13 @@ function openCart() {
     </div>`;
 
   const co = $('#checkoutBtn');
-  if (t.pack.stripe) {
+  if (t.sub) {
+    /* Subscription: collect details on the subscription page first */
+    const boxStr = FLAVORS.filter(f => state.box[f.id] > 0).map(f => f.id + ':' + state.box[f.id]).join(',');
+    co.href = 'subscribe.html?pack=' + state.packId + '&cadence=' + state.cadence + '&box=' + encodeURIComponent(boxStr);
+    co.classList.remove('is-pending');
+    co.textContent = 'Set up my subscription';
+  } else if (t.pack.stripe) {
     co.href = t.pack.stripe;
     co.classList.remove('is-pending');
     co.textContent = 'Checkout';

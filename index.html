@@ -198,6 +198,8 @@
 
     .flavor-card-show { gap:1rem; }
     .flavor-tag { font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; letter-spacing:0.3px; color:var(--green-fresh); margin-top:auto; padding-top:0.6rem; border-top:1px solid var(--border); }
+    .flavor-buy { display:block; text-align:center; background:var(--green-dark); color:white; font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; padding:0.55rem 0.75rem; border-radius:var(--r-sm); text-decoration:none; letter-spacing:0.3px; transition:background 0.15s,transform 0.15s; }
+    .flavor-buy:hover { background:var(--green-mid); transform:translateY(-1px); }
     .order-block { scroll-margin-top:96px; margin-top:1.75rem; background:var(--warm-white); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.75rem; box-shadow:var(--shadow); }
     .order-block-label { font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--green-fresh); margin-bottom:1rem; }
     .order-options { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
@@ -396,7 +398,7 @@
       <a href="Shop.html">Shop</a>
       <a href="#flavors">Flavors</a>
       <a href="#batch-notes">Batch Notes</a>
-      <a href="Label History.html">Labels</a>
+      <a href="Label History.html">Archive</a>
       <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">Instagram</a>
     </nav>
     <a href="Shop.html" class="header-cta">Buy Now</a>
@@ -450,8 +452,8 @@
 <div class="stats-strip">
   <div class="container">
     <div class="stats-grid">
-      <div><div class="stat-num">100+</div><div class="stat-lbl">Early Access Members</div></div>
-      <div><div class="stat-num">5</div><div class="stat-lbl">Signature Flavors</div></div>
+      <div><div class="stat-num">51</div><div class="stat-lbl">5-Star Reviews</div></div>
+      <div><div class="stat-num">6</div><div class="stat-lbl">Signature Flavors</div></div>
       <div><div class="stat-num">0</div><div class="stat-lbl">Additives. Ever.</div></div>
       <div><div class="stat-num">SF Bay</div><div class="stat-lbl">Locally Sourced</div></div>
     </div>
@@ -463,17 +465,16 @@
     <div class="story-grid">
       <div class="story-media">
         <div class="story-img-wrap">
-          <img src="images/backyard-garden.jpg" alt="The backyard garden where FreshStart began, with fruit trees and a stone path" width="1439" height="871" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <img src="images/backyard-garden.jpg" alt="The backyard garden where Freshstart began, with fruit trees and a stone path" width="1439" height="871" loading="lazy" decoding="async" onerror="this.style.display='none'">
         </div>
         <div class="story-badge-below">Made with intention.</div>
       </div>
       <div class="story-content">
         <p class="section-label">It Started Here.</p>
-        <blockquote>FreshStart began in our backyard with apples, lemons, limes, and oranges we grew ourselves.</blockquote>
+        <blockquote>Freshstart began in our backyard with apples, lemons, limes, and oranges we grew ourselves.</blockquote>
         <p>What started as a way to enjoy fresh fruit became a passion for creating simple, honest juice made with real ingredients and thoughtful care.</p>
         <p>Today, every bottle is made in small batches using fresh produce, refined through continuous learning, and crafted with intention. We believe great juice starts long before it's bottled — from responsibly sourcing ingredients and reducing waste to constantly improving our process with every batch.</p>
         <p>Our goal isn't just to make juice. It's to make healthier choices easier. Because we believe every small step toward better nutrition can lead to something bigger. <strong>Start Fresh. Stay Fresh.</strong></p>
-        <a href="#early-access" class="btn btn-primary story-cta">Join the Founders List</a>
       </div>
     </div>
   </div>
@@ -496,6 +497,7 @@
           <div class="flavor-desc">100% Celery</div>
         </div>
         <div class="flavor-tag">12 oz &middot; cold-pressed &middot; $9 a bottle</div>
+        <a href="Shop.html" class="flavor-buy" aria-label="Buy in the shop">Buy Now &rarr;</a>
       </div>
 
       <div class="flavor-card flavor-card-show">
@@ -508,6 +510,7 @@
           <div class="flavor-desc">Watermelon · Lime · Ginger · Mint</div>
         </div>
         <div class="flavor-tag">12 oz &middot; cold-pressed &middot; $9 a bottle</div>
+        <a href="Shop.html" class="flavor-buy" aria-label="Buy in the shop">Buy Now &rarr;</a>
       </div>
 
       <div class="flavor-card flavor-card-show">
@@ -520,6 +523,7 @@
           <div class="flavor-desc">Orange · Lemon · Carrot · Turmeric</div>
         </div>
         <div class="flavor-tag">12 oz &middot; cold-pressed &middot; $9 a bottle</div>
+        <a href="Shop.html" class="flavor-buy" aria-label="Buy in the shop">Buy Now &rarr;</a>
       </div>
 
       <div class="flavor-card flavor-card-show">
@@ -532,6 +536,7 @@
           <div class="flavor-desc">Pineapple · Ginger · Cucumber · Orange · Lemon · Vanilla · Star Anise</div>
         </div>
         <div class="flavor-tag">12 oz &middot; cold-pressed &middot; $9 a bottle</div>
+        <a href="Shop.html" class="flavor-buy" aria-label="Buy in the shop">Buy Now &rarr;</a>
       </div>
 
       <div class="flavor-card flavor-card-show">
@@ -544,6 +549,7 @@
           <div class="flavor-desc">Beets · Cucumber · Carrot · Apple · Ginger · Lime · Turmeric · Mint</div>
         </div>
         <div class="flavor-tag">12 oz &middot; cold-pressed &middot; $9 a bottle</div>
+        <a href="Shop.html" class="flavor-buy" aria-label="Buy in the shop">Buy Now &rarr;</a>
       </div>
 
       <div class="flavor-card flavor-card-show">
@@ -556,6 +562,7 @@
           <div class="flavor-desc">Beets · Watermelon · Ginger · Mint · Lime</div>
         </div>
         <div class="flavor-tag">12 oz &middot; cold-pressed &middot; $9 a bottle</div>
+        <a href="Shop.html" class="flavor-buy" aria-label="Buy in the shop">Buy Now &rarr;</a>
       </div>
 
     </div>
@@ -603,7 +610,7 @@
     <div class="testimonials-grid">
       <div class="testimonial">
         <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"The Citrus Boost is legit. You can taste the difference right away. My morning routine changed after the first bottle."</p>
+        <p class="testimonial-text">"The Citrus Glow is legit. You can taste the difference right away. My morning routine changed after the first bottle."</p>
         <div class="testimonial-author"><strong>Sim H.</strong>San Leandro, CA</div>
       </div>
       <div class="testimonial">
@@ -638,14 +645,14 @@
           <span class="batch-equipment">Sustainability &amp; Process</span>
         </div>
         <div class="batch-body">
-          <p style="font-size:var(--text-sm);color:var(--charcoal);line-height:var(--lh-prose);font-weight:500;margin-bottom:1.4rem;">This week we focused on making FreshStart more sustainable. Cold-pressed juice uses a lot of water to wash produce and clean equipment. Instead of sending it down the drain, we collect and reuse it to water the backyard garden where FreshStart first began.</p>
+          <p style="font-size:var(--text-sm);color:var(--charcoal);line-height:var(--lh-prose);font-weight:500;margin-bottom:1.4rem;">This week we focused on making Freshstart more sustainable. Cold-pressed juice uses a lot of water to wash produce and clean equipment. Instead of sending it down the drain, we collect and reuse it to water the backyard garden where Freshstart first began.</p>
           <div class="batch-cols">
             <div>
               <div class="batch-section-label">♻️ A second life for produce</div>
               <ul class="batch-items">
                 <li>Fruit scraps, vegetable trimmings, and fresh pulp go into our <strong>compost</strong></li>
                 <li>We've even started making small batches of <strong>pineapple tea</strong> from the pineapple skins</li>
-                <li>Wash water is collected and reused in the garden where FreshStart began</li>
+                <li>Wash water is collected and reused in the garden where Freshstart began</li>
               </ul>
             </div>
             <div>
@@ -682,18 +689,18 @@
           <button type="button" class="batch-toggle" aria-label="Expand Batch 15" aria-expanded="false"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,5 8,11 13,5"></polyline></svg></button>
         </div>
         <div class="batch-body">
-          <p style="font-size:var(--text-sm);color:var(--charcoal);line-height:var(--lh-prose);font-weight:500;margin-bottom:1.4rem;">This week was a big milestone for FreshStart. 🥤 Our focus was fulfilling our first 3-Day FreshStart Reset orders, featuring all six of our signature cold-pressed blends. Seeing customers take the next step in their wellness journey has been incredibly rewarding. Behind the scenes, we also invested in making FreshStart smarter and more efficient.</p>
+          <p style="font-size:var(--text-sm);color:var(--charcoal);line-height:var(--lh-prose);font-weight:500;margin-bottom:1.4rem;">This week was a big milestone for Freshstart. 🥤 Our focus was fulfilling our first 3-Day Freshstart Reset orders, featuring all six of our signature cold-pressed blends. Seeing customers take the next step in their wellness journey has been incredibly rewarding. Behind the scenes, we also invested in making Freshstart smarter and more efficient.</p>
           <div class="batch-cols">
             <div>
               <div class="batch-section-label">✅ This week's progress</div>
               <ul class="batch-items">
                 <li>Fulfilled our first <strong>3-Day Wellness Reset Packs</strong></li>
-                <li>Built our own <strong>FreshStart Operations App</strong> to streamline production</li>
+                <li>Built our own <strong>Freshstart Operations App</strong> to streamline production</li>
                 <li>The goal is simple: spend less time on paperwork and more time creating fresh, high-quality juice</li>
               </ul>
             </div>
             <div>
-              <div class="batch-section-label">⚙️ FreshStart Operations App</div>
+              <div class="batch-section-label">⚙️ Freshstart Operations App</div>
               <ul class="batch-items">
                 <li>Automatic recipe scaling based on customer orders</li>
                 <li>Shopping lists and ingredient planning</li>
@@ -850,7 +857,7 @@
 
           <div class="batch-takeaway">
             <div class="batch-takeaway-label">Recipe development notes</div>
-            <p>Batch 11 remains an active Research &amp; Development formulation. The focus is on creating a bold, refreshing juice that highlights the strong ginger profile preferred by our Oakland and Bay Area customers. As with all FreshStart recipes, data from each batch is used to continuously improve flavor, consistency, and yield. Future batches will evaluate replacing lemon with orange to further refine flavor and acidity balance. <strong>Status: 🟡 Research &amp; Development. Start fresh. Stay fresh.</strong></p>
+            <p>Batch 11 remains an active Research &amp; Development formulation. The focus is on creating a bold, refreshing juice that highlights the strong ginger profile preferred by our Oakland and Bay Area customers. As with all Freshstart recipes, data from each batch is used to continuously improve flavor, consistency, and yield. Future batches will evaluate replacing lemon with orange to further refine flavor and acidity balance. <strong>Status: 🟡 Research &amp; Development. Start fresh. Stay fresh.</strong></p>
           </div>
         </div>
       </div>
@@ -1481,48 +1488,6 @@
           <div class="pricing-price" style="color:var(--green-fresh);">Free</div>
         </div>
       </div>
-      <p class="pricing-note">Early Access members get first pick on every limited batch. <a href="#early-access">Join the list →</a></p>
-    </div>
-  </div>
-</section>
-
-<section id="early-access">
-  <div class="container reveal">
-    <div class="access-section">
-      <div class="access-inner">
-        <p class="section-label">Limited access</p>
-        <h2 class="section-title">Freshstart Founders Club</h2>
-        <p class="section-desc">Be first in line for small-batch releases, new flavors and early drops. Made in real time. Shared first with you.</p>
-        <form id="signup-form"
-              action="https://app.kit.com/forms/9362286/subscriptions"
-              method="post"
-              class="seva-form formkit-form"
-              data-sv-form="9362286"
-              data-uid="93100d3bf1"
-              data-format="inline"
-              data-version="5">
-          <div class="form-row">
-            <input type="text" class="form-input formkit-input" id="access-name" name="fields[first_name]" placeholder="First name" autocomplete="given-name" required aria-label="First name">
-            <input type="text" class="form-input formkit-input" id="access-last" name="fields[last_name]" placeholder="Last name" autocomplete="family-name" aria-label="Last name">
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-input formkit-input" id="access-email" name="email_address" placeholder="Email address" autocomplete="email" required aria-label="Email address">
-          </div>
-          <!-- honeypot: real users never fill this -->
-          <input type="text" name="fields[hp_website]" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
-          <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert" style="display:none;"></ul>
-          <button type="submit" class="btn btn-yellow btn-full formkit-submit" data-element="submit" id="submit-btn"><span>Join the Early Access List →</span></button>
-          <p class="form-note">No spam. No nonsense. Just juice drops when the next batch is ready.</p>
-          <div id="form-error" class="form-error">
-            Something went wrong on our end. Email us at <a href="/cdn-cgi/l/email-protection#cca5a2aaa38caabea9bfa4bfb8adbeb8a6b9a5afa9bcbea3a6a9afb8e2afa3a1"><span class="__cf_email__" data-cfemail="dcb5b2bab39cbaaeb9afb4afa8bdaea8b6a9b5bfb9acaeb3b6b9bfa8f2bfb3b1">[email&#160;protected]</span></a> or DM <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">@freshstart.juice</a> to join the list.
-          </div>
-        </form>
-        <div class="form-success" id="signup-success">
-          <div class="checkmark">✓</div>
-          <h3>You're on the list.</h3>
-          <p>We'll reach out the moment the next batch is ready. Stay fresh.</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1555,7 +1520,6 @@
         <a href="#batch-notes">Batch Notes</a>
         <a href="Label History.html">Label Archive</a>
         <a href="#reviews">Reviews</a>
-        <a href="#early-access">Early Access</a>
         <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">Instagram</a>
         <a href="/cdn-cgi/l/email-protection#95fcfbf3fad5f3e7f0e6fde6e1f4e7e1ffe0fcf6f0e5e7fafff0f6e1bbf6faf8">Contact</a>
       </div>
@@ -1618,7 +1582,7 @@
     setState();
   });
 
-  // Early Access form → Kit (kit.com) — Founders Club form 9362286 (uid 93100d3bf1)
+  // Kit (kit.com) form plumbing — used by the Notify-me modal.
   // Kit's subscription endpoint is CORS-blocked, so a fetch() from the browser
   // never reliably records the subscriber. Instead we do a REAL native form POST
   // into a hidden iframe: this is exactly what Kit's own embed does, it is not
@@ -1669,66 +1633,7 @@
     });
   }
 
-  function pulse(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.focus();
-    el.style.borderColor = '#F87171';
-    setTimeout(() => el.style.borderColor = '', 2000);
-  }
 
-  // Honeypot + timing check. Bots tend to auto-fill all fields and submit
-  // within ~1s of page load; humans take longer.
-  const _pageLoaded = Date.now();
-  const _signupForm = document.getElementById('signup-form');
-  const _submitBtn  = document.getElementById('submit-btn');
-  const _errEl      = document.getElementById('form-error');
-
-  function _showAccessSuccess() {
-    // Data has already been POSTed to Kit successfully at this point.
-    // Briefly reflect success on the button, then send them to the thank-you page.
-    _submitBtn.querySelector('span').textContent = 'You\u2019re in! \u2192';
-    window.location.href = 'thank-you.html';
-  }
-  function _resetSubmitBtn() {
-    _submitBtn.querySelector('span').textContent = 'Join the Early Access List →';
-    _submitBtn.disabled = false;
-  }
-  function _showAccessError() {
-    _resetSubmitBtn();
-    if (_errEl) _errEl.style.display = 'block';
-  }
-
-  _signupForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const hp = _signupForm.querySelector('[name="fields[hp_website]"]');
-    const elapsed = Date.now() - _pageLoaded;
-    // Bot signals: honeypot filled OR submitted in under 1.5s.
-    // Fake success so bots don't know they were caught (don't hit Kit).
-    if ((hp && hp.value) || elapsed < 1500) {
-      _showAccessSuccess();
-      return;
-    }
-
-    const firstName = document.getElementById('access-name').value.trim();
-    const lastName  = document.getElementById('access-last').value.trim();
-    const email     = document.getElementById('access-email').value.trim();
-    if (!firstName) { pulse('access-name'); return; }
-    if (!email || !email.includes('@')) { pulse('access-email'); return; }
-
-    if (_errEl) _errEl.style.display = 'none';
-    _submitBtn.querySelector('span').textContent = 'Joining…';
-    _submitBtn.disabled = true;
-
-    // Native POST into the hidden iframe — CORS-free, always recorded by Kit.
-    await postToKit({
-      email_address: email,
-      'fields[first_name]': firstName,
-      'fields[last_name]': lastName
-    });
-    _showAccessSuccess();
-  });
 
   // Notify-me modal
   let _flavor = '';
