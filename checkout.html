@@ -46,8 +46,11 @@
     .chip-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; }
     .chip { border:1.5px solid var(--border); border-radius:14px; background:var(--warm-white); padding:0.7rem 0.75rem; transition:border-color 0.15s, background 0.15s; }
     .chip.has { border-color:var(--green-dark); background:var(--green-light); }
+    .chip-top { display:flex; align-items:center; gap:0.55rem; margin-bottom:0.55rem; }
+    .chip-img { width:38px; height:38px; border-radius:8px; object-fit:cover; object-position:50% 35%; flex-shrink:0; }
+    .chip-text { min-width:0; }
     .chip-name { font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); color:var(--green-dark); line-height:1.2; }
-    .chip-blend { font-size:0.68rem; color:var(--muted-light); display:block; margin-top:1px; margin-bottom:0.55rem; }
+    .chip-blend { font-size:0.68rem; color:var(--muted-light); display:block; margin-top:1px; }
     .chip-row { display:flex; align-items:center; justify-content:space-between; }
     .chip-add { width:100%; border:1.5px dashed var(--border); border-radius:8px; background:none; color:var(--green-dark); font-weight:700; font-size:var(--text-sm); padding:0.4rem; }
     .chip.has .chip-add { display:none; }
@@ -155,11 +158,15 @@
 
 <script>
 const PRODUCTS = {
-  single:   { id:'single',   name:'Single Bottle', size:1,  price:9,   curated:false, stripe:'https://buy.stripe.com/9B6bJ2cohgSf42xdECeQM09' },
+  single:   { id:'single',   name:'Single Bottle', size:1,  price:9,   curated:false, openQty:true, stripe:'https://buy.stripe.com/9B6bJ2cohgSf42xdECeQM09' },
   wellness: { id:'wellness', name:'Wellness Pack', size:6,  price:49,  curated:false, stripe:'https://buy.stripe.com/14AcN64VPdG38iN442eQM0a' },
   family:   { id:'family',   name:'Family Pack',    size:12, price:96,  curated:false, stripe:'https://buy.stripe.com/aFa28scohbxVcz37geeQM0b' },
   reset3:   { id:'reset3',   name:'3-Day Wellness Reset', size:18, price:145, curated:true, stripe:'https://buy.stripe.com/aFa00kdsl45taqVbwueQM0c' }
 };
+/* The 3-Day Reset's curated assortment is fixed at 3 bottles of each of
+   these 6 juice blends (3x6=18) -- do not add to this array, it would
+   break that math. Newer flavors go in EXTRA_FLAVORS instead, which are
+   only offered on the mix & match products (Single/Wellness/Family). */
 const FLAVORS = [
   { id:'pure-celery',   name:'Pure Celery',   blend:'100% Celery' },
   { id:'melon-refresh', name:'Melon Refresh', blend:'Watermelon · Lime · Ginger · Mint' },
@@ -168,6 +175,10 @@ const FLAVORS = [
   { id:'roots-plus',    name:'Roots+',        blend:'Beets · Carrot · Apple · Turmeric' },
   { id:'roots-refresh', name:'Roots Refresh', blend:'Beets · Watermelon · Ginger · Mint' }
 ];
+const EXTRA_FLAVORS = [
+  { id:'island-citrus-tea', name:'Island Citrus Tea', blend:'Pineapple Peel · Orange Peel · Lime Peel · Botanical Tea' }
+];
+const PICKER_FLAVORS = FLAVORS.concat(EXTRA_FLAVORS);
 const ZONES = [
   { id:'z1', name:'San Leandro', fee:7 },
   { id:'z2', name:'Oakland · Alameda · San Lorenzo · Castro Valley', fee:10 },
@@ -176,8 +187,9 @@ const ZONES = [
 
 const qs = new URLSearchParams(location.search);
 const product = PRODUCTS[qs.get('product')] || PRODUCTS.wellness;
+const activeFlavors = product.curated ? FLAVORS : PICKER_FLAVORS;
 const state = { fulfill:'pickup', zone:'z1', box:{} };
-FLAVORS.forEach(f => state.box[f.id] = product.curated ? product.size / FLAVORS.length : 0);
+activeFlavors.forEach(f => state.box[f.id] = product.curated ? product.size / FLAVORS.length : 0);
 
 const $ = s => document.querySelector(s);
 const money = n => '$' + n.toFixed(2);
@@ -186,7 +198,7 @@ const boxCount = () => Object.values(state.box).reduce((a, b) => a + b, 0);
    6-bottle minimum, which naturally makes the Single Bottle pickup-only. */
 function fulfillAllowed(id) {
   if (id === 'pickup') return true;
-  if (id === 'delivery') return product.size >= 6;
+  if (id === 'delivery') return (product.openQty ? boxCount() : product.size) >= 6;
   return false;
 }
 const bottleWord = n => n === 1 ? 'bottle' : 'bottles';
@@ -195,8 +207,8 @@ function render() {
   document.title = product.name + ' — Freshstart Juices';
   $('#pageTitle').textContent = product.name;
   $('#pbName').textContent = product.name;
-  $('#pbSize').textContent = product.id === 'single' ? '1 bottle · choose your blend' : (product.size + ' bottles · ' + (product.curated ? 'curated assortment' : 'mix & match'));
-  $('#pbPrice').textContent = money(product.price);
+  $('#pbSize').textContent = product.openQty ? 'Any quantity · choose your blend(s)' : (product.size + ' bottles · ' + (product.curated ? 'curated assortment' : 'mix & match'));
+  $('#pbPrice').textContent = product.openQty ? money(product.price) + ' / bottle' : money(product.price);
 
   const count = boxCount();
   $('#stepOneTitle').textContent = product.curated ? 'Your assortment' : 'Pick your flavors';
@@ -206,8 +218,13 @@ function render() {
     $('#chipGrid').innerHTML = FLAVORS.map(f => {
       const q = state.box[f.id] || 0;
       return `<div class="chip has" style="cursor:default;">
-        <div class="chip-name">${f.name}</div>
-        <span class="chip-blend">${f.blend}</span>
+        <div class="chip-top">
+          <img class="chip-img" src="images/poster-${f.id}.png" alt="${f.name} cold-pressed juice" loading="lazy" decoding="async">
+          <div class="chip-text">
+            <div class="chip-name">${f.name}</div>
+            <span class="chip-blend">${f.blend}</span>
+          </div>
+        </div>
         <div class="chip-row"><span class="cnt" style="font-family:'Montserrat',sans-serif;">${q} bottles</span></div>
       </div>`;
     }).join('');
@@ -215,13 +232,20 @@ function render() {
     note.textContent = 'Want a different mix? Add substitution requests in Special Instructions below.';
     note.className = 'box-note ok';
   } else {
-    $('#boxCount').innerHTML = `<strong>${count}</strong> of ${product.size} ${bottleWord(product.size)} selected`;
-    $('#chipGrid').innerHTML = FLAVORS.map(f => {
+    $('#boxCount').innerHTML = product.openQty
+      ? `<strong>${count}</strong> ${bottleWord(count)} selected`
+      : `<strong>${count}</strong> of ${product.size} ${bottleWord(product.size)} selected`;
+    $('#chipGrid').innerHTML = activeFlavors.map(f => {
       const q = state.box[f.id] || 0;
-      const remaining = product.size - count;
+      const remaining = product.openQty ? Infinity : product.size - count;
       return `<div class="chip ${q > 0 ? 'has' : ''}">
-        <div class="chip-name">${f.name}</div>
-        <span class="chip-blend">${f.blend}</span>
+        <div class="chip-top">
+          <img class="chip-img" src="images/poster-${f.id}.png" alt="${f.name} cold-pressed juice" loading="lazy" decoding="async">
+          <div class="chip-text">
+            <div class="chip-name">${f.name}</div>
+            <span class="chip-blend">${f.blend}</span>
+          </div>
+        </div>
         <button type="button" class="chip-add" data-add="${f.id}" ${remaining <= 0 ? 'disabled' : ''}>+ Add</button>
         <div class="chip-stepper">
           <button type="button" data-dec="${f.id}" aria-label="Fewer ${f.name}">&minus;</button>
@@ -231,9 +255,14 @@ function render() {
       </div>`;
     }).join('');
     const note = $('#boxNote');
-    const remaining = product.size - count;
-    if (remaining === 0) { note.textContent = 'Perfect — your box is full.'; note.className = 'box-note ok'; }
-    else { note.textContent = 'Add ' + remaining + ' more bottle' + (remaining === 1 ? '' : 's') + ' to fill your ' + product.name.toLowerCase() + '.'; note.className = 'box-note warn'; }
+    if (product.openQty) {
+      if (count === 0) { note.textContent = 'Pick at least 1 bottle to continue.'; note.className = 'box-note warn'; }
+      else { note.textContent = 'Nice — ' + count + ' ' + bottleWord(count) + ' picked. Add more or continue.'; note.className = 'box-note ok'; }
+    } else {
+      const remaining = product.size - count;
+      if (remaining === 0) { note.textContent = 'Perfect — your box is full.'; note.className = 'box-note ok'; }
+      else { note.textContent = 'Add ' + remaining + ' more bottle' + (remaining === 1 ? '' : 's') + ' to fill your ' + product.name.toLowerCase() + '.'; note.className = 'box-note warn'; }
+    }
   }
 
   const fulfillOptions = [{ id:'pickup', name:'Pickup', note:'Free' }];
@@ -254,13 +283,14 @@ function render() {
   $('#coAddress').required = state.fulfill !== 'pickup';
 
   const deliveryFee = state.fulfill === 'delivery' ? ZONES.find(z => z.id === state.zone).fee : 0;
-  $('#sumName').textContent = product.name;
-  $('#sumSubtotal').textContent = money(product.price);
+  const subtotal = product.openQty ? product.price * count : product.price;
+  $('#sumName').textContent = product.openQty ? product.name + (count ? ' × ' + count : '') : product.name;
+  $('#sumSubtotal').textContent = money(subtotal);
   $('#sumDeliveryRow').style.display = state.fulfill === 'delivery' ? 'flex' : 'none';
   $('#sumDelivery').textContent = money(deliveryFee);
-  $('#sumTotal').textContent = money(product.price + deliveryFee);
+  $('#sumTotal').textContent = money(subtotal + deliveryFee);
 
-  $('#goBtn').disabled = count !== product.size;
+  $('#goBtn').disabled = product.openQty ? count < 1 : count !== product.size;
 }
 
 document.addEventListener('click', e => {
@@ -268,7 +298,7 @@ document.addEventListener('click', e => {
   if (!el) return;
   if (el.dataset.add || el.dataset.inc) {
     const id = el.dataset.add || el.dataset.inc;
-    if (boxCount() < product.size) state.box[id] = (state.box[id] || 0) + 1;
+    if (product.openQty || boxCount() < product.size) state.box[id] = (state.box[id] || 0) + 1;
   } else if (el.dataset.dec) {
     state.box[el.dataset.dec] = Math.max(0, state.box[el.dataset.dec] - 1);
   } else if (el.dataset.fulfill) {
@@ -281,15 +311,18 @@ document.addEventListener('click', e => {
 
 $('#coForm').addEventListener('submit', async e => {
   e.preventDefault();
-  if (boxCount() !== product.size) { $('#boxNote').scrollIntoView({ behavior:'smooth', block:'center' }); return; }
+  const finalCount = boxCount();
+  const validCount = product.openQty ? finalCount >= 1 : finalCount === product.size;
+  if (!validCount) { $('#boxNote').scrollIntoView({ behavior:'smooth', block:'center' }); return; }
   const btn = $('#goBtn');
   btn.disabled = true; btn.textContent = 'Saving your order…';
-  const flavorsTxt = FLAVORS.filter(f => state.box[f.id] > 0).map(f => state.box[f.id] + '× ' + f.name).join(', ');
+  const flavorsTxt = activeFlavors.filter(f => state.box[f.id] > 0).map(f => state.box[f.id] + '× ' + f.name).join(', ');
   const deliveryFee = state.fulfill === 'delivery' ? ZONES.find(z => z.id === state.zone).fee : 0;
   const fulfillName = { pickup:'Local Pickup', delivery:'Local Delivery' }[state.fulfill];
+  const subtotal = product.openQty ? product.price * finalCount : product.price;
   const orderPayload = {
     product: product.name,
-    size: product.size,
+    size: product.openQty ? finalCount : product.size,
     price: product.price,
     flavors: flavorsTxt,
     fulfillment: fulfillName,
@@ -300,7 +333,7 @@ $('#coForm').addEventListener('submit', async e => {
     phone: $('#coPhone').value,
     address: $('#coAddress').value,
     notes: $('#coNotes').value,
-    total: money(product.price + deliveryFee)
+    total: money(subtotal + deliveryFee)
   };
 
   /* Save the order first, status "Pending Payment," so nothing is lost
@@ -318,18 +351,41 @@ $('#coForm').addEventListener('submit', async e => {
     if (res.ok) { const data = await res.json(); orderId = data.orderId; }
   } catch (_) { orderId = null; }
 
-  if (!orderId) {
-    /* Order-saving is unreachable -- fall back to opening the
-       customer's own email client pre-filled with the order so it
-       still reaches Shane rather than vanishing silently. */
-    const bodyTxt = Object.entries(orderPayload).map(([k, v]) => k + ': ' + (v || '—')).join('%0D%0A');
-    window.open('mailto:info@freshstartjuiceproject.com?subject=' + encodeURIComponent('[Freshstart Juices] New Order (fallback) — ' + orderPayload.name) + '&body=' + bodyTxt, '_blank');
-  }
+  /* If order-saving is unreachable, proceed straight to Stripe without
+     an orderId rather than popping open an email client. This means
+     the order details (including Special Instructions) won't reach
+     Shane in that rare case -- tracked as a follow-up in
+     PROJECT-STATUS.md to build a better fallback. */
 
-  const stripeUrl = product.stripe && orderId ? product.stripe + '?client_reference_id=' + encodeURIComponent(orderId) : product.stripe;
+  /* Static Stripe Payment Links can't be pre-filled with a quantity via
+     URL parameter (confirmed by hand -- Stripe silently ignores it), so
+     the openQty product (Single Bottle) can't use the same flat
+     redirect as the fixed-size packs. Instead it asks
+     create-checkout-session to build a real Checkout Session server-side
+     with the right quantity as a line item, which always charges
+     correctly. */
+  let stripeUrl = '';
+  if (product.openQty) {
+    try {
+      const sessionRes = await fetch('/.netlify/functions/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ quantity: finalCount, orderId: orderId || undefined })
+      });
+      if (sessionRes.ok) { const data = await sessionRes.json(); stripeUrl = data.url || ''; }
+    } catch (_) { stripeUrl = ''; }
+  } else {
+    stripeUrl = product.stripe || '';
+    if (stripeUrl && orderId) stripeUrl += '?client_reference_id=' + encodeURIComponent(orderId);
+  }
 
   if (stripeUrl) {
     window.location.href = stripeUrl;
+  } else if (product.openQty) {
+    /* Checkout Session creation failed -- fall back to the static
+       Payment Link so the customer can still pay, though quantity
+       adjustment on that page is manual (Qty selector is enabled). */
+    window.location.href = product.stripe;
   } else {
     $('#coForm').style.display = 'none';
     document.querySelector('h1').style.display = 'none';
