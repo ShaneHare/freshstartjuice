@@ -1,23 +1,27 @@
 # Fresh Start — Project Status & Next Steps
 
-_Last updated: August 6, 2026_
+_Last updated: August 8, 2026_
 
 ## What we're building
-Phase 1: the simplest possible Shop page — three fixed products, guided
+Phase 1: the simplest possible Shop page — four fixed products, guided
 flavor selection, straight to Stripe. Phase 2 (in progress): an order
 system behind it, so every order is saved the moment a customer submits
 the checkout form, then confirmed as "Paid" by a Stripe webhook.
 
 ## Files
-- **Shop.html** — hero + three product cards (Wellness Pack, Family Pack,
-  3-Day Wellness Reset) + concise FAQ + footer. No box builder, no cart,
-  no Subscribe & Save on this page.
-- **checkout.html** — one guided page per product (`?product=wellness` /
-  `family` / `reset3`). Tap-to-select flavor chips for Wellness/Family;
-  the 3-Day Reset shows a locked curated assortment (3 of each blend)
+- **Shop.html** — hero + three full product cards (Wellness Pack, Family
+  Pack, 3-Day Wellness Reset) + a smaller, visually secondary Single
+  Bottle row + concise FAQ + footer. No box builder, no cart, no
+  Subscribe & Save on this page.
+- **checkout.html** — one guided page per product (`?product=single` /
+  `wellness` / `family` / `reset3`). Tap-to-select flavor chips for
+  Single Bottle/Wellness/Family (capped at 1 for Single Bottle); the
+  3-Day Reset shows a locked curated assortment (3 of each blend)
   instead, since it's not meant to be mixed. Pickup or local delivery
-  only (no shipping yet). Saves the order via `create-order`, then
-  redirects to Stripe with `client_reference_id` attached.
+  only — no shipping anywhere in Phase 1. Delivery requires a 6-bottle
+  minimum, so Single Bottle is pickup-only. Saves the order via
+  `create-order`, then redirects to Stripe with `client_reference_id`
+  attached.
 - **thank-you.html** — post-purchase page. "Love FreshStart?" Juice Plan
   (Subscribe & Save 5%) pitch, collapsed behind "Learn About Juice Plans."
   Requires Shane to set each Stripe Payment Link's after-payment redirect
@@ -34,15 +38,17 @@ the checkout form, then confirmed as "Paid" by a Stripe webhook.
 - **Label History.html** — timeline of every label/photo era.
 - **index.html** — landing page (Story, Flavors, Batch Notes, Reviews).
 
-## Current catalog (Phase 1 — exactly 3 products)
+## Current catalog (Phase 1 — 4 products)
+- Single Bottle — 1 bottle, $9 — choose 1 blend, pickup only, visually
+  secondary card (not styled as "recommended")
 - Wellness Pack — 6 bottles, $49 ($8.17/btl) — mix & match
 - Family Pack — 12 bottles, $96 ($8.00/btl) — mix & match
 - 3-Day Wellness Reset — 18 bottles, $145 ($8.06/btl) — curated, 3 of each
   of the 6 blends, substitutions via Special Instructions
 
 Not on the public Shop page right now (kept in Stripe/code, not deleted):
-Single Bottle ($9), the 4-Pack Intro concept, and the premium Wellness
-Reset Kits ($72 / $179 with guide + checklist + card).
+the 4-Pack Intro concept, and the premium Wellness Reset Kits ($72 / $179
+with guide + checklist + card).
 
 ## Order flow (Phase 2, new)
 1. Customer fills out checkout.html and submits.
@@ -67,17 +73,18 @@ the customer still completes checkout on Stripe either way.
 
 ## Fulfillment (Phase 1)
 Pickup (free) and Local Delivery (San Leandro $7, Oakland/Alameda/San
-Lorenzo/Castro Valley $10, Hayward/Union City $20) on all three products.
-California Shipping is back, gated to the 3-Day Wellness Reset only
-(18-bottle minimum) — fee calculated at checkout, not shown as a fixed
-zone fee.
+Lorenzo/Castro Valley $10, Hayward/Union City $20) — no shipping anywhere.
+Delivery requires a 6-bottle minimum, so Single Bottle is pickup-only;
+Wellness, Family, and 3-Day Reset can use either.
 
 ## OPEN — next steps
-- Complete the Stripe + Netlify webhook setup (see STRIPE-WEBHOOK-SETUP.md),
-  then run one real or test-mode purchase end to end.
+- Finish validating the live order flow end to end (Shop → checkout →
+  Stripe → webhook → Blobs "Paid" → owner email) — a real order was in
+  progress when this Single Bottle update came in; resume or redo it
+  before considering the webhook setup fully proven.
 - Decide whether FormSubmit-for-owner-notification is good enough
   long-term or worth swapping for a real transactional email API.
 - Phase 2: hook the Operations App into paid orders in Netlify Blobs
   for recipe scaling, shopping lists, and production workflows.
-- Revisit Single Bottle, the 4-Pack, and the premium Kits as marketing/
-  promo-only offers (separate Payment Links, not on the main Shop page).
+- Revisit the 4-Pack and the premium Kits as marketing/promo-only offers
+  (separate Payment Links, not on the main Shop page).

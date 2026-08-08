@@ -59,7 +59,7 @@
     .box-note { font-size:var(--text-sm); font-weight:600; margin-top:0.85rem; }
     .box-note.ok { color:var(--green-fresh); }
     .box-note.warn { color:#B45309; }
-    .fulfill-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem; }
+    .fulfill-row { display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; }
     .fulfill { text-align:center; border:1.5px solid var(--border); border-radius:12px; background:var(--warm-white); padding:0.65rem 0.4rem; font-size:0.72rem; font-weight:700; color:var(--green-dark); transition:border-color 0.15s, background 0.15s; }
     .fulfill.is-active { border-color:var(--green-dark); background:var(--green-light); }
     .fulfill.is-disabled { opacity:0.4; cursor:not-allowed; }
@@ -138,7 +138,6 @@
       <div class="sum-row"><span id="sumName"></span><span id="sumSubtotal"></span></div>
       <div class="sum-row" id="sumDeliveryRow" style="display:none;"><span>Delivery</span><span id="sumDelivery"></span></div>
       <div class="sum-total"><span>Total</span><span id="sumTotal"></span></div>
-      <div id="sumShipNote" style="display:none; font-size:0.75rem; color:var(--yellow); margin-top:0.35rem;">+ shipping calculated at checkout</div>
       <button type="submit" class="go-btn" id="goBtn">Continue to secure payment &rarr;</button>
       <div class="secure-note">Notes go straight to us · powered by Stripe</div>
     </div>
@@ -156,6 +155,7 @@
 
 <script>
 const PRODUCTS = {
+  single:   { id:'single',   name:'Single Bottle', size:1,  price:9,   curated:false, stripe:'https://buy.stripe.com/9B6bJ2cohgSf42xdECeQM09' },
   wellness: { id:'wellness', name:'Wellness Pack', size:6,  price:49,  curated:false, stripe:'https://buy.stripe.com/14AcN64VPdG38iN442eQM0a' },
   family:   { id:'family',   name:'Family Pack',    size:12, price:96,  curated:false, stripe:'https://buy.stripe.com/aFa28scohbxVcz37geeQM0b' },
   reset3:   { id:'reset3',   name:'3-Day Wellness Reset', size:18, price:145, curated:true, stripe:'https://buy.stripe.com/aFa00kdsl45taqVbwueQM0c' }
@@ -182,20 +182,20 @@ FLAVORS.forEach(f => state.box[f.id] = product.curated ? product.size / FLAVORS.
 const $ = s => document.querySelector(s);
 const money = n => '$' + n.toFixed(2);
 const boxCount = () => Object.values(state.box).reduce((a, b) => a + b, 0);
-/* Shipping requires an 18-bottle minimum to justify the insulated
-   packaging/ice pack cost, so only the 3-Day Reset qualifies for now. */
+/* Phase 1: pickup or local delivery only, no shipping. Delivery has a
+   6-bottle minimum, which naturally makes the Single Bottle pickup-only. */
 function fulfillAllowed(id) {
   if (id === 'pickup') return true;
   if (id === 'delivery') return product.size >= 6;
-  if (id === 'ship') return product.size >= 18;
   return false;
 }
+const bottleWord = n => n === 1 ? 'bottle' : 'bottles';
 
 function render() {
   document.title = product.name + ' — Freshstart Juices';
   $('#pageTitle').textContent = product.name;
   $('#pbName').textContent = product.name;
-  $('#pbSize').textContent = product.size + ' bottles · ' + (product.curated ? 'curated assortment' : 'mix & match');
+  $('#pbSize').textContent = product.id === 'single' ? '1 bottle · choose your blend' : (product.size + ' bottles · ' + (product.curated ? 'curated assortment' : 'mix & match'));
   $('#pbPrice').textContent = money(product.price);
 
   const count = boxCount();
@@ -215,7 +215,7 @@ function render() {
     note.textContent = 'Want a different mix? Add substitution requests in Special Instructions below.';
     note.className = 'box-note ok';
   } else {
-    $('#boxCount').innerHTML = `<strong>${count}</strong> of ${product.size} bottles selected`;
+    $('#boxCount').innerHTML = `<strong>${count}</strong> of ${product.size} ${bottleWord(product.size)} selected`;
     $('#chipGrid').innerHTML = FLAVORS.map(f => {
       const q = state.box[f.id] || 0;
       const remaining = product.size - count;
@@ -238,13 +238,12 @@ function render() {
 
   $('#fulfillRow').innerHTML = [
     { id:'pickup',   name:'Pickup',   note:'Free' },
-    { id:'delivery', name:'Delivery', note:'By zone' },
-    { id:'ship',     name:'Shipping', note:'CA-wide' }
+    { id:'delivery', name:'Delivery', note:'By zone' }
   ].map(o => {
     const allowed = fulfillAllowed(o.id);
     const active = state.fulfill === o.id && allowed;
     return `<button type="button" class="fulfill ${active ? 'is-active' : ''} ${allowed ? '' : 'is-disabled'}" data-fulfill="${o.id}" ${allowed ? '' : 'disabled'}>
-      <span class="fu-name">${o.name}</span><span class="fu-note">${allowed ? o.note : (o.id === 'ship' ? '18+ only' : 'Not available')}</span>
+      <span class="fu-name">${o.name}</span><span class="fu-note">${allowed ? o.note : '6+ bottles'}</span>
     </button>`;
   }).join('');
 
@@ -255,14 +254,12 @@ function render() {
   $('#addressWrap').style.display = state.fulfill === 'pickup' ? 'none' : 'block';
   $('#coAddress').required = state.fulfill !== 'pickup';
 
-  const shipAtCheckout = state.fulfill === 'ship';
   const deliveryFee = state.fulfill === 'delivery' ? ZONES.find(z => z.id === state.zone).fee : 0;
   $('#sumName').textContent = product.name;
   $('#sumSubtotal').textContent = money(product.price);
   $('#sumDeliveryRow').style.display = state.fulfill === 'delivery' ? 'flex' : 'none';
   $('#sumDelivery').textContent = money(deliveryFee);
   $('#sumTotal').textContent = money(product.price + deliveryFee);
-  $('#sumShipNote').style.display = shipAtCheckout ? 'block' : 'none';
 
   $('#goBtn').disabled = count !== product.size;
 }
@@ -290,7 +287,7 @@ $('#coForm').addEventListener('submit', async e => {
   btn.disabled = true; btn.textContent = 'Saving your order…';
   const flavorsTxt = FLAVORS.filter(f => state.box[f.id] > 0).map(f => state.box[f.id] + '× ' + f.name).join(', ');
   const deliveryFee = state.fulfill === 'delivery' ? ZONES.find(z => z.id === state.zone).fee : 0;
-  const fulfillName = { pickup:'Local Pickup', delivery:'Local Delivery', ship:'California Shipping' }[state.fulfill];
+  const fulfillName = { pickup:'Local Pickup', delivery:'Local Delivery' }[state.fulfill];
   const orderPayload = {
     product: product.name,
     size: product.size,
