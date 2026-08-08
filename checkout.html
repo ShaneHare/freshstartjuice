@@ -236,14 +236,13 @@ function render() {
     else { note.textContent = 'Add ' + remaining + ' more bottle' + (remaining === 1 ? '' : 's') + ' to fill your ' + product.name.toLowerCase() + '.'; note.className = 'box-note warn'; }
   }
 
-  $('#fulfillRow').innerHTML = [
-    { id:'pickup',   name:'Pickup',   note:'Free' },
-    { id:'delivery', name:'Delivery', note:'By zone' }
-  ].map(o => {
-    const allowed = fulfillAllowed(o.id);
-    const active = state.fulfill === o.id && allowed;
-    return `<button type="button" class="fulfill ${active ? 'is-active' : ''} ${allowed ? '' : 'is-disabled'}" data-fulfill="${o.id}" ${allowed ? '' : 'disabled'}>
-      <span class="fu-name">${o.name}</span><span class="fu-note">${allowed ? o.note : '6+ bottles'}</span>
+  const fulfillOptions = [{ id:'pickup', name:'Pickup', note:'Free' }];
+  if (fulfillAllowed('delivery')) fulfillOptions.push({ id:'delivery', name:'Delivery', note:'By zone' });
+  $('#fulfillRow').style.gridTemplateColumns = fulfillOptions.length === 1 ? '1fr' : '1fr 1fr';
+  $('#fulfillRow').innerHTML = fulfillOptions.map(o => {
+    const active = state.fulfill === o.id;
+    return `<button type="button" class="fulfill ${active ? 'is-active' : ''}" data-fulfill="${o.id}">
+      <span class="fu-name">${o.name}</span><span class="fu-note">${o.note}</span>
     </button>`;
   }).join('');
 

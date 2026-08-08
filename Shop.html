@@ -75,17 +75,11 @@
     .pcard-btn { display:block; text-align:center; width:100%; border:none; background:var(--green-dark); color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-base); padding:0.95rem; border-radius:12px; margin-top:0.9rem; transition:background 0.15s,transform 0.15s; }
     .pcard-btn:hover { background:var(--green-mid); color:#fff; transform:translateY(-1px); }
 
-    /* ---- single bottle (secondary) ---- */
-    .pcard-mini { display:flex; align-items:center; gap:0.9rem; background:var(--warm-white); border:1px solid var(--border); border-radius:14px; padding:0.75rem 1rem; margin-top:1rem; }
-    .pcm-img { width:48px; height:48px; border-radius:10px; object-fit:cover; object-position:50% 35%; flex-shrink:0; }
-    .pcm-body { flex:1; min-width:0; }
-    .pcm-name { font-weight:700; font-size:var(--text-sm); color:var(--green-dark); }
-    .pcm-size { font-size:0.75rem; color:var(--muted-light); margin-top:1px; }
-    .pcm-desc { font-size:0.78rem; color:var(--muted); margin-top:2px; }
-    .pcm-cta { display:flex; align-items:center; gap:0.7rem; flex-shrink:0; }
-    .pcm-price { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-base); color:var(--green-dark); }
-    .pcm-btn { white-space:nowrap; border:1.5px solid var(--green-dark); background:none; color:var(--green-dark); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem; padding:0.55rem 0.9rem; border-radius:10px; transition:background 0.15s,color 0.15s; }
-    .pcm-btn:hover { background:var(--green-dark); color:#fff; }
+    /* ---- single bottle (same card style, own row, narrower = secondary) ---- */
+    .single-row { display:flex; justify-content:center; margin-top:1.25rem; }
+    .single-row .pcard { max-width:340px; width:100%; }
+    .pcard-visual.single-img { display:flex; align-items:center; justify-content:center; }
+    .pcard-visual.single-img img { position:static; width:44%; }
 
     /* ---- FAQ ---- */
     .sec { padding:3rem 0; }
@@ -115,10 +109,6 @@
       .product-grid { grid-template-columns:1fr; }
       .brand-logo { height:52px; }
       .hero h1 { font-size:1.6rem; }
-    }
-    @media (max-width:480px) {
-      .pcm-desc { display:none; }
-      .pcm-cta { flex-direction:column; align-items:flex-end; gap:0.35rem; }
     }
   </style>
 </head>
@@ -197,18 +187,21 @@
 
       </div>
 
-      <article class="pcard-mini">
-        <img class="pcm-img" src="images/poster-citrus-glow.png" alt="Single bottle of Freshstart cold-pressed juice" loading="lazy" decoding="async">
-        <div class="pcm-body">
-          <div class="pcm-name">Single Bottle</div>
-          <div class="pcm-size">1 bottle · choose your blend</div>
-          <p class="pcm-desc">Want to try a flavor or grab your favorite? Choose any available FreshStart blend.</p>
-        </div>
-        <div class="pcm-cta">
-          <div class="pcm-price">$9</div>
-          <a class="pcm-btn" href="checkout.html?product=single">Choose My Juice</a>
-        </div>
-      </article>
+      <div class="single-row">
+        <article class="pcard">
+          <div class="pcard-visual single-img">
+            <img src="images/poster-citrus-glow.png" alt="Single bottle of Freshstart cold-pressed juice" loading="lazy" decoding="async">
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-eyebrow">🧃 Just One</div>
+            <div class="pcard-name">Single Bottle</div>
+            <div class="pcard-size">1 bottle · choose your blend</div>
+            <p class="pcard-desc">Want to try a flavor or grab your favorite?</p>
+            <div class="pcard-price">$9</div>
+            <a class="pcard-btn" href="checkout.html?product=single">Choose My Juice</a>
+          </div>
+        </article>
+      </div>
 
     </div>
   </section>
