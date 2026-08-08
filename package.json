@@ -1,0 +1,13 @@
+{
+  "name": "freshstart-juices-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Freshstart Juices static site + Netlify Functions for order capture and Stripe webhook confirmation.",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^7.3.0",
+    "stripe": "^14.25.0"
+  }
+}

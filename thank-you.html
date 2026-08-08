@@ -3,14 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Freshstart Juices</title>
+  <title>Thank You — Freshstart Juices</title>
   <meta name="robots" content="noindex">
-  <meta http-equiv="refresh" content="0; url=index.html">
-  <link rel="canonical" href="https://freshstartjuiceproject.com/index.html">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <script>window.location.replace('index.html');</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --green-dark:#1B4332; --green-mid:#2D6A4F; --green-fresh:#40916C;
+      --green-light:#D8F3DC; --cream:#FAFAF7; --warm-white:#FFFFFF;
+      --charcoal:#1A1A1A; --muted:#4B5563; --muted-light:#6B7280;
+      --yellow:#F6C90E; --border:#E5E7EB;
+      --text-xs:0.75rem; --text-sm:0.875rem; --text-base:1rem;
+      --text-lg:1.125rem; --text-2xl:2.25rem;
+      --lh-prose:1.75; --r-sm:10px; --r-lg:20px;
+      --shadow:0 4px 24px rgba(0,0,0,0.06);
+      --max-w:600px;
+    }
+    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--charcoal); font-size:var(--text-base); line-height:var(--lh-prose); -webkit-font-smoothing:antialiased; }
+    .container { max-width:var(--max-w); margin:0 auto; padding:0 1.25rem; }
+    .site-header { background:var(--warm-white); border-bottom:1px solid var(--border); text-align:center; padding:0.75rem 0; }
+    .brand-logo { height:64px; width:auto; }
+    .wrap { text-align:center; padding:2.5rem 0 1.5rem; }
+    .check { width:56px; height:56px; border-radius:50%; background:var(--green-light); color:var(--green-mid); font-size:1.6rem; display:grid; place-items:center; margin:0 auto 1rem; }
+    h1 { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.6rem; color:var(--green-dark); letter-spacing:-1px; margin-bottom:0.4rem; }
+    .thanks-sub { color:var(--muted); font-size:var(--text-sm); max-width:420px; margin:0 auto; }
+    .plan-card { background:var(--warm-white); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.75rem 1.5rem; margin:2rem 0; box-shadow:var(--shadow); text-align:center; }
+    .plan-heart { font-size:1.75rem; margin-bottom:0.5rem; }
+    .plan-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.3rem; color:var(--green-dark); letter-spacing:-0.4px; }
+    .plan-lede { color:var(--muted); font-size:var(--text-sm); margin:0.6rem 0 0.9rem; }
+    .plan-pitch { font-weight:600; color:var(--green-dark); font-size:var(--text-sm); margin-bottom:1rem; }
+    .plan-list { list-style:none; text-align:left; max-width:340px; margin:0 auto 1.4rem; display:flex; flex-direction:column; gap:0.5rem; }
+    .plan-list li { font-size:var(--text-sm); color:var(--muted); padding-left:1.4rem; position:relative; }
+    .plan-list li::before { content:'✓'; position:absolute; left:0; color:var(--green-fresh); font-weight:700; }
+    .plan-btn { display:inline-block; background:var(--green-dark); color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-sm); padding:0.85rem 1.75rem; border:none; border-radius:12px; cursor:pointer; transition:background 0.15s; }
+    .plan-btn:hover { background:var(--green-mid); }
+    .plan-options { display:none; margin-top:1.5rem; border-top:1px solid var(--border); padding-top:1.25rem; text-align:left; }
+    .plan-options.open { display:block; }
+    .plan-opt { display:flex; justify-content:space-between; align-items:center; border:1.5px solid var(--border); border-radius:12px; padding:0.85rem 1rem; margin-bottom:0.6rem; }
+    .plan-opt-name { font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); color:var(--green-dark); }
+    .plan-opt-price { font-size:var(--text-xs); color:var(--muted-light); margin-top:2px; }
+    .plan-opt-go { background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-xs); padding:0.55rem 1rem; border:none; border-radius:8px; white-space:nowrap; }
+    .skip-link { display:block; text-align:center; font-size:var(--text-sm); color:var(--muted-light); margin-top:1.75rem; }
+    .skip-link:hover { color:var(--green-dark); }
+  </style>
 </head>
 <body>
-  <p>This page has moved. <a href="index.html">Continue to Freshstart Juices</a>.</p>
+
+<header class="site-header">
+  <a href="index.html" aria-label="Freshstart Juices — home"><img src="images/logo-2026-v2.png" alt="Freshstart Juices" class="brand-logo" width="848" height="854" decoding="async"></a>
+</header>
+
+<div class="container">
+  <div class="wrap">
+    <div class="check">&#10003;</div>
+    <h1>You're all set!</h1>
+    <p class="thanks-sub">Your order details are in — complete payment through the secure Stripe link and you're good to go. <strong>Start Fresh. Stay Fresh.</strong></p>
+  </div>
+
+  <div class="plan-card">
+    <div class="plan-heart">❤️</div>
+    <div class="plan-title">Love FreshStart?</div>
+    <p class="plan-lede">Making healthy choices is easier when they're part of your routine.</p>
+    <p class="plan-pitch">Join the FreshStart Juice Plan and save 5% on every recurring order.</p>
+    <ul class="plan-list">
+      <li>Fresh, small-batch juice delivered regularly</li>
+      <li>Flexible schedule</li>
+      <li>Skip, pause, or cancel anytime</li>
+    </ul>
+    <button type="button" class="plan-btn" id="planToggle">Learn About Juice Plans</button>
+
+    <div class="plan-options" id="planOptions">
+      <div class="plan-opt">
+        <div><div class="plan-opt-name">Wellness Pack Plan</div><div class="plan-opt-price">6 bottles · $46.55/delivery (5% off)</div></div>
+        <a class="plan-opt-go" href="https://buy.stripe.com/9B6eVe3RL7hF42xasqeQM0j">Start Plan</a>
+      </div>
+      <div class="plan-opt">
+        <div><div class="plan-opt-name">Family Pack Plan</div><div class="plan-opt-price">12 bottles · $91.20/delivery (5% off)</div></div>
+        <a class="plan-opt-go" href="https://buy.stripe.com/6oUdRa3RL59xbuZ6caeQM0i">Start Plan</a>
+      </div>
+      <div class="plan-opt">
+        <div><div class="plan-opt-name">3-Day Reset Plan</div><div class="plan-opt-price">18 bottles · $137.75/delivery (5% off)</div></div>
+        <a class="plan-opt-go" href="https://buy.stripe.com/dRmfZi1JDeK7eHb6caeQM0g">Start Plan</a>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html" class="skip-link">No thanks, take me back to Freshstart Juices</a>
+</div>
+
+<script>
+document.getElementById('planToggle').addEventListener('click', () => {
+  document.getElementById('planOptions').classList.toggle('open');
+});
+</script>
 </body>
 </html>

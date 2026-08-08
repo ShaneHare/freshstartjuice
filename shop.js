@@ -1,7 +1,8 @@
 /* ============================================================
-   Freshstart — Shop configurator
-   Single source of truth for flavors, packs, fulfillment.
-   Edit copy/prices here; the page renders from these objects.
+   RETIRED as of the Phase-1 Shop page simplification.
+   No page currently loads this file -- Shop.html and checkout.html
+   now carry their own small inline scripts. Left in the repo
+   (not deleted) in case any of this logic is useful again later.
    ============================================================ */
 
 /* ---- FLAVORS (order = display order) ------------------------ */
@@ -24,14 +25,14 @@ const FLAVORS = [
     id: 'citrus-glow', name: 'Citrus Glow', img: 'images/poster-citrus-glow.png', tint: '#FDEBCE',
     blend: 'Orange · Lemon · Carrot · Turmeric',
     tagline: 'Bright starts here.',
-    desc: 'Sweet oranges, fresh lemons, carrots, and turmeric combine for a smooth citrus blend bursting with vibrant flavor. Sunshine in a bottle that\u2019s made to brighten your day from the very first sip.',
+    desc: 'Sweet oranges, fresh lemons, carrots, and turmeric combine for a smooth citrus blend bursting with vibrant flavor. Sunshine in a bottle that’s made to brighten your day from the very first sip.',
     best: ['Vitamin C', 'Immune Support', 'Antioxidant Support', 'Daily Wellness']
   },
   {
     id: 'ginger-boost', name: 'Ginger Boost', img: 'images/poster-ginger-boost.png', tint: '#FCEFC7',
     blend: 'Pineapple · Ginger · Cucumber · Orange · Lemon · Vanilla · Star Anise',
     tagline: 'Bold by nature.',
-    desc: 'A vibrant, spicy blend of pineapple, fresh ginger, cucumber, orange, lemon, vanilla, and star anise that delivers bright citrus flavor with a warm ginger kick. Refreshing, invigorating, and handcrafted in small batches. If you love ginger, this one\u2019s for you.',
+    desc: 'A vibrant, spicy blend of pineapple, fresh ginger, cucumber, orange, lemon, vanilla, and star anise that delivers bright citrus flavor with a warm ginger kick. Refreshing, invigorating, and handcrafted in small batches. If you love ginger, this one’s for you.',
     best: ['Digestive Support', 'Immune Support', 'Vitamin C', 'Daily Energy']
   },
   {
@@ -54,17 +55,36 @@ const FLAVORS = [
 const PROGRESSION = ['pure-celery', 'melon-refresh', 'citrus-glow', 'ginger-boost', 'roots-plus', 'roots-refresh'];
 
 /* ---- PACKS -------------------------------------------------- */
-/* stripe: paste each pack's Stripe payment link once created.
-   All four packs are wired live. Kits (below) still need links. */
+/* Used to name/link each pricing tier at checkout (Stripe one-time
+   links live here). "size" is only used to lock the two premium
+   Kits below to their exact bottle count. */
 const PACKS = [
-  { id: 'single',   size: 1,  price: 9,   name: 'Single Bottle',    tag: 'One 12 oz cold-pressed juice',              per: 9.00, stripe: 'https://buy.stripe.com/9B6bJ2cohgSf42xdECeQM09', noSub: true },
-  { id: 'wellness', size: 6,  price: 49,  name: 'Freshstart Juices - Wellness Pack (6 Pack)', tag: '6 juices · mix & match any flavors', per: 8.17, stripe: 'https://buy.stripe.com/14AcN64VPdG38iN442eQM0a', featured: true },
-  { id: 'family',   size: 12, price: 96,  name: 'Freshstart Juices - Family Pack (12 Pack)',   tag: '12 juices · stock the fridge',       per: 8.00, stripe: 'https://buy.stripe.com/aFa28scohbxVcz37geeQM0b' },
-  { id: 'reset3',   size: 18, price: 145, name: 'Freshstart Juices - 3-Day Reset (18 Pack)',   tag: '18 juices · guided wellness program', per: 8.06, stripe: 'https://buy.stripe.com/aFa00kdsl45taqVbwueQM0c', guided: true }
+  { id: 'single',   size: 1,  name: 'Single Bottle',                                stripe: 'https://buy.stripe.com/9B6bJ2cohgSf42xdECeQM09' },
+  { id: 'wellness', size: 6,  name: 'Freshstart Juices - Wellness Pack (6 Pack)',   stripe: 'https://buy.stripe.com/14AcN64VPdG38iN442eQM0a' },
+  { id: 'family',   size: 12, name: 'Freshstart Juices - Family Pack (12 Pack)',    stripe: 'https://buy.stripe.com/aFa28scohbxVcz37geeQM0b' },
+  { id: 'reset3',   size: 18, name: 'Freshstart Juices - 3-Day Reset (18 Pack)',    stripe: 'https://buy.stripe.com/aFa00kdsl45taqVbwueQM0c' }
 ];
 
+/* ---- PRICING TIERS ------------------------------------------- */
+/* No pack has to be chosen up front. Add any flavors in any amount —
+   the per-bottle price automatically drops as the total climbs. */
+const TIERS = [
+  { id: 'single',   min: 1,  max: 5,   per: 9.00, packId: 'single',   label: 'Single-bottle pricing' },
+  { id: 'wellness', min: 6,  max: 11,  per: 8.17, packId: 'wellness', label: 'Wellness pricing' },
+  { id: 'family',   min: 12, max: 17,  per: 8.00, packId: 'family',   label: 'Family pricing' },
+  { id: 'reset3',   min: 18, max: 999, per: 8.06, packId: 'reset3',   label: '3-Day Reset pricing' }
+];
+const MAX_BOTTLES = 30;
+function tierFor(count) {
+  if (count <= 0) return TIERS[0];
+  return TIERS.find(t => count >= t.min && count <= t.max) || TIERS[TIERS.length - 1];
+}
+function nextTier(count) {
+  return TIERS.find(t => t.min > count) || null;
+}
+
 /* ---- FULFILLMENT ------------------------------------------- */
-const SUB_DISCOUNT = 0.05; // Subscribe & Save 5%
+const SUB_DISCOUNT = 0.05; // Subscribe & Save 5% (offered at checkout)
 const ZONES = [
   { id: 'z1', name: 'San Leandro', fee: 7 },
   { id: 'z2', name: 'Oakland · Alameda · San Lorenzo · Castro Valley', fee: 10 },
@@ -72,7 +92,8 @@ const ZONES = [
 ];
 
 /* ---- GOAL BUNDLES ------------------------------------------ */
-/* Curated trios; "Build this pack" fills a 6-bottle Wellness Pack (2 of each). */
+/* Curated trios; "Build this pack" starts a 6-bottle box (2 of each) —
+   customers can keep adding from there. */
 const GOALS = [
   { id: 'detox', name: 'Detox', tagline: 'Reset & cleanse',
     flavors: ['roots-plus', 'pure-celery', 'citrus-glow'],
@@ -86,7 +107,9 @@ const GOALS = [
 ];
 
 /* ---- PREMIUM WELLNESS KITS --------------------------------- */
-/* One-time; each includes 1 of every blend per day + physical extras. */
+/* One-time; each includes 1 of every blend per day + physical extras.
+   Fixed size (a "1-Day" or "3-Day" program), but the flavor mix inside
+   is still fully editable. */
 const KITS = [
   { id: 'kit1', packId: 'wellness', name: '1-Day Wellness Reset Kit', price: 72,  perBlend: 1, days: 1, stripe: 'https://buy.stripe.com/9B65kEfAtatRaqV2ZYeQM0e' },
   { id: 'kit3', packId: 'reset3',   name: '3-Day Wellness Reset Kit', price: 179, perBlend: 3, days: 3, stripe: 'https://buy.stripe.com/9B66oIbkd7hFeHbeIGeQM0d' }
@@ -95,9 +118,6 @@ const KIT_EXTRAS = ['Freshstart Wellness Guide', 'Wellness checklist', 'Welcome 
 
 /* ---- STATE -------------------------------------------------- */
 const state = {
-  packId: 'wellness',
-  purchase: 'onetime',     // 'subscribe' | 'onetime'
-  cadence: 'biweekly',
   box: {},                 // flavorId -> count
   focus: 'roots-refresh',
   fulfill: 'pickup',       // 'pickup' | 'delivery' | 'ship'
@@ -108,10 +128,17 @@ const state = {
 
 const $ = (s, r = document) => r.querySelector(s);
 const money = n => '$' + n.toFixed(2);
-const getPack = () => PACKS.find(p => p.id === state.packId);
+const getPackById = id => PACKS.find(p => p.id === id);
 const getKit = () => state.kitId ? KITS.find(k => k.id === state.kitId) : null;
 const boxCount = () => Object.values(state.box).reduce((a, b) => a + b, 0);
 const flavor = id => FLAVORS.find(f => f.id === id);
+
+/* Size of the current order: a kit's fixed size, or however many
+   bottles are currently in the box. */
+function currentSize() {
+  const kit = getKit();
+  return kit ? getPackById(kit.packId).size : boxCount();
+}
 
 /* Default even distribution across all six flavors for a given size */
 function defaultBox(size) {
@@ -124,27 +151,37 @@ function defaultBox(size) {
   return box;
 }
 
-/* Which fulfillment methods are allowed for the current pack size */
+/* Which fulfillment methods are allowed for the current order size */
 function fulfillAllowed(id) {
-  const size = getPack().size;
+  const size = currentSize();
   if (id === 'pickup') return true;
   if (id === 'delivery') return size >= 6;
   if (id === 'ship') return size >= 18;
   return false;
 }
 
-/* ---- TOTALS ------------------------------------------------- */
-function totals() {
-  const pack = getPack();
+/* ---- PRICING -------------------------------------------------- */
+/* Kit or free-form tier pricing, unified. */
+function pricing() {
   const kit = getKit();
-  const sub = !kit && state.purchase === 'subscribe';
-  const subtotal = kit ? kit.price : pack.price;
-  const savings = sub ? subtotal * SUB_DISCOUNT : 0;
+  const count = boxCount();
+  if (kit) {
+    const pack = getPackById(kit.packId);
+    return { kit, pack, tier: null, count, per: null, subtotal: kit.price, name: kit.name, packId: kit.packId, size: pack.size };
+  }
+  const tier = tierFor(count);
+  const pack = getPackById(tier.packId);
+  const subtotal = tier.per * count;
+  return { kit: null, pack, tier, count, per: tier.per, subtotal, name: pack.name.replace('Freshstart Juices - ', ''), packId: tier.packId, size: count };
+}
+
+function totals() {
+  const p = pricing();
   let deliveryFee = 0;
   if (state.fulfill === 'delivery') deliveryFee = ZONES.find(z => z.id === state.zone).fee;
   const shipAtCheckout = state.fulfill === 'ship';
-  const total = subtotal - savings + deliveryFee;
-  return { pack, kit, sub, subtotal, savings, deliveryFee, shipAtCheckout, total };
+  const total = p.subtotal + deliveryFee;
+  return { ...p, deliveryFee, shipAtCheckout, total };
 }
 
 /* ============================================================
@@ -152,8 +189,6 @@ function totals() {
    ============================================================ */
 function render() {
   renderGallery();
-  renderPacks();
-  renderPurchase();
   renderBox();
   renderFulfill();
   renderTotalBar();
@@ -182,64 +217,41 @@ function renderGallery() {
      </button>`).join('');
 }
 
-/* ---- Packs -------------------------------------------------- */
-function renderPacks() {
-  $('#packGrid').innerHTML = PACKS.map(p => {
-    const active = p.id === state.packId;
-    const save = p.featured ? '<span class="pack-flag">Most popular</span>' : (p.guided ? '<span class="pack-flag flag-alt">Guided</span>' : '');
-    return `<button class="packcard ${active ? 'is-active' : ''}" data-pack="${p.id}">
-      ${save}
-      <span class="pc-size">${p.size} ${p.size === 1 ? 'bottle' : 'bottles'}</span>
-      <span class="pc-name">${p.name.replace('Freshstart Juices - ', '')}</span>
-      <span class="pc-price">${money(p.price)}</span>
-      <span class="pc-per">${money(p.per)}/bottle</span>
-    </button>`;
-  }).join('');
-}
-
-/* ---- Purchase type + cadence -------------------------------- */
-function renderPurchase() {
-  // Single Bottle and Wellness Reset Kits are one-time only — no subscription price in Stripe.
-  if ((getPack().noSub || state.kitId) && state.purchase === 'subscribe') state.purchase = 'onetime';
-  const sub = state.purchase === 'subscribe';
-  const canSub = !getPack().noSub && !state.kitId;
-  $('#purchaseToggle').innerHTML = `
-    ${canSub ? `<button class="pt-opt ${sub ? 'is-active' : ''}" data-purchase="subscribe">
-      <span class="pt-head"><span class="pt-radio"></span>Subscribe & Save</span>
-      <span class="pt-badge">Save 5%</span>
-      <span class="pt-sub">Flexible schedule · pause or cancel anytime · priority access to new blends</span>
-    </button>` : ''}
-    <button class="pt-opt ${!sub ? 'is-active' : ''}" data-purchase="onetime">
-      <span class="pt-head"><span class="pt-radio"></span>One-time purchase</span>
-      <span class="pt-sub">A single order, no commitment.</span>
-    </button>`;
-  $('#cadenceWrap').style.display = sub ? 'block' : 'none';
-  $('#cadenceWrap').innerHTML = sub ? `
-    <div class="field-label">Delivers every</div>
-    <div class="cadence-row">
-      <button class="cad ${state.cadence === 'biweekly' ? 'is-active' : ''}" data-cadence="biweekly">Every 2 weeks <em>Recommended</em></button>
-      <button class="cad ${state.cadence === 'monthly' ? 'is-active' : ''}" data-cadence="monthly">Monthly</button>
-    </div>` : '';
-}
-
 /* ---- Fill your box ------------------------------------------ */
 function renderBox() {
-  const pack = getPack();
+  const kit = getKit();
   const count = boxCount();
-  const remaining = pack.size - count;
-  $('#boxTitle').textContent = pack.size === 1 ? 'Pick your flavor' : 'Fill your box';
-  $('#boxCounter').innerHTML = `<strong>${count}</strong> of ${pack.size} selected` +
-    (remaining > 0 ? ` · <span class="need">add ${remaining} more</span>` : ` · <span class="done">ready — remove a flavor below to swap in another</span>`);
-  $('#boxProgress').style.width = Math.min(100, (count / pack.size) * 100) + '%';
+  const size = currentSize();
+  const remaining = kit ? size - count : MAX_BOTTLES - count;
+
+  if (kit) {
+    $('#boxTitle').textContent = 'Your flavor mix';
+    $('#boxCounter').innerHTML = `<strong>${count}</strong> of ${size} selected` +
+      (count < size ? ` · <span class="need">add ${size - count} more</span>` : ` · <span class="done">ready — remove a flavor below to swap in another</span>`);
+    $('#boxProgress').style.width = Math.min(100, (count / size) * 100) + '%';
+    $('#tierInfo').innerHTML = `<div class="kit-banner"><strong>${kit.name}</strong><span>${money(kit.price)} · includes ${KIT_EXTRAS.join(', ')}</span></div>`;
+  } else {
+    const tier = tierFor(count);
+    const next = nextTier(count);
+    $('#boxTitle').textContent = 'Fill your box';
+    $('#boxCounter').innerHTML = count === 0
+      ? `<strong>0</strong> selected · <span class="need">add any flavors to get started</span>`
+      : `<strong>${count}</strong> bottle${count === 1 ? '' : 's'} · <span class="done">${tier.label} — ${money(tier.per)}/bottle</span>`;
+    $('#boxProgress').style.width = Math.min(100, (count / MAX_BOTTLES) * 100) + '%';
+    $('#tierInfo').innerHTML = next
+      ? `<div class="tier-hint">Add ${next.min - count} more to unlock <strong>${next.label}</strong> at ${money(next.per)}/bottle</div>`
+      : (count > 0 ? `<div class="tier-hint done">You've unlocked our best pricing — ${money(tier.per)}/bottle.</div>` : '');
+  }
+
   $('#boxSteppers').innerHTML = FLAVORS.map(f => {
     const q = state.box[f.id] || 0;
     return `<div class="stepper ${q > 0 ? 'has' : ''}" data-focus-hover="${f.id}">
       <span class="st-media">${flavorMedia(f, 'st-img')}</span>
       <span class="st-info"><span class="st-name">${f.name}</span><span class="st-blend">${f.blend}</span></span>
       <span class="st-controls">
-        <button class="st-btn" data-dec="${f.id}" ${q === 0 ? 'disabled' : ''} aria-label="Remove one ${f.name}">\u2212</button>
+        <button class="st-btn" data-dec="${f.id}" ${q === 0 ? 'disabled' : ''} aria-label="Remove one ${f.name}">−</button>
         <span class="st-qty">${q}</span>
-        <button class="st-btn" data-inc="${f.id}" ${remaining === 0 ? 'disabled' : ''} aria-label="Add one ${f.name}" title="${remaining === 0 ? 'Box is full — remove another flavor first to add more ' + f.name : 'Add one ' + f.name}">+</button>
+        <button class="st-btn" data-inc="${f.id}" ${remaining <= 0 ? 'disabled' : ''} aria-label="Add one ${f.name}" title="${remaining <= 0 ? (kit ? 'Box is full — remove another flavor first to add more ' + f.name : 'You’ve hit the ' + MAX_BOTTLES + '-bottle order limit') : 'Add one ' + f.name}">+</button>
       </span>
     </div>`;
   }).join('');
@@ -258,7 +270,7 @@ function renderFulfill() {
     return `<button class="fulfill ${active ? 'is-active' : ''} ${allowed ? '' : 'is-disabled'}" data-fulfill="${o.id}" ${allowed ? '' : 'disabled'}>
       <span class="fl-head"><span class="fl-radio"></span>${o.name}</span>
       <span class="fl-sub">${o.sub}</span>
-      <span class="fl-note">${allowed ? o.note : (o.id === 'delivery' ? 'Requires 6+ bottles' : 'Requires the 18-bottle 3-Day Reset')}</span>
+      <span class="fl-note">${allowed ? o.note : (o.id === 'delivery' ? 'Requires 6+ bottles' : 'Requires 18+ bottles')}</span>
     </button>`;
   }).join('');
   const showZones = state.fulfill === 'delivery' && fulfillAllowed('delivery');
@@ -277,20 +289,18 @@ function renderFulfill() {
 /* ---- Total bar + CTA ---------------------------------------- */
 function renderTotalBar() {
   const t = totals();
-  const full = boxCount() === t.pack.size;
-  const perBottle = t.total / t.pack.size;
+  const has = boxCount() > 0;
+  const perBottle = t.count > 0 ? t.subtotal / t.count : 0;
   $('#sumSubtotal').textContent = money(t.subtotal);
-  $('#sumSaveRow').style.display = t.savings > 0 ? 'flex' : 'none';
-  $('#sumSave').textContent = '\u2212' + money(t.savings);
   $('#sumDeliveryRow').style.display = state.fulfill === 'delivery' ? 'flex' : 'none';
   $('#sumDelivery').textContent = t.deliveryFee === 0 ? 'Free' : money(t.deliveryFee);
   $('#sumTotal').textContent = money(t.total);
-  $('#sumPer').textContent = money(perBottle) + '/bottle';
+  $('#sumPer').textContent = t.kit ? '' : money(perBottle) + '/bottle';
   $('#sumShipNote').style.display = t.shipAtCheckout ? 'block' : 'none';
   const btn = $('#addBtn');
-  if (!full) {
+  if (!has) {
     btn.disabled = true;
-    btn.textContent = `Add ${t.pack.size - boxCount()} more to continue`;
+    btn.textContent = 'Add a flavor to continue';
   } else {
     btn.disabled = false;
     btn.innerHTML = `Add to cart · ${money(t.total)}`;
@@ -323,59 +333,45 @@ function renderFlavorDetails() {
    ============================================================ */
 function openCart() {
   const t = totals();
-  state.cart = { packId: state.packId, kitId: state.kitId, purchase: state.purchase, cadence: state.cadence,
-                 fulfill: state.fulfill, zone: state.zone, box: { ...state.box }, total: t.total };
+  state.cart = { kitId: state.kitId, fulfill: state.fulfill, zone: state.zone, box: { ...state.box }, total: t.total };
   const lines = FLAVORS.filter(f => state.box[f.id] > 0)
     .map(f => `<div class="cart-line"><span>${state.box[f.id]} × ${f.name}</span></div>`).join('');
   const fulfillName = { pickup: 'Local Pickup', delivery: 'Local Delivery', ship: 'California Shipping' }[state.fulfill];
-  const purchaseLabel = t.sub ? `Subscription · delivers ${state.cadence === 'biweekly' ? 'every 2 weeks' : 'monthly'}` : 'One-time purchase';
-  const displayName = t.kit ? t.kit.name : t.pack.name;
-
-  // contextual cross-sell (kits skip this -- the extras below already show what's included)
-  let upsell = '';
-  if (t.kit) {
-    // no cross-sell for kits
-  } else if (!t.sub && !t.pack.noSub) {
-    upsell = `<div class="cart-upsell"><div><strong>Subscribe & save 5%</strong><span>Same box, delivered every 2 weeks or monthly — pause anytime.</span></div><button class="upsell-btn" data-upsell="subscribe">Switch</button></div>`;
-  } else if (t.pack.size <= 6) {
-    upsell = `<div class="cart-upsell"><div><strong>Upgrade to the 12-bottle Family Pack</strong><span>Drop to $8.00/bottle and stock the fridge.</span></div><button class="upsell-btn" data-upsell="family">Add</button></div>`;
-  }
+  const purchaseLabel = t.kit ? 'One-time purchase' : `One-time purchase · ${t.tier.label}`;
 
   const kitExtras = t.kit ? `
     <div class="kit-extra-label" style="font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted-light);margin:0.25rem 0 0.5rem;">Also in the box</div>
     <div class="cart-lines" style="border-top:none;margin-top:0;">${KIT_EXTRAS.map(x => `<div class="cart-line"><span>1 × ${x}</span></div>`).join('')}</div>` : '';
 
+  const subNote = !t.kit
+    ? `<div class="cart-upsell"><div><strong>Subscribe & save 5%</strong><span>You'll get the option to subscribe on the next page.</span></div></div>`
+    : '';
+
   $('#cartBody').innerHTML = `
     <div class="cart-pack">
-      <div class="cart-pack-name">${displayName}</div>
+      <div class="cart-pack-name">${t.name}</div>
       <div class="cart-pack-meta">${purchaseLabel} · ${fulfillName}</div>
     </div>
     <div class="cart-lines">${lines}</div>
     ${kitExtras}
-    ${upsell}
+    ${subNote}
     <div class="cart-sum">
       <div class="cs-row"><span>Subtotal</span><span>${money(t.subtotal)}</span></div>
-      ${t.savings > 0 ? `<div class="cs-row save"><span>Subscribe & Save (5%)</span><span>\u2212${money(t.savings)}</span></div>` : ''}
       ${state.fulfill === 'delivery' ? `<div class="cs-row"><span>Delivery</span><span>${t.deliveryFee === 0 ? 'Free' : money(t.deliveryFee)}</span></div>` : ''}
       <div class="cs-row total"><span>Total</span><span>${money(t.total)}</span></div>
       ${t.shipAtCheckout ? `<p class="cs-ship">+ shipping calculated at checkout</p>` : ''}
     </div>`;
 
-  /* Every order -- subscription, one-time pack, or kit -- routes through the
-     checkout page first so we can collect contact info and order notes
-     before sending the customer to Stripe. */
+  /* Every order -- one-time pack or kit -- routes through the checkout
+     page first so we can collect contact info, an optional Subscribe &
+     Save opt-in, and order notes before sending the customer to Stripe. */
   const co = $('#checkoutBtn');
   const boxStr = FLAVORS.filter(f => state.box[f.id] > 0).map(f => f.id + ':' + state.box[f.id]).join(',');
-  const params = new URLSearchParams({
-    type: t.sub ? 'subscribe' : 'onetime',
-    pack: state.packId,
-    box: boxStr
-  });
-  if (t.sub) params.set('cadence', state.cadence);
+  const params = new URLSearchParams({ type: 'onetime', pack: t.packId, box: boxStr });
   if (state.kitId) params.set('kit', state.kitId);
   co.href = 'checkout.html?' + params.toString();
   co.classList.remove('is-pending');
-  co.textContent = t.sub ? 'Set up my subscription' : 'Continue to checkout';
+  co.textContent = 'Continue to checkout';
   $('#cartBadge').textContent = boxCount();
   $('#cartBadge').style.display = 'grid';
   document.body.classList.add('cart-open');
@@ -402,11 +398,11 @@ function renderGoals() {
   wrap.dataset.done = '1';
 }
 
-function buildFromGoal(goalId) {  const g = GOALS.find(x => x.id === goalId);
+function buildFromGoal(goalId) {
+  const g = GOALS.find(x => x.id === goalId);
   if (!g) return;
-  state.packId = 'wellness';                 // 6-bottle pack
   const box = {}; FLAVORS.forEach(f => box[f.id] = 0);
-  g.flavors.forEach(id => box[id] = 2);      // 2 of each = 6
+  g.flavors.forEach(id => box[id] = 2);      // 2 of each = 6 to start
   state.box = box;
   state.focus = g.flavors[0];
   if (!fulfillAllowed(state.fulfill)) state.fulfill = 'pickup';
@@ -416,15 +412,13 @@ function buildFromGoal(goalId) {  const g = GOALS.find(x => x.id === goalId);
 
 /* ---- Premium kit selection ---------------------------------- */
 /* Kits are one-time only, but customers can still build their own flavor mix
-   before checkout — same box builder as the regular packs, just priced and
+   before checkout — same box builder as everything else, just priced and
    labeled as the kit (which also includes the guide, checklist, and card). */
 function selectKit(kitId) {
   const kit = KITS.find(k => k.id === kitId);
   if (!kit) return;
   state.kitId = kit.id;
-  state.packId = kit.packId;
-  state.purchase = 'onetime';
-  state.box = defaultBox(getPack().size);
+  state.box = defaultBox(getPackById(kit.packId).size);
   if (!fulfillAllowed(state.fulfill)) state.fulfill = 'pickup';
   render();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -434,31 +428,22 @@ function selectKit(kitId) {
    EVENTS
    ============================================================ */
 document.addEventListener('click', e => {
-  const el = e.target.closest('[data-pack],[data-purchase],[data-cadence],[data-focus],[data-inc],[data-dec],[data-fulfill],[data-zone],[data-upsell],[data-goal],[data-kit]');
+  const el = e.target.closest('[data-focus],[data-inc],[data-dec],[data-fulfill],[data-zone],[data-goal],[data-kit]');
   if (el) {
     if (el.dataset.kit) {
       selectKit(el.dataset.kit);
     } else if (el.dataset.goal) {
       state.kitId = null;
       buildFromGoal(el.dataset.goal);
-    } else if (el.dataset.pack) {
-      state.kitId = null;
-      state.packId = el.dataset.pack;
-      state.box = defaultBox(getPack().size);
-      if (!fulfillAllowed(state.fulfill)) state.fulfill = 'pickup';
-      render();
-    } else if (el.dataset.purchase) { state.purchase = el.dataset.purchase; render(); }
-    else if (el.dataset.cadence) { state.cadence = el.dataset.cadence; render(); }
-    else if (el.dataset.focus) { state.focus = el.dataset.focus; renderGallery(); }
-    else if (el.dataset.inc) { if (boxCount() < getPack().size) { state.box[el.dataset.inc] = (state.box[el.dataset.inc] || 0) + 1; state.focus = el.dataset.inc; render(); } }
+    } else if (el.dataset.focus) { state.focus = el.dataset.focus; renderGallery(); }
+    else if (el.dataset.inc) {
+      const kit = getKit();
+      const limit = kit ? currentSize() : MAX_BOTTLES;
+      if (boxCount() < limit) { state.box[el.dataset.inc] = (state.box[el.dataset.inc] || 0) + 1; state.focus = el.dataset.inc; render(); }
+    }
     else if (el.dataset.dec) { if (state.box[el.dataset.dec] > 0) { state.box[el.dataset.dec]--; render(); } }
     else if (el.dataset.fulfill) { if (fulfillAllowed(el.dataset.fulfill)) { state.fulfill = el.dataset.fulfill; render(); } }
     else if (el.dataset.zone) { state.zone = el.dataset.zone; render(); }
-    else if (el.dataset.upsell) {
-      if (el.dataset.upsell === 'subscribe') state.purchase = 'subscribe';
-      else { state.kitId = null; state.packId = el.dataset.upsell; state.box = defaultBox(getPack().size); }
-      render(); openCart();
-    }
     return;
   }
   if (e.target.closest('#addBtn') && !$('#addBtn').disabled) { openCart(); }
@@ -481,5 +466,5 @@ document.addEventListener('click', e => {
 
 /* init */
 renderGoals();
-state.box = defaultBox(getPack().size);
+state.box = defaultBox(6);
 render();

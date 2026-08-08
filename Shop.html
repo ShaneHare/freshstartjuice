@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shop — Freshstart Juices</title>
-  <meta name="description" content="Build your Freshstart pack — six cold-pressed blends, mix & match. Subscribe & save, local pickup, East Bay delivery, or California shipping.">
+  <meta name="description" content="Shop Freshstart Juices — Wellness Pack, Family Pack, and the 3-Day Wellness Reset. Cold-pressed in small batches, San Leandro pickup, East Bay delivery, or California shipping.">
   <link rel="canonical" href="https://freshstartjuiceproject.com/Shop.html">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://freshstartjuiceproject.com/Shop.html">
   <meta property="og:title" content="Shop — Freshstart Juices">
-  <meta property="og:description" content="Build your Freshstart pack — six cold-pressed blends, mix & match. Subscribe & save, local pickup, East Bay delivery, or California shipping.">
+  <meta property="og:description" content="Wellness Pack, Family Pack, and the 3-Day Wellness Reset. Cold-pressed in small batches.">
   <meta property="og:image" content="https://freshstartjuiceproject.com/images/poster-citrus-glow.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Shop — Freshstart Juices">
-  <meta name="twitter:description" content="Six cold-pressed blends, mix & match. Subscribe & save, pickup, East Bay delivery, or California shipping.">
+  <meta name="twitter:description" content="Wellness Pack, Family Pack, and the 3-Day Wellness Reset. Cold-pressed in small batches.">
   <meta name="twitter:image" content="https://freshstartjuiceproject.com/images/poster-citrus-glow.png">
   <meta name="theme-color" content="#1B4332">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -36,570 +36,149 @@
       --max-w:1120px;
     }
     html { scroll-behavior:smooth; }
-    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--charcoal); font-size:var(--text-base); line-height:var(--lh-prose); -webkit-font-smoothing:antialiased; }
+    body { font-family:'Inter',sans-serif; background:var(--cream); color:var(--charcoal); font-size:var(--text-base); line-height:var(--lh-prose); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
     a { color:var(--green-fresh); text-decoration:none; }
     a:hover { color:var(--green-dark); }
-    .container { max-width:var(--max-w); margin:0 auto; padding:0 1.5rem; }
+    .container { max-width:var(--max-w); margin:0 auto; padding:0 1.25rem; }
     h1,h2,h3 { font-family:'Montserrat',sans-serif; }
     button { font-family:inherit; cursor:pointer; }
 
     /* ---- header ---- */
-    .announcement { background:var(--green-dark); color:white; text-align:center; padding:0.7rem 1rem; font-size:var(--text-xs); font-weight:500; letter-spacing:0.3px; }
-    .announcement strong { color:var(--yellow); font-weight:700; }
-    .site-header { background:rgba(250,250,247,0.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); padding:0.9rem 0; position:sticky; top:0; z-index:60; }
-    .header-inner { max-width:var(--max-w); margin:0 auto; padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
-    .brand-word { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.15rem; color:var(--green-dark); letter-spacing:-0.5px; }
-    .brand-word span { color:var(--green-fresh); }
+    .announcement { background:var(--green-dark); color:white; text-align:center; padding:0.6rem 1rem; font-size:var(--text-xs); font-weight:500; letter-spacing:0.3px; }
+    .site-header { background:rgba(250,250,247,0.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); padding:0.7rem 0; position:sticky; top:0; z-index:60; }
+    .header-inner { max-width:var(--max-w); margin:0 auto; padding:0 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
     .brand-link { display:inline-flex; align-items:center; }
-    .brand-logo { height:104px; width:auto; display:block; }
-    .header-nav { display:flex; align-items:center; gap:1.75rem; }
-    .header-nav a { font-size:var(--text-sm); font-weight:500; color:var(--green-dark); }
+    .brand-logo { height:64px; width:auto; display:block; }
+    .header-nav a { font-size:var(--text-sm); font-weight:600; color:var(--green-dark); }
     .header-nav a:hover { color:var(--green-fresh); }
-    .cart-toggle { position:relative; background:var(--green-dark); color:#fff; border:none; font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); padding:0.55rem 1.05rem; border-radius:var(--r-sm); }
-    .cart-toggle:hover { background:var(--green-mid); }
-    .cart-badge { position:absolute; top:-7px; right:-7px; min-width:20px; height:20px; padding:0 5px; background:var(--yellow); color:var(--green-dark); border-radius:10px; font-size:0.68rem; font-weight:800; display:none; place-items:center; }
 
-    /* ---- product hero ---- */
-    .shop-hero { padding:2.75rem 0 3.5rem; }
-    .shop-crumb { font-size:var(--text-xs); color:var(--muted-light); letter-spacing:0.4px; margin-bottom:1.5rem; }
-    .shop-grid { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+    /* ---- hero ---- */
+    .hero { padding:2.25rem 0 1.75rem; text-align:center; }
+    .hero h1 { font-weight:900; font-size:2rem; color:var(--green-dark); letter-spacing:-1px; }
+    .hero-sub { color:var(--muted); font-size:var(--text-base); line-height:var(--lh-prose); max-width:520px; margin:0.6rem auto 0; }
 
-    /* gallery */
-    .gallery { position:sticky; top:96px; }
-    .gallery-main { border-radius:var(--r-lg); overflow:hidden; background:var(--green-light); aspect-ratio:1/1; margin-bottom:0.9rem; }
-    .gallery-img { width:100%; height:100%; object-fit:cover; object-position:50% 40%; display:block; }
-    .gallery-img.ph, .thumb-img.ph, .st-img.ph, .fd-img.ph { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.35rem; background:
-      repeating-linear-gradient(45deg, var(--ph) 0 12px, color-mix(in srgb, var(--ph) 80%, #fff) 12px 24px); color:var(--green-dark); }
-    .gallery-img.ph span:first-child { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-xl); letter-spacing:-0.3px; }
-    .ph-note { font-family:ui-monospace,Menlo,monospace; font-size:var(--text-xs); color:var(--muted); text-transform:uppercase; letter-spacing:1px; }
-    .gallery-thumbs { display:flex; gap:0.6rem; }
-    .thumb { flex:1; aspect-ratio:1/1; border:2px solid var(--border); border-radius:12px; overflow:hidden; background:none; padding:0; transition:border-color 0.15s; }
-    .thumb.is-active { border-color:var(--green-dark); }
-    .thumb-img { width:100%; height:100%; object-fit:cover; object-position:50% 40%; display:block; }
-    .thumb-img.ph { border-radius:0; }
-    .thumb-img.ph span:first-child { font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.6rem; text-align:center; line-height:1.1; padding:0 4px; }
-    .thumb-img.ph .ph-note { display:none; }
-    .gallery-meta { margin-top:1.6rem; }
-    .gm-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-xl); color:var(--green-dark); letter-spacing:-0.4px; }
-    .gm-tagline { font-family:'Montserrat',sans-serif; font-weight:600; color:var(--green-fresh); margin-top:2px; }
-    .gm-blend { font-size:var(--text-sm); color:var(--muted); margin-top:0.6rem; font-weight:500; }
-    .gm-desc { font-size:var(--text-sm); color:var(--muted); line-height:var(--lh-prose); margin-top:0.7rem; }
-    .gm-best-label, .fd-best-label { font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; letter-spacing:1.4px; text-transform:uppercase; color:var(--green-fresh); margin:1rem 0 0.55rem; }
-    .gm-best, .fd-best { display:flex; flex-wrap:wrap; gap:0.4rem; }
-    .best-tag { font-size:var(--text-xs); font-weight:600; color:var(--green-dark); background:var(--green-light); border-radius:999px; padding:0.32rem 0.8rem; }
+    /* ---- product cards ---- */
+    .products { padding:0.5rem 0 3rem; }
+    .product-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+    .pcard { background:var(--warm-white); border:1px solid var(--border); border-radius:var(--r-lg); overflow:hidden; display:flex; flex-direction:column; box-shadow:var(--shadow); }
+    .pcard-visual { aspect-ratio:4/3; background:var(--green-light); position:relative; overflow:hidden; }
+    .pcard-visual img { position:absolute; width:52%; aspect-ratio:1/1; object-fit:cover; object-position:50% 35%; border-radius:14px; border:3px solid var(--warm-white); box-shadow:0 6px 18px rgba(27,67,50,0.15); }
+    .pcard-visual img:nth-child(1) { left:6%; top:14%; z-index:1; }
+    .pcard-visual img:nth-child(2) { left:26%; top:32%; z-index:2; }
+    .pcard-visual img:nth-child(3) { left:46%; top:14%; z-index:1; }
+    .pcard-body { padding:1.25rem 1.35rem 1.5rem; display:flex; flex-direction:column; flex:1; }
+    .pcard-eyebrow { font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; letter-spacing:0.6px; color:var(--green-fresh); margin-bottom:0.3rem; }
+    .pcard-name { font-weight:800; font-size:var(--text-xl); color:var(--green-dark); letter-spacing:-0.4px; }
+    .pcard-size { font-size:var(--text-sm); font-weight:600; color:var(--muted-light); margin-top:2px; }
+    .pcard-desc { font-size:var(--text-sm); color:var(--muted); margin-top:0.6rem; flex:1; }
+    .pcard-price { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.5rem; color:var(--green-dark); margin-top:0.9rem; letter-spacing:-0.5px; }
+    .pcard-btn { display:block; text-align:center; width:100%; border:none; background:var(--green-dark); color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-base); padding:0.95rem; border-radius:12px; margin-top:0.9rem; transition:background 0.15s,transform 0.15s; }
+    .pcard-btn:hover { background:var(--green-mid); color:#fff; transform:translateY(-1px); }
 
-    /* buy module */
-    .buy h1 { font-size:2rem; color:var(--green-dark); letter-spacing:-1px; line-height:1.06; }
-    .buy-stars { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.7rem; }
-    .stars { color:var(--yellow); letter-spacing:2px; font-size:var(--text-sm); }
-    .stars-count { font-size:var(--text-sm); color:var(--muted); font-weight:500; }
-    .buy-lede { color:var(--muted); font-size:var(--text-base); line-height:var(--lh-prose); margin:0.7rem 0 0.2rem; }
-    .buy-badges { display:flex; flex-wrap:wrap; gap:0.4rem; margin:1.1rem 0 1.75rem; }
-    .buy-badge { font-size:var(--text-xs); font-weight:600; color:var(--green-dark); border:1px solid var(--border); border-radius:999px; padding:0.35rem 0.85rem; }
-
-    .step { margin-bottom:1.9rem; }
-    .step-head { display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.9rem; }
-    .step-num { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-xs); color:#fff; background:var(--green-fresh); width:22px; height:22px; border-radius:50%; display:grid; place-items:center; flex-shrink:0; }
-    .step-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-base); color:var(--green-dark); letter-spacing:-0.2px; }
-    .field-label { font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted-light); margin-bottom:0.55rem; }
-
-    /* pack grid */
-    .pack-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.65rem; }
-    .packcard { position:relative; display:flex; flex-direction:column; align-items:flex-start; gap:1px; padding:0.9rem 0.85rem 0.95rem; border:1.5px solid var(--border); border-radius:14px; background:var(--warm-white); text-align:left; transition:border-color 0.15s,background 0.15s,transform 0.15s; }
-    .packcard:hover { border-color:var(--green-fresh); transform:translateY(-2px); }
-    .packcard.is-active { border-color:var(--green-dark); background:var(--green-light); box-shadow:inset 0 0 0 1px var(--green-dark); }
-    .pc-size { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted-light); }
-    .pc-name { font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); color:var(--green-dark); line-height:1.2; margin:2px 0; }
-    .pc-price { font-family:'Montserrat',sans-serif; font-weight:900; font-size:var(--text-lg); color:var(--green-dark); letter-spacing:-0.5px; }
-    .pc-per { font-size:0.7rem; color:var(--muted-light); }
-    .pack-flag { position:absolute; top:-9px; left:0.7rem; background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-size:0.58rem; font-weight:800; letter-spacing:0.4px; text-transform:uppercase; padding:0.18rem 0.5rem; border-radius:6px; }
-    .pack-flag.flag-alt { background:var(--green-dark); color:#fff; }
-
-    /* purchase toggle */
-    .pt-opt { display:block; width:100%; text-align:left; position:relative; border:1.5px solid var(--border); border-radius:14px; background:var(--warm-white); padding:1rem 1.1rem; margin-bottom:0.6rem; transition:border-color 0.15s,background 0.15s; }
-    .pt-opt.is-active { border-color:var(--green-dark); background:var(--green-light); }
-    .pt-head { display:flex; align-items:center; gap:0.55rem; font-family:'Montserrat',sans-serif; font-weight:700; color:var(--green-dark); }
-    .pt-radio, .fl-radio { width:17px; height:17px; border-radius:50%; border:2px solid var(--muted-light); flex-shrink:0; position:relative; }
-    .is-active .pt-radio, .is-active .fl-radio { border-color:var(--green-dark); }
-    .is-active .pt-radio::after, .is-active .fl-radio::after { content:''; position:absolute; inset:3px; border-radius:50%; background:var(--green-dark); }
-    .pt-badge { position:absolute; top:1rem; right:1.1rem; background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-size:0.65rem; font-weight:800; padding:0.2rem 0.55rem; border-radius:6px; }
-    .pt-sub { display:block; font-size:var(--text-xs); color:var(--muted); line-height:var(--lh-tight); margin-top:0.4rem; padding-left:1.55rem; }
-    .cadence-row { display:flex; gap:0.5rem; margin-top:0.3rem; }
-    .cad { flex:1; border:1.5px solid var(--border); border-radius:10px; background:var(--warm-white); padding:0.6rem; font-size:var(--text-sm); font-weight:600; color:var(--green-dark); }
-    .cad em { display:block; font-style:normal; font-size:0.62rem; font-weight:600; color:var(--green-fresh); text-transform:uppercase; letter-spacing:0.4px; margin-top:2px; }
-    .cad.is-active { border-color:var(--green-dark); background:var(--green-light); }
-    .cad.is-disabled { opacity:0.5; cursor:not-allowed; }
-    .cad.is-disabled em { color:var(--muted-light); }
-
-    /* box builder */
-    .box-counter { font-size:var(--text-sm); color:var(--muted); margin-bottom:0.5rem; }
-    .box-counter strong { color:var(--green-dark); font-family:'Montserrat',sans-serif; }
-    .box-counter .need { color:var(--green-fresh); font-weight:600; }
-    .box-counter .done { color:var(--green-fresh); font-weight:700; }
-    .box-track { height:6px; background:var(--border); border-radius:3px; overflow:hidden; margin-bottom:1rem; }
-    .box-track div { height:100%; background:var(--green-fresh); border-radius:3px; transition:width 0.25s; }
-    .stepper { display:flex; align-items:center; gap:0.75rem; padding:0.55rem 0; border-bottom:1px solid var(--border); }
-    .stepper:last-child { border-bottom:none; }
-    .st-media { width:42px; height:42px; border-radius:9px; overflow:hidden; flex-shrink:0; background:var(--green-light); }
-    .st-img { width:100%; height:100%; object-fit:cover; object-position:50% 40%; display:block; }
-    .st-img.ph span:first-child { font-size:0.48rem; text-align:center; line-height:1; font-family:'Montserrat',sans-serif; font-weight:800; padding:0 2px; }
-    .st-img.ph .ph-note { display:none; }
-    .st-info { flex:1; min-width:0; }
-    .st-name { display:block; font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); color:var(--green-dark); line-height:1.2; }
-    .st-blend { display:block; font-size:0.72rem; color:var(--muted-light); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .st-controls { display:flex; align-items:center; gap:0.55rem; flex-shrink:0; }
-    .st-btn { width:30px; height:30px; border-radius:8px; border:1.5px solid var(--border); background:var(--warm-white); color:var(--green-dark); font-size:1.1rem; font-weight:700; line-height:1; display:grid; place-items:center; transition:border-color 0.15s,background 0.15s; }
-    .st-btn:hover:not(:disabled) { border-color:var(--green-fresh); background:var(--green-light); }
-    .st-btn:disabled { opacity:0.35; cursor:not-allowed; }
-    .st-qty { min-width:16px; text-align:center; font-family:'Montserrat',sans-serif; font-weight:700; color:var(--green-dark); }
-
-    /* fulfillment */
-    .fulfill-grid { display:flex; flex-direction:column; gap:0.55rem; }
-    .fulfill { text-align:left; border:1.5px solid var(--border); border-radius:14px; background:var(--warm-white); padding:0.85rem 1.05rem; transition:border-color 0.15s,background 0.15s; }
-    .fulfill.is-active { border-color:var(--green-dark); background:var(--green-light); }
-    .fulfill.is-disabled { opacity:0.5; cursor:not-allowed; }
-    .fl-head { display:flex; align-items:center; gap:0.55rem; font-family:'Montserrat',sans-serif; font-weight:700; color:var(--green-dark); font-size:var(--text-sm); }
-    .fl-sub { display:block; font-size:var(--text-xs); color:var(--muted); margin-top:0.25rem; padding-left:1.55rem; }
-    .fl-note { display:block; font-size:0.7rem; color:var(--green-fresh); font-weight:600; margin-top:0.15rem; padding-left:1.55rem; }
-    .fulfill.is-disabled .fl-note { color:var(--muted-light); }
-    .zone-list { display:flex; flex-direction:column; gap:0.4rem; margin-top:0.3rem; }
-    .zone { display:flex; justify-content:space-between; align-items:center; border:1.5px solid var(--border); border-radius:10px; background:var(--warm-white); padding:0.6rem 0.85rem; font-size:var(--text-sm); color:var(--green-dark); font-weight:500; text-align:left; }
-    .zone.is-active { border-color:var(--green-dark); background:var(--green-light); }
-    .zone-fee { font-family:'Montserrat',sans-serif; font-weight:700; }
-    .zone-note { font-size:var(--text-xs); color:var(--muted-light); margin-top:0.3rem; line-height:var(--lh-tight); }
-
-    /* total bar */
-    .total-bar { position:sticky; bottom:1rem; background:var(--warm-white); border:1px solid var(--border); border-radius:16px; padding:1.1rem 1.25rem; box-shadow:var(--shadow-lg); margin-top:0.5rem; }
-    .tb-row { display:flex; justify-content:space-between; align-items:baseline; font-size:var(--text-sm); color:var(--muted); margin-bottom:0.3rem; }
-    .tb-row.save { color:var(--green-fresh); font-weight:600; }
-    .tb-total { display:flex; justify-content:space-between; align-items:baseline; margin:0.5rem 0 0.15rem; }
-    .tb-total span:first-child { font-family:'Montserrat',sans-serif; font-weight:800; color:var(--green-dark); }
-    .tb-total-val { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.6rem; color:var(--green-dark); letter-spacing:-1px; }
-    .tb-per { font-size:var(--text-xs); color:var(--muted-light); text-align:right; margin-bottom:0.7rem; }
-    .tb-ship { font-size:var(--text-xs); color:var(--green-fresh); margin-bottom:0.5rem; }
-    .add-btn { width:100%; border:none; background:var(--green-dark); color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-base); padding:1rem; border-radius:12px; transition:background 0.15s,transform 0.15s; }
-    .add-btn:hover:not(:disabled) { background:var(--green-mid); transform:translateY(-1px); }
-    .add-btn:disabled { background:var(--muted-light); opacity:0.7; cursor:not-allowed; }
-    .tb-secure { display:flex; align-items:center; justify-content:center; gap:0.35rem; font-size:0.7rem; color:var(--muted-light); margin-top:0.65rem; }
-
-    /* trust marquee */
-    .marquee { background:var(--green-dark); overflow:hidden; padding:0.9rem 0; }
-    .marquee-track { display:flex; gap:2.5rem; white-space:nowrap; width:max-content; animation:scroll 30s linear infinite; }
-    .marquee-track span { font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); color:var(--yellow); letter-spacing:1px; text-transform:uppercase; }
-    .marquee-track span::after { content:'·'; margin-left:2.5rem; color:rgba(255,255,255,0.4); }
-    @keyframes scroll { to { transform:translateX(-50%); } }
-    @media (prefers-reduced-motion:reduce){ .marquee-track { animation:none; } }
-
-    /* goal bundles */
-    .goal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
-    .goalcard { display:flex; flex-direction:column; background:var(--cream); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.5rem; }
-    .goal-head { display:flex; flex-direction:column; gap:2px; margin-bottom:1rem; }
-    .goal-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-xl); color:var(--green-dark); letter-spacing:-0.4px; }
-    .goal-tag { font-family:'Montserrat',sans-serif; font-weight:600; font-size:var(--text-sm); color:var(--green-fresh); }
-    .goal-thumbs { display:flex; gap:0.5rem; margin-bottom:0.9rem; }
-    .goal-thumb { flex:1; aspect-ratio:1/1; border-radius:10px; overflow:hidden; background:var(--green-light); }
-    .gt-img { width:100%; height:100%; object-fit:cover; object-position:50% 40%; display:block; }
-    .gt-img.ph { display:flex; align-items:center; justify-content:center; background:repeating-linear-gradient(45deg, var(--ph) 0 8px, color-mix(in srgb, var(--ph) 80%, #fff) 8px 16px); }
-    .gt-img.ph span:first-child { font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.5rem; text-align:center; line-height:1; padding:0 2px; color:var(--green-dark); }
-    .gt-img.ph .ph-note { display:none; }
-    .goal-flavs { font-size:var(--text-xs); font-weight:600; color:var(--muted-light); margin-bottom:0.5rem; }
-    .goal-desc { font-size:var(--text-sm); color:var(--muted); line-height:var(--lh-tight); margin-bottom:1.25rem; flex:1; }
-    .goal-btn { border:none; background:var(--green-dark); color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-sm); padding:0.85rem; border-radius:12px; transition:background 0.15s,transform 0.15s; }
-    .goal-btn:hover { background:var(--green-mid); transform:translateY(-1px); }
-
-    /* generic section */
-    .sec { padding:4.5rem 0; }
-    .sec-alt { background:var(--warm-white); }
-    .sec-label { font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:var(--green-fresh); margin-bottom:0.6rem; }
-    .sec-title { font-weight:800; font-size:var(--text-2xl); color:var(--green-dark); letter-spacing:-1px; line-height:1.1; margin-bottom:0.75rem; }
-    .sec-desc { color:var(--muted); font-size:var(--text-base); line-height:var(--lh-prose); max-width:620px; margin-bottom:2.5rem; }
-
-    /* flavor detail cards */
-    .fd-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
-    .fd-card { display:flex; gap:1.25rem; background:var(--cream); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.4rem; }
-    .fd-media { width:120px; flex-shrink:0; aspect-ratio:1/1; border-radius:12px; overflow:hidden; background:var(--warm-white); align-self:center; }
-    .fd-img { width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block; }
-    .fd-img.ph span:first-child { font-size:0.64rem; text-align:center; line-height:1.15; font-family:'Montserrat',sans-serif; font-weight:800; padding:0 4px; }
-    .fd-img.ph .ph-note { display:none; }
-    .fd-name { font-weight:800; font-size:var(--text-lg); color:var(--green-dark); letter-spacing:-0.3px; }
-    .fd-tagline { font-family:'Montserrat',sans-serif; font-weight:600; font-size:var(--text-sm); color:var(--green-fresh); margin-top:1px; }
-    .fd-blend { font-size:var(--text-xs); color:var(--muted-light); font-weight:500; margin-top:0.5rem; }
-    .fd-desc { font-size:var(--text-sm); color:var(--muted); line-height:var(--lh-tight); margin-top:0.5rem; }
-    .fd-best-label { margin:0.8rem 0 0.4rem; }
-
-    /* reset program */
-    .reset-wrap { display:grid; grid-template-columns:1fr; gap:3rem; align-items:start; max-width:760px; }
-    .reset-schedule { list-style:none; }
-    .reset-step { display:flex; gap:1rem; padding:0.85rem 0; border-bottom:1px solid var(--border); }
-    .reset-step:last-child { border-bottom:none; }
-    .reset-time { font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); color:var(--green-fresh); width:118px; flex-shrink:0; }
-    .reset-juice { font-family:'Montserrat',sans-serif; font-weight:700; color:var(--green-dark); font-size:var(--text-sm); }
-    .reset-note { font-size:var(--text-xs); color:var(--muted); }
-    .reset-tips { background:var(--green-light); border-radius:var(--r-lg); padding:1.75rem; }
-    .reset-tips h3 { font-size:var(--text-lg); color:var(--green-dark); margin-bottom:0.9rem; }
-    .reset-tips ul { list-style:none; }
-    .reset-tips li { position:relative; padding-left:1.2rem; font-size:var(--text-sm); color:var(--green-mid); margin-bottom:0.55rem; line-height:var(--lh-tight); }
-    .reset-tips li::before { content:''; position:absolute; left:0; top:0.6em; width:6px; height:6px; border-radius:50%; background:var(--green-fresh); }
-    .reset-disclaimer { font-size:var(--text-xs); color:var(--muted-light); margin-top:1rem; line-height:var(--lh-tight); }
-
-    /* kit breakdown */
-    .kit-head { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-lg); color:var(--green-dark); margin:3rem 0 1.25rem; letter-spacing:-0.3px; }
-    .kit-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
-    .kitcard { background:var(--cream); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.6rem; }
-    .kit-top { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; padding-bottom:0.9rem; margin-bottom:1rem; border-bottom:1px solid var(--border); }
-    .kit-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-base); color:var(--green-dark); }
-    .kit-meta { font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-sm); color:var(--green-fresh); white-space:nowrap; }
-    .kit-list { display:grid; grid-template-columns:1fr 1fr; gap:0.55rem 1rem; }
-    .kit-item { font-size:var(--text-sm); color:var(--muted); }
-    .kit-item b { font-family:'Montserrat',sans-serif; color:var(--green-dark); margin-right:0.35rem; }
-    .kit-plus { margin-top:1.1rem; padding-top:0.9rem; border-top:1px solid var(--border); font-size:var(--text-sm); color:var(--green-mid); line-height:var(--lh-tight); }
-    .kit-plus b { color:var(--green-dark); }
-
-    /* premium wellness kits */
-    .prem { background:var(--green-dark); }
-    .prem .sec-label { color:var(--yellow); }
-    .prem .sec-title { color:#fff; }
-    .prem .sec-desc { color:rgba(255,255,255,0.82); }
-    .prem-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem; }
-    .premkit { position:relative; background:var(--warm-white); border-radius:var(--r-lg); padding:1.9rem 1.75rem; display:flex; flex-direction:column; box-shadow:var(--shadow-lg); }
-    .premkit-flag { position:absolute; top:-11px; left:1.75rem; background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-size:0.62rem; font-weight:800; letter-spacing:0.6px; text-transform:uppercase; padding:0.28rem 0.7rem; border-radius:7px; }
-    .premkit-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-xl); color:var(--green-dark); letter-spacing:-0.4px; margin-top:0.4rem; }
-    .premkit-price { display:flex; align-items:baseline; gap:0.5rem; margin:0.35rem 0 0.2rem; }
-    .premkit-price .amt { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.9rem; color:var(--green-dark); letter-spacing:-1px; }
-    .premkit-price .was { font-size:var(--text-sm); color:var(--muted-light); }
-    .premkit-juice { font-size:var(--text-sm); color:var(--green-fresh); font-weight:600; margin-bottom:1.1rem; }
-    .premkit-box-label { font-family:'Montserrat',sans-serif; font-size:var(--text-xs); font-weight:700; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted-light); margin-bottom:0.65rem; padding-top:1.1rem; border-top:1px solid var(--border); }
-    .premkit-list { list-style:none; margin-bottom:1.4rem; flex:1; }
-    .premkit-list li { position:relative; padding-left:1.35rem; font-size:var(--text-sm); color:var(--muted); margin-bottom:0.5rem; line-height:var(--lh-tight); }
-    .premkit-list li::before { content:''; position:absolute; left:0; top:0.5em; width:7px; height:7px; border-radius:50%; background:var(--green-fresh); }
-    .premkit-list li b { color:var(--green-dark); font-weight:600; }
-    .premkit-btn { border:none; background:var(--green-dark); color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-base); padding:0.95rem; border-radius:12px; transition:background 0.15s,transform 0.15s; cursor:pointer; }
-    .premkit-btn:hover { background:var(--green-mid); transform:translateY(-1px); }
-    .premkit-note { text-align:center; font-size:var(--text-xs); color:var(--muted-light); margin-top:0.6rem; }
-
-    /* fulfillment info */
-    .fresh-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
-    .fresh-card { background:var(--cream); border:1px solid var(--border); border-radius:var(--r-lg); padding:1.6rem; }
-    .fresh-card.hi { background:var(--green-dark); }
-    .fresh-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-lg); color:var(--green-dark); margin-bottom:0.5rem; }
-    .fresh-card.hi .fresh-name { color:#fff; }
-    .fresh-price { font-family:'Montserrat',sans-serif; font-weight:900; font-size:var(--text-base); color:var(--green-fresh); margin-bottom:0.7rem; }
-    .fresh-desc { font-size:var(--text-sm); color:var(--muted); line-height:var(--lh-tight); margin-bottom:0.9rem; }
-    .fresh-card.hi .fresh-desc { color:rgba(255,255,255,0.85); }
-    .fresh-list { list-style:none; }
-    .fresh-list li { position:relative; padding-left:1.1rem; font-size:var(--text-xs); color:var(--muted); margin-bottom:0.4rem; line-height:var(--lh-tight); }
-    .fresh-list li::before { content:''; position:absolute; left:0; top:0.55em; width:5px; height:5px; border-radius:50%; background:var(--green-fresh); }
-    .fresh-card.hi .fresh-list li { color:rgba(255,255,255,0.85); }
-    .fresh-card.hi .fresh-list li::before { background:var(--yellow); }
-
-    /* FAQ */
-    .faq { max-width:760px; margin:0 auto; }
+    /* ---- FAQ ---- */
+    .sec { padding:3rem 0; }
+    .sec-alt { background:var(--warm-white); border-top:1px solid var(--border); }
+    .sec-title { font-weight:800; font-size:var(--text-2xl); color:var(--green-dark); letter-spacing:-1px; text-align:center; margin-bottom:0.25rem; }
+    .faq { max-width:680px; margin:1.75rem auto 0; }
     .faq-item { border-bottom:1px solid var(--border); }
-    .faq-q { width:100%; text-align:left; background:none; border:none; padding:1.4rem 2rem 1.4rem 0; font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-base); color:var(--green-dark); position:relative; }
+    .faq-q { width:100%; text-align:left; background:none; border:none; padding:1.2rem 2rem 1.2rem 0; font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-base); color:var(--green-dark); position:relative; }
     .faq-q::after { content:'+'; position:absolute; right:0; top:50%; transform:translateY(-50%); font-size:1.5rem; font-weight:400; color:var(--green-fresh); transition:transform 0.2s; }
     .faq-item.open .faq-q::after { content:'\2212'; }
     .faq-a { max-height:0; overflow:hidden; transition:max-height 0.3s ease; }
     .faq-item.open .faq-a { max-height:320px; }
-    .faq-a p { font-size:var(--text-sm); color:var(--muted); line-height:var(--lh-prose); padding-bottom:1.4rem; }
+    .faq-a p { font-size:var(--text-sm); color:var(--muted); line-height:var(--lh-prose); padding-bottom:1.2rem; }
 
-    /* footer */
-    .site-footer { background:var(--green-dark); color:rgba(255,255,255,0.75); padding:3rem 0 2rem; text-align:center; }
+    /* ---- footer ---- */
+    .site-footer { background:var(--green-dark); color:rgba(255,255,255,0.75); padding:2.5rem 0 1.75rem; text-align:center; }
     .site-footer .footer-word { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.6rem; letter-spacing:-0.5px; display:inline-flex; align-items:baseline; }
     .site-footer .fw-fresh { color:#fff; }
     .site-footer .fw-start { color:#8FD98A; }
     .site-footer .fw-drop { width:9px; height:9px; border-radius:50% 50% 50% 0; background:var(--yellow); transform:rotate(-45deg); margin-left:4px; align-self:center; }
-    .site-footer .footer-juice { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.72rem; letter-spacing:6px; color:rgba(255,255,255,0.7); margin-top:5px; }
-    .footer-links { display:flex; gap:1.5rem; justify-content:center; margin:1.5rem 0; flex-wrap:wrap; }
+    .footer-links { display:flex; gap:1.5rem; justify-content:center; margin:1.25rem 0; flex-wrap:wrap; }
     .footer-links a { color:rgba(255,255,255,0.8); font-size:var(--text-sm); }
     .footer-links a:hover { color:var(--yellow); }
     .footer-copy { font-size:var(--text-xs); color:rgba(255,255,255,0.5); }
 
-    /* ---- cart drawer ---- */
-    #cartScrim { position:fixed; inset:0; background:rgba(27,67,50,0.4); opacity:0; visibility:hidden; transition:opacity 0.25s; z-index:90; }
-    body.cart-open #cartScrim { opacity:1; visibility:visible; }
-    .cart-drawer { position:fixed; top:0; right:0; height:100%; width:400px; max-width:92vw; background:var(--cream); box-shadow:-10px 0 40px rgba(0,0,0,0.15); transform:translateX(100%); transition:transform 0.3s ease; z-index:100; display:flex; flex-direction:column; }
-    body.cart-open .cart-drawer { transform:translateX(0); }
-    .cart-header { display:flex; align-items:center; justify-content:space-between; padding:1.4rem 1.5rem; border-bottom:1px solid var(--border); }
-    .cart-header h2 { font-size:var(--text-lg); color:var(--green-dark); }
-    #cartClose { background:none; border:none; font-size:1.6rem; color:var(--muted); line-height:1; }
-    .cart-body { flex:1; overflow-y:auto; padding:1.5rem; }
-    .cart-pack-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-lg); color:var(--green-dark); }
-    .cart-pack-meta { font-size:var(--text-sm); color:var(--muted); margin-top:2px; }
-    .cart-lines { margin:1.25rem 0; padding:1rem 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .cart-line { display:flex; justify-content:space-between; font-size:var(--text-sm); color:var(--green-mid); padding:0.28rem 0; font-weight:500; }
-    .cart-upsell { display:flex; align-items:center; gap:1rem; background:var(--green-light); border-radius:12px; padding:1rem 1.1rem; margin:1.25rem 0; }
-    .cart-upsell strong { display:block; font-family:'Montserrat',sans-serif; font-size:var(--text-sm); color:var(--green-dark); }
-    .cart-upsell span { display:block; font-size:var(--text-xs); color:var(--green-mid); line-height:var(--lh-tight); margin-top:2px; }
-    .upsell-btn { flex-shrink:0; background:var(--green-dark); color:#fff; border:none; font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-xs); padding:0.5rem 0.9rem; border-radius:8px; }
-    .cart-sum { margin-top:0.5rem; }
-    .cs-row { display:flex; justify-content:space-between; font-size:var(--text-sm); color:var(--muted); margin-bottom:0.4rem; }
-    .cs-row.save { color:var(--green-fresh); font-weight:600; }
-    .cs-row.total { font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-lg); color:var(--green-dark); margin-top:0.5rem; padding-top:0.6rem; border-top:1px solid var(--border); }
-    .cs-ship { font-size:var(--text-xs); color:var(--green-fresh); margin-top:0.4rem; }
-    .cart-foot { padding:1.25rem 1.5rem; border-top:1px solid var(--border); background:var(--warm-white); }
-    .checkout-btn { display:block; width:100%; text-align:center; background:var(--green-dark); color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-base); padding:1rem; border-radius:12px; }
-    .checkout-btn:hover { background:var(--green-mid); color:#fff; }
-    .checkout-btn.is-pending { background:var(--muted-light); cursor:not-allowed; font-size:var(--text-sm); }
-    .cart-foot-note { text-align:center; font-size:var(--text-xs); color:var(--muted-light); margin-top:0.7rem; }
-
-    /* responsive */
-    @media (max-width:900px) {
-      .shop-grid { grid-template-columns:1fr; gap:2rem; }
-      .gallery { position:static; }
-      .reset-wrap { grid-template-columns:1fr; gap:2rem; }
-      .fresh-grid { grid-template-columns:1fr; }
-      .kit-grid, .goal-grid { grid-template-columns:1fr; }
-      .fd-grid { grid-template-columns:1fr; }
-      .header-nav a:not(.cart-toggle) { display:none; }
-    }
-    @media (max-width:520px) {
-      .pack-grid { grid-template-columns:repeat(2,1fr); }
-      .buy h1 { font-size:1.6rem; }
+    @media (max-width:860px) {
+      .product-grid { grid-template-columns:1fr; }
+      .brand-logo { height:52px; }
+      .hero h1 { font-size:1.6rem; }
     }
   </style>
 </head>
 <body>
-  <div class="announcement">Cold-pressed in small batches · <strong>Subscribe & Save 5%</strong> · Free local pickup in San Leandro</div>
+  <div class="announcement">Cold-pressed in small batches · Free local pickup in San Leandro</div>
 
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand-link" aria-label="Freshstart Juices — home"><img src="images/logo-2026-v2.png" alt="Freshstart Juices" class="brand-logo" width="848" height="854" decoding="async"></a>
       <nav class="header-nav">
-        <a href="#goals">Shop by Goal</a>
-        <a href="#flavors">Flavors</a>
-        <a href="#reset">Reset Programs</a>
-        <a href="#freshness">Delivery</a>
         <a href="#faq">FAQ</a>
-        <button class="cart-toggle" id="cartBadgeBtn">Cart<span class="cart-badge" id="cartBadge">0</span></button>
       </nav>
     </div>
   </header>
 
-  <!-- ============ PRODUCT MODULE ============ -->
-  <section class="shop-hero">
+  <!-- ============ HERO ============ -->
+  <section class="hero">
     <div class="container">
-      <div class="shop-crumb">Home / Shop / Build Your Pack</div>
-      <div class="shop-grid">
-
-        <!-- gallery -->
-        <div class="gallery">
-          <div class="gallery-main" id="galleryMain"></div>
-          <div class="gallery-thumbs" id="galleryThumbs"></div>
-          <div class="gallery-meta" id="galleryMeta"></div>
-        </div>
-
-        <!-- buy module -->
-        <div class="buy">
-          <div class="buy-stars">
-            <span class="stars">★★★★★</span>
-            <span class="stars-count">5.0 · 51 reviews</span>
-          </div>
-          <h1>Build Your Freshstart Pack</h1>
-          <p class="buy-lede">Six cold-pressed blends, handcrafted in small batches. Choose your pack, fill your box with any flavors, and subscribe to save on every delivery.</p>
-          <div class="buy-badges">
-            <span class="buy-badge">Cold-Pressed</span>
-            <span class="buy-badge">100% Real Produce</span>
-            <span class="buy-badge">No Added Sugar</span>
-            <span class="buy-badge">Small Batch</span>
-          </div>
-
-          <!-- 1 · pack -->
-          <div class="step">
-            <div class="step-head"><span class="step-num">1</span><span class="step-title">Choose your pack</span></div>
-            <div class="pack-grid" id="packGrid"></div>
-          </div>
-
-          <!-- 2 · purchase type -->
-          <div class="step">
-            <div class="step-head"><span class="step-num">2</span><span class="step-title">Subscribe or one-time</span></div>
-            <div id="purchaseToggle"></div>
-            <div id="cadenceWrap"></div>
-          </div>
-
-          <!-- 3 · fill box -->
-          <div class="step">
-            <div class="step-head"><span class="step-num">3</span><span class="step-title" id="boxTitle">Fill your box</span></div>
-            <div class="box-counter" id="boxCounter"></div>
-            <div class="box-track"><div id="boxProgress"></div></div>
-            <div id="boxSteppers"></div>
-          </div>
-
-          <!-- 4 · fulfillment -->
-          <div class="step">
-            <div class="step-head"><span class="step-num">4</span><span class="step-title">How you'll get it</span></div>
-            <div class="fulfill-grid" id="fulfillGrid"></div>
-            <div id="zoneWrap" style="margin-top:0.75rem;"></div>
-          </div>
-
-          <!-- total bar -->
-          <div class="total-bar">
-            <div class="tb-row"><span>Subtotal</span><span id="sumSubtotal"></span></div>
-            <div class="tb-row save" id="sumSaveRow"><span>Subscribe & Save (5%)</span><span id="sumSave"></span></div>
-            <div class="tb-row" id="sumDeliveryRow"><span>Delivery</span><span id="sumDelivery"></span></div>
-            <div class="tb-total"><span>Total</span><span class="tb-total-val" id="sumTotal"></span></div>
-            <div class="tb-per" id="sumPer"></div>
-            <div class="tb-ship" id="sumShipNote">+ shipping calculated at checkout</div>
-            <button class="add-btn" id="addBtn">Add to cart</button>
-            <div class="tb-secure">Secure checkout · powered by Stripe</div>
-          </div>
-        </div>
-
-      </div>
+      <h1>Shop FreshStart</h1>
+      <p class="hero-sub">Choose the option that best fits your wellness journey. Everything is made fresh in small batches using real ingredients.</p>
     </div>
   </section>
 
-  <!-- trust marquee -->
-  <div class="marquee">
-    <div class="marquee-track">
-      <span>Cold-Pressed</span><span>Never Heat-Treated</span><span>100% Real Produce</span><span>No Added Sugar</span><span>Small Batch</span><span>Handcrafted in San Leandro</span>
-      <span>Cold-Pressed</span><span>Never Heat-Treated</span><span>100% Real Produce</span><span>No Added Sugar</span><span>Small Batch</span><span>Handcrafted in San Leandro</span>
-    </div>
-  </div>
-
-  <!-- ============ SHOP BY GOAL ============ -->
-  <section class="sec sec-alt" id="goals">
+  <!-- ============ PRODUCTS ============ -->
+  <section class="products">
     <div class="container">
-      <div class="sec-label">Shop by Goal</div>
-      <h2 class="sec-title">Packs with a purpose</h2>
-      <p class="sec-desc">Not sure where to start? Pick a goal and we'll fill a 6-bottle Wellness Pack with a curated trio of blends. You can still tweak any bottle before checkout.</p>
-      <div class="goal-grid" id="goalGrid"></div>
-    </div>
-  </section>
+      <div class="product-grid">
 
-  <!-- ============ FLAVORS ============ -->
-  <section class="sec" id="flavors">
-    <div class="container">
-      <div class="sec-label">Six Blends</div>
-      <h2 class="sec-title">Meet the flavors</h2>
-      <p class="sec-desc">Every bottle is cold-pressed from whole fruits and vegetables — nothing added, nothing heated. Find the blend that fits your day.</p>
-      <div class="fd-grid" id="flavorDetails"></div>
-    </div>
-  </section>
-
-  <!-- ============ RESET PROGRAM ============ -->
-  <section class="sec sec-alt" id="reset">
-    <div class="container">
-      <div class="reset-wrap">
-        <div class="reset-tips">
-          <h3>Make the most of your Reset</h3>
-          <ul>
-            <li>Drink plenty of water throughout the day.</li>
-            <li>Get adequate rest each night.</li>
-            <li>Eat whole foods if following a modified reset.</li>
-            <li>Space your juices evenly across the day.</li>
-          </ul>
-          <p class="reset-disclaimer">Consult your healthcare provider before starting any reset if you have medical conditions, are pregnant or nursing, or are taking medications. This program is not intended to diagnose, treat, or cure any condition.</p>
-        </div>
-      </div>
-
-      <div class="kit-head">What's included</div>
-      <div class="kit-grid">
-        <div class="kitcard">
-          <div class="kit-top"><span class="kit-name">1-Day Freshstart Reset</span><span class="kit-meta">6 bottles · $49</span></div>
-          <div class="kit-list">
-            <span class="kit-item"><b>1×</b> Pure Celery</span>
-            <span class="kit-item"><b>1×</b> Melon Refresh</span>
-            <span class="kit-item"><b>1×</b> Citrus Glow</span>
-            <span class="kit-item"><b>1×</b> Ginger Boost</span>
-            <span class="kit-item"><b>1×</b> Roots+</span>
-            <span class="kit-item"><b>1×</b> Roots Refresh</span>
+        <article class="pcard">
+          <div class="pcard-visual">
+            <img src="images/poster-pure-celery.png" alt="Pure Celery cold-pressed juice" loading="lazy" decoding="async">
+            <img src="images/poster-citrus-glow.png" alt="Citrus Glow cold-pressed juice" loading="lazy" decoding="async">
+            <img src="images/poster-roots-refresh.png" alt="Roots Refresh cold-pressed juice" loading="lazy" decoding="async">
           </div>
-          <div class="kit-plus">One full day, morning to night, plus a printed <b>Freshstart Reset Guide</b>.</div>
-        </div>
-        <div class="kitcard">
-          <div class="kit-top"><span class="kit-name">3-Day Freshstart Reset</span><span class="kit-meta">18 bottles · $145</span></div>
-          <div class="kit-list">
-            <span class="kit-item"><b>3×</b> Pure Celery</span>
-            <span class="kit-item"><b>3×</b> Melon Refresh</span>
-            <span class="kit-item"><b>3×</b> Citrus Glow</span>
-            <span class="kit-item"><b>3×</b> Ginger Boost</span>
-            <span class="kit-item"><b>3×</b> Roots+</span>
-            <span class="kit-item"><b>3×</b> Roots Refresh</span>
+          <div class="pcard-body">
+            <div class="pcard-eyebrow">🥤 Daily Wellness</div>
+            <div class="pcard-name">Wellness Pack</div>
+            <div class="pcard-size">Choose any 6 bottles · mix &amp; match</div>
+            <p class="pcard-desc">Six cold-pressed blends, mixed exactly how you like them.</p>
+            <div class="pcard-price">$49</div>
+            <a class="pcard-btn" href="checkout.html?product=wellness">Build My Box</a>
           </div>
-          <div class="kit-plus">Three days to build the habit, plus the <b>Freshstart Reset Guide</b> and a full daily schedule.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </article>
 
-  <!-- ============ PREMIUM WELLNESS KITS ============ -->
-  <section class="sec prem" id="kits">
-    <div class="container">
-      <div class="sec-label">The Complete Experience</div>
-      <h2 class="sec-title">Freshstart Wellness Reset Kit</h2>
-      <p class="sec-desc">More than juice. Each kit pairs your Reset with the tools to actually follow through — a printed guide, a daily checklist, and reusable gear to make it a ritual. The perfect way to begin, or to gift.</p>
-      <div class="prem-grid">
-        <div class="premkit">
-          <span class="premkit-flag">1-Day Experience</span>
-          <div class="premkit-name">1-Day Wellness Reset Kit</div>
-          <div class="premkit-price"><span class="amt">$72</span><span class="was">juice alone $49</span></div>
-          <div class="premkit-juice">6 cold-pressed juices · one full day, all six blends</div>
-          <div class="premkit-box-label">In the box</div>
-          <ul class="premkit-list">
-            <li><b>6 cold-pressed juices</b> — the full morning-to-night lineup</li>
-            <li><b>Freshstart Wellness Guide</b> — printed, step by step</li>
-            <li><b>Daily wellness checklist</b> — stay on track</li>
-            <li><b>Handwritten welcome card</b></li>
-          </ul>
-          <button class="premkit-btn" data-kit="kit1">Add the 1-Day Kit</button>
-          <div class="premkit-note">One-time purchase · pickup or local delivery</div>
-        </div>
-        <div class="premkit">
-          <span class="premkit-flag">3-Day Experience</span>
-          <div class="premkit-name">3-Day Wellness Reset Kit</div>
-          <div class="premkit-price"><span class="amt">$179</span><span class="was">juice alone $145</span></div>
-          <div class="premkit-juice">18 cold-pressed juices · three days, all six blends</div>
-          <div class="premkit-box-label">In the box</div>
-          <ul class="premkit-list">
-            <li><b>18 cold-pressed juices</b> — three full days, curated daily</li>
-            <li><b>Freshstart Wellness Guide</b> — printed, step by step</li>
-            <li><b>3-day wellness checklist</b> — stay on track</li>
-            <li><b>Handwritten welcome card</b></li>
-          </ul>
-          <button class="premkit-btn" data-kit="kit3">Add the 3-Day Kit</button>
-          <div class="premkit-note">One-time purchase · pickup or local delivery</div>
-        </div>
-      </div>
-    </div>
-  </section>
+        <article class="pcard">
+          <div class="pcard-visual">
+            <img src="images/poster-ginger-boost.png" alt="Ginger Boost cold-pressed juice" loading="lazy" decoding="async">
+            <img src="images/poster-melon-refresh.png" alt="Melon Refresh cold-pressed juice" loading="lazy" decoding="async">
+            <img src="images/poster-roots-plus.png" alt="Roots+ cold-pressed juice" loading="lazy" decoding="async">
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-eyebrow">👨‍👩‍👧‍👦 For the Household</div>
+            <div class="pcard-name">Family Pack</div>
+            <div class="pcard-size">12 bottles · mix &amp; match</div>
+            <p class="pcard-desc">Double the Wellness Pack — stocked for everyone at home.</p>
+            <div class="pcard-price">$96</div>
+            <a class="pcard-btn" href="checkout.html?product=family">Shop Family Pack</a>
+          </div>
+        </article>
 
-  <!-- ============ FRESHNESS / DELIVERY ============ -->
-  <section class="sec" id="freshness">
-    <div class="container">
-      <div class="sec-label">Freshness First</div>
-      <h2 class="sec-title">How you'll get it</h2>
-      <p class="sec-desc">Every Freshstart order is handcrafted in small batches. Whether you choose local pickup, local delivery, or California shipping, we carefully package each order to help ensure it arrives fresh and ready to enjoy.</p>
-      <div class="fresh-grid">
-        <div class="fresh-card hi">
-          <div class="fresh-name">Local Pickup</div>
-          <div class="fresh-price" style="color:var(--yellow)">Free</div>
-          <div class="fresh-desc">Pick up your order in San Leandro, CA at a scheduled pickup time.</div>
-          <ul class="fresh-list">
-            <li>No minimum order</li>
-            <li>Scheduled pickup windows</li>
-            <li>Freshest possible — straight from the batch</li>
-          </ul>
-        </div>
-        <div class="fresh-card">
-          <div class="fresh-name">Local Delivery</div>
-          <div class="fresh-price">Fee by zone</div>
-          <div class="fresh-desc">Freshstart delivered directly to your home or workplace across the East Bay.</div>
-          <ul class="fresh-list">
-            <li>Minimum order: 6 bottles (Wellness Pack)</li>
-            <li>San Leandro $7 · Oakland/Alameda $10 · Hayward/Union City $20</li>
-            <li>Delivery fee calculated at checkout</li>
-          </ul>
-        </div>
-        <div class="fresh-card">
-          <div class="fresh-name">California Shipping</div>
-          <div class="fresh-price">Calculated at checkout</div>
-          <div class="fresh-desc">Freshly packed using insulated packaging and ice packs to help maintain quality in transit.</div>
-          <ul class="fresh-list">
-            <li>Minimum order: 18 bottles (3-Day Reset)</li>
-            <li>Ships statewide across California</li>
-            <li>Orders ship early in the week for freshness</li>
-          </ul>
-        </div>
+        <article class="pcard">
+          <div class="pcard-visual">
+            <img src="images/poster-roots-plus.png" alt="Roots+ cold-pressed juice" loading="lazy" decoding="async">
+            <img src="images/poster-pure-celery.png" alt="Pure Celery cold-pressed juice" loading="lazy" decoding="async">
+            <img src="images/poster-citrus-glow.png" alt="Citrus Glow cold-pressed juice" loading="lazy" decoding="async">
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-eyebrow">🌱 Reset &amp; Recharge</div>
+            <div class="pcard-name">3-Day Wellness Reset</div>
+            <div class="pcard-size">18 bottles · curated assortment</div>
+            <p class="pcard-desc">3 bottles of each of our six blends — no flavor decisions needed.</p>
+            <div class="pcard-price">$145</div>
+            <a class="pcard-btn" href="checkout.html?product=reset3">Start My Reset</a>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
@@ -607,14 +186,11 @@
   <!-- ============ FAQ ============ -->
   <section class="sec sec-alt" id="faq">
     <div class="container">
-      <div class="sec-label">Good to Know</div>
       <h2 class="sec-title">Frequently asked</h2>
-      <div class="faq" style="margin-top:2rem;">
-        <div class="faq-item"><button class="faq-q">Can I mix and match flavors?</button><div class="faq-a"><p>Yes. On every pack you can fill your box with any combination of our six blends. Our Reset Programs come with a suggested daily lineup, but you're always free to swap in your favorites.</p></div></div>
-        <div class="faq-item"><button class="faq-q">How does Subscribe & Save work?</button><div class="faq-a"><p>Subscribe and you'll save 5% on every recurring order, with priority access to seasonal and limited-release blends. Choose delivery every 2 weeks (recommended) or monthly, and modify, pause, or cancel anytime — no commitment. As the Freshstart community grows, subscribers unlock added perks like member-only promotions and early access to new products.</p></div></div>
-        <div class="faq-item"><button class="faq-q">How long do the juices stay fresh?</button><div class="faq-a"><p>Because our juice is cold-pressed and never heat-treated, it's best enjoyed within 5 days of its Fresh Pressed date and kept refrigerated. That's why we handcraft in small batches and ship early in the week — so your juice reaches you at its freshest.</p></div></div>
-        <div class="faq-item"><button class="faq-q">What are my pickup and delivery options?</button><div class="faq-a"><p>Local pickup in San Leandro is always free with no minimum. Local delivery is available across the East Bay with a 6-bottle minimum and a small fee by zone. California shipping is available on our 3-Day Reset (18 bottles) and up, packed with insulated materials and ice packs.</p></div></div>
-        <div class="faq-item"><button class="faq-q">What's the difference between a pack and a Reset?</button><div class="faq-a"><p>The Wellness Pack (6) and Family Pack (12) are simply juice to stock your fridge. The 1-Day (6) and 3-Day (18) Resets are guided wellness programs that include a daily reset guide to help you build healthy habits with a curated progression of blends.</p></div></div>
+      <div class="faq">
+        <div class="faq-item"><button class="faq-q">Can I mix and match flavors?</button><div class="faq-a"><p>Yes. On every pack you choose exactly which of our six blends go in your box, in any combination.</p></div></div>
+        <div class="faq-item"><button class="faq-q">How long do the juices stay fresh?</button><div class="faq-a"><p>Because our juice is cold-pressed and never heat-treated, it's best enjoyed within 5 days of its Fresh Pressed date and kept refrigerated.</p></div></div>
+        <div class="faq-item"><button class="faq-q">What are my pickup and delivery options?</button><div class="faq-a"><p>Local pickup in San Leandro is always free with no minimum. Local delivery is available across the East Bay with a 6-bottle minimum and a small fee by zone. California shipping is available on the 3-Day Reset.</p></div></div>
         <div class="faq-item"><button class="faq-q">What's your Freshness Guarantee?</button><div class="faq-a"><p>Every Freshstart bottle is cold-pressed in small batches and should be enjoyed within 5 days of its Fresh Pressed date for the best flavor and quality. Always keep refrigerated.</p></div></div>
       </div>
     </div>
@@ -623,32 +199,20 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-word"><span class="fw-fresh">fresh</span><span class="fw-start">start</span><span class="fw-drop"></span></div>
-      <div class="footer-juice">JUICE</div>
       <div class="footer-links">
-        <a href="#flavors">Flavors</a>
-        <a href="#reset">Reset Programs</a>
-        <a href="#freshness">Delivery</a>
-        <a href="#faq">FAQ</a>
         <a href="index.html">Home</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://www.instagram.com/freshstart.juice/" target="_blank" rel="noopener">Instagram</a>
       </div>
       <div class="footer-copy">© 2026 Freshstart Juices Project · Handcrafted in San Leandro, California</div>
     </div>
   </footer>
 
-  <!-- cart drawer -->
-  <div id="cartScrim"></div>
-  <aside class="cart-drawer" aria-label="Your cart">
-    <div class="cart-header">
-      <h2>Your cart</h2>
-      <button id="cartClose" aria-label="Close cart">×</button>
-    </div>
-    <div class="cart-body" id="cartBody"></div>
-    <div class="cart-foot">
-      <a class="checkout-btn" id="checkoutBtn" href="#">Checkout</a>
-      <div class="cart-foot-note">Shipping, taxes & discount codes applied at checkout</div>
-    </div>
-  </aside>
-
-  <script src="shop.js"></script>
+  <script>
+    document.addEventListener('click', e => {
+      const q = e.target.closest('.faq-q');
+      if (q) q.parentElement.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>

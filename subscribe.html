@@ -8,15 +8,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 </head>
 <body>
-  <p>This page has moved. <a href="checkout.html" id="fallbackLink">Continue to checkout</a>.</p>
+  <p>This page has moved. <a href="Shop.html" id="fallbackLink">Continue to the shop</a>.</p>
   <script>
-    // Preserve any pack/cadence/box params from old subscribe.html links
-    // and forward them to the new universal checkout page.
-    var qs = new URLSearchParams(location.search);
-    if (!qs.has('type')) qs.set('type', 'subscribe');
-    var target = 'checkout.html?' + qs.toString();
-    document.getElementById('fallbackLink').href = target;
-    window.location.replace(target);
+    // Subscribe & Save is a Phase 2 feature (offered post-purchase on
+    // thank-you.html), so old subscribe.html links just send people
+    // to the shop for now.
+    window.location.replace('Shop.html');
   </script>
 </body>
 </html>
