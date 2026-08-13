@@ -74,6 +74,11 @@
     .pcard-price { font-family:'Montserrat',sans-serif; font-weight:900; font-size:1.5rem; color:var(--green-dark); margin-top:0.9rem; letter-spacing:-0.5px; }
     .pcard-btn { display:block; text-align:center; width:100%; border:none; background:var(--green-dark); color:#fff; font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-base); padding:0.95rem; border-radius:12px; margin-top:0.9rem; transition:background 0.15s,transform 0.15s; }
     .pcard-btn:hover { background:var(--green-mid); color:#fff; transform:translateY(-1px); }
+    .pcard-benefit { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.78rem; color:var(--green-fresh); margin-top:0.35rem; }
+    .pop-badge { position:absolute; top:12px; right:12px; z-index:3; background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.65rem; letter-spacing:0.4px; text-transform:uppercase; padding:0.32rem 0.7rem; border-radius:999px; box-shadow:0 2px 8px rgba(0,0,0,0.18); }
+    .single-lead { text-align:center; margin-top:2rem; }
+    .single-lead-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:var(--text-base); color:var(--green-dark); }
+    .single-lead-sub { font-size:var(--text-sm); color:var(--muted); margin-top:0.2rem; }
 
     /* ---- single bottle (same card style, own row, narrower = secondary) ---- */
     .single-row { display:flex; justify-content:center; margin-top:1.25rem; }
@@ -139,14 +144,16 @@
 
         <article class="pcard">
           <div class="pcard-visual">
+            <span class="pop-badge">Most Popular</span>
             <img src="images/poster-pure-celery.png" alt="Pure Celery cold-pressed juice" loading="lazy" decoding="async">
             <img src="images/poster-citrus-glow.png" alt="Citrus Glow cold-pressed juice" loading="lazy" decoding="async">
             <img src="images/poster-roots-refresh.png" alt="Roots Refresh cold-pressed juice" loading="lazy" decoding="async">
           </div>
           <div class="pcard-body">
-            <div class="pcard-eyebrow">🥤 Daily Wellness</div>
+            <div class="pcard-eyebrow">Daily Wellness</div>
             <div class="pcard-name">Wellness Pack</div>
             <div class="pcard-size">Choose any 6 bottles · mix &amp; match</div>
+            <div class="pcard-benefit">Best for everyday wellness.</div>
             <p class="pcard-desc">Six cold-pressed blends, mixed exactly how you like them.</p>
             <div class="pcard-price">$49</div>
             <a class="pcard-btn" href="checkout.html?product=wellness">Build My Box</a>
@@ -160,9 +167,10 @@
             <img src="images/poster-roots-plus.png" alt="Roots+ cold-pressed juice" loading="lazy" decoding="async">
           </div>
           <div class="pcard-body">
-            <div class="pcard-eyebrow">👨‍👩‍👧‍👦 For the Household</div>
+            <div class="pcard-eyebrow">For the Household</div>
             <div class="pcard-name">Family Pack</div>
             <div class="pcard-size">12 bottles · mix &amp; match</div>
+            <div class="pcard-benefit">Best for sharing or stocking up.</div>
             <p class="pcard-desc">Double the Wellness Pack — stocked for everyone at home.</p>
             <div class="pcard-price">$96</div>
             <a class="pcard-btn" href="checkout.html?product=family">Shop Family Pack</a>
@@ -176,9 +184,10 @@
             <img src="images/poster-citrus-glow.png" alt="Citrus Glow cold-pressed juice" loading="lazy" decoding="async">
           </div>
           <div class="pcard-body">
-            <div class="pcard-eyebrow">🌱 Reset &amp; Recharge</div>
+            <div class="pcard-eyebrow">Reset &amp; Recharge</div>
             <div class="pcard-name">3-Day Wellness Reset</div>
             <div class="pcard-size">18 bottles · curated assortment</div>
+            <div class="pcard-benefit">Best for getting back on track.</div>
             <p class="pcard-desc">3 bottles of each of our six blends — no flavor decisions needed.</p>
             <div class="pcard-price">$145</div>
             <a class="pcard-btn" href="checkout.html?product=reset3">Start My Reset</a>
@@ -187,13 +196,17 @@
 
       </div>
 
+      <div class="single-lead">
+        <div class="single-lead-title">Not ready for a pack? Start with one.</div>
+        <p class="single-lead-sub">Choose your favorite FreshStart flavor or try something new.</p>
+      </div>
       <div class="single-row">
         <article class="pcard">
           <div class="pcard-visual single-img">
             <img src="images/poster-citrus-glow.png" alt="Single bottle of Freshstart cold-pressed juice" loading="lazy" decoding="async">
           </div>
           <div class="pcard-body">
-            <div class="pcard-eyebrow">🧃 Just One</div>
+            <div class="pcard-eyebrow">Just One</div>
             <div class="pcard-name">Single Bottle</div>
             <div class="pcard-size">1 bottle · choose your blend</div>
             <p class="pcard-desc">Want to try a flavor or grab your favorite?</p>
@@ -211,7 +224,7 @@
     <div class="container">
       <h2 class="sec-title">Frequently asked</h2>
       <div class="faq">
-        <div class="faq-item"><button class="faq-q">Can I mix and match flavors?</button><div class="faq-a"><p>Yes. The Wellness and Family Packs are completely mix &amp; match. The 3-Day Wellness Reset includes a curated assortment of all six blends. Need a substitution? Add it to Special Instructions during checkout.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Can I choose my flavors?</button><div class="faq-a"><p>Wellness and Family Packs are fully customizable. The 3-Day Wellness Reset includes a curated assortment designed around the FreshStart wellness schedule. Need a substitution? Add it to Special Instructions during checkout.</p></div></div>
         <div class="faq-item"><button class="faq-q">How long do the juices stay fresh?</button><div class="faq-a"><p>Because our juice is cold-pressed and never heat-treated, it's best enjoyed within 5 days of its Fresh Pressed date and kept refrigerated.</p></div></div>
         <div class="faq-item"><button class="faq-q">What are my pickup and delivery options?</button><div class="faq-a"><p>Local pickup in San Leandro is always free with no minimum. Local delivery is available across the East Bay with a 6-bottle minimum and a small fee by zone.</p></div></div>
         <div class="faq-item"><button class="faq-q">What's your Freshness Guarantee?</button><div class="faq-a"><p>Every Freshstart bottle is cold-pressed in small batches and should be enjoyed within 5 days of its Fresh Pressed date for the best flavor and quality. Always keep refrigerated.</p></div></div>
