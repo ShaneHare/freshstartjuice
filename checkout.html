@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout — Freshstart Juices</title>
+  <title>Checkout - Freshstart Juices</title>
   <meta name="description" content="Pick your flavors, tell us how you'd like it delivered, and head to secure Stripe checkout.">
   <meta name="robots" content="noindex">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -105,7 +105,7 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="index.html" aria-label="Freshstart Juices — home"><img src="images/logo-2026-v2.png" alt="Freshstart Juices" class="brand-logo" width="848" height="854" decoding="async"></a>
+    <a href="index.html" aria-label="Freshstart Juices - home"><img src="images/logo-2026-v2.png" alt="Freshstart Juices" class="brand-logo" width="848" height="854" decoding="async"></a>
     <a href="Shop.html" class="back-link">&larr; Back to shop</a>
   </div>
 </header>
@@ -157,7 +157,7 @@
           <input type="checkbox" id="bumpCheck">
           <img src="images/poster-island-citrus-tea.png" alt="Island Citrus Tea" class="bump-img" loading="lazy" decoding="async">
           <span class="bump-text">
-            <strong>Add Island Citrus Tea — $7</strong>
+            <strong>Add Island Citrus Tea - $7</strong>
             <span>Our newest blend &middot; Pineapple, orange &amp; lime peels &middot; Caffeine-free</span>
             <span class="bump-value">Checkout exclusive &middot; Regularly $9</span>
           </span>
@@ -172,7 +172,7 @@
   <div class="success-wrap" id="successWrap">
     <div class="check">&#10003;</div>
     <h1 style="margin-top:0;">You're almost set!</h1>
-    <p class="lede" style="margin:0 auto 1rem;">We've received your order details. Your secure Stripe payment link is on its way to your email — complete payment there and you're all set. <strong>Start Fresh. Stay Fresh.</strong></p>
+    <p class="lede" style="margin:0 auto 1rem;">We've received your order details. Your secure Stripe payment link is on its way to your email - complete payment there and you're all set. <strong>Start Fresh. Stay Fresh.</strong></p>
     <a href="index.html" class="back-link">&larr; Back to Freshstart Juices</a>
   </div>
 
@@ -228,7 +228,7 @@ function fulfillAllowed(id) {
 const bottleWord = n => n === 1 ? 'bottle' : 'bottles';
 
 function render() {
-  document.title = product.name + ' — Freshstart Juices';
+  document.title = product.name + ' - Freshstart Juices';
   $('#pageTitle').textContent = product.name;
   $('#pbName').textContent = product.name;
   $('#pbSize').textContent = product.openQty ? 'Any quantity · choose your blend(s)' : (product.size + ' bottles · ' + (product.curated ? 'curated assortment' : 'mix & match'));
@@ -281,10 +281,10 @@ function render() {
     const note = $('#boxNote');
     if (product.openQty) {
       if (count === 0) { note.textContent = 'Pick at least 1 bottle to continue.'; note.className = 'box-note warn'; }
-      else { note.textContent = 'Nice — ' + count + ' ' + bottleWord(count) + ' picked. Add more or continue.'; note.className = 'box-note ok'; }
+      else { note.textContent = 'Nice - ' + count + ' ' + bottleWord(count) + ' picked. Add more or continue.'; note.className = 'box-note ok'; }
     } else {
       const remaining = product.size - count;
-      if (remaining === 0) { note.textContent = 'Perfect — your box is full.'; note.className = 'box-note ok'; }
+      if (remaining === 0) { note.textContent = 'Perfect - your box is full.'; note.className = 'box-note ok'; }
       else { note.textContent = 'Add ' + remaining + ' more bottle' + (remaining === 1 ? '' : 's') + ' to fill your ' + product.name.toLowerCase() + '.'; note.className = 'box-note warn'; }
     }
   }

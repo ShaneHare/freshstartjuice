@@ -68,7 +68,7 @@ exports.handler = async (event) => {
       price_data: {
         currency: 'usd',
         unit_amount: BUMP_PRICE_CENTS,
-        product_data: { name: 'Island Citrus Tea — Bonus Bottle' }
+        product_data: { name: 'Island Citrus Tea - Bonus Bottle' }
       },
       quantity: 1
     });
