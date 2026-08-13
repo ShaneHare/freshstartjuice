@@ -81,6 +81,16 @@
     .summary { background:var(--green-dark); color:white; border-radius:var(--r-lg); padding:1.25rem; }
     .sum-row { display:flex; justify-content:space-between; font-size:var(--text-sm); padding:0.25rem 0; }
     .sum-total { display:flex; justify-content:space-between; font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-lg); border-top:1px solid rgba(255,255,255,0.25); margin-top:0.5rem; padding-top:0.6rem; }
+    .bump-box { background:rgba(255,255,255,0.08); border:1.5px dashed var(--yellow); border-radius:var(--r-sm); padding:0.75rem; margin-top:1rem; }
+    .bump-label { display:flex; align-items:center; gap:0.65rem; cursor:pointer; }
+    .bump-label input[type="checkbox"] { width:19px; height:19px; flex-shrink:0; accent-color:var(--yellow); cursor:pointer; }
+    .bump-img { width:42px; height:42px; border-radius:8px; object-fit:cover; object-position:50% 35%; flex-shrink:0; }
+    .bump-text { flex:1; min-width:0; }
+    .bump-text strong { display:block; font-family:'Montserrat',sans-serif; font-size:var(--text-sm); color:white; line-height:1.3; }
+    .bump-text span { display:block; font-size:0.7rem; color:rgba(255,255,255,0.75); margin-top:2px; }
+    .bump-text .bump-value { color:var(--yellow); font-weight:600; }
+    .bump-price { display:flex; align-items:baseline; gap:0.3rem; font-family:'Montserrat',sans-serif; font-weight:800; color:var(--yellow); font-size:var(--text-base); flex-shrink:0; }
+    .bump-was { font-family:'Inter',sans-serif; font-weight:500; color:rgba(255,255,255,0.55); font-size:0.75rem; text-decoration:line-through; }
     .go-btn { display:block; width:100%; text-align:center; background:var(--yellow); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-weight:800; font-size:var(--text-base); padding:0.9rem; border:none; border-radius:var(--r-sm); cursor:pointer; margin-top:1rem; transition:transform 0.15s, filter 0.15s; }
     .go-btn:hover { transform:translateY(-1px); filter:brightness(1.05); }
     .go-btn:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
@@ -139,8 +149,21 @@
 
     <div class="summary">
       <div class="sum-row"><span id="sumName"></span><span id="sumSubtotal"></span></div>
+      <div class="sum-row" id="sumBumpRow" style="display:none;"><span>Island Citrus Tea (add-on)</span><span id="sumBump"></span></div>
       <div class="sum-row" id="sumDeliveryRow" style="display:none;"><span>Delivery</span><span id="sumDelivery"></span></div>
       <div class="sum-total"><span>Total</span><span id="sumTotal"></span></div>
+      <div class="bump-box">
+        <label class="bump-label">
+          <input type="checkbox" id="bumpCheck">
+          <img src="images/poster-island-citrus-tea.png" alt="Island Citrus Tea" class="bump-img" loading="lazy" decoding="async">
+          <span class="bump-text">
+            <strong>Add Island Citrus Tea — $7</strong>
+            <span>Our newest blend &middot; Pineapple, orange &amp; lime peels &middot; Caffeine-free</span>
+            <span class="bump-value">Checkout exclusive &middot; Regularly $9</span>
+          </span>
+          <span class="bump-price"><span class="bump-was">$9</span>$7</span>
+        </label>
+      </div>
       <button type="submit" class="go-btn" id="goBtn">Continue to secure payment &rarr;</button>
       <div class="secure-note">Notes go straight to us · powered by Stripe</div>
     </div>
@@ -184,11 +207,12 @@ const ZONES = [
   { id:'z2', name:'Oakland · Alameda · San Lorenzo · Castro Valley', fee:10 },
   { id:'z3', name:'Hayward · Union City', fee:20 }
 ];
+const BUMP_PRICE = 7; // Island Citrus Tea order-bump: 1 bonus bottle, flat $7
 
 const qs = new URLSearchParams(location.search);
 const product = PRODUCTS[qs.get('product')] || PRODUCTS.wellness;
 const activeFlavors = product.curated ? FLAVORS : PICKER_FLAVORS;
-const state = { fulfill:'pickup', zone:'z1', box:{} };
+const state = { fulfill:'pickup', zone:'z1', box:{}, bump:false };
 activeFlavors.forEach(f => state.box[f.id] = product.curated ? product.size / FLAVORS.length : 0);
 
 const $ = s => document.querySelector(s);
@@ -283,12 +307,15 @@ function render() {
   $('#coAddress').required = state.fulfill !== 'pickup';
 
   const deliveryFee = state.fulfill === 'delivery' ? ZONES.find(z => z.id === state.zone).fee : 0;
+  const bumpAmount = state.bump ? BUMP_PRICE : 0;
   const subtotal = product.openQty ? product.price * count : product.price;
   $('#sumName').textContent = product.openQty ? product.name + (count ? ' × ' + count : '') : product.name;
   $('#sumSubtotal').textContent = money(subtotal);
+  $('#sumBumpRow').style.display = state.bump ? 'flex' : 'none';
+  $('#sumBump').textContent = money(bumpAmount);
   $('#sumDeliveryRow').style.display = state.fulfill === 'delivery' ? 'flex' : 'none';
   $('#sumDelivery').textContent = money(deliveryFee);
-  $('#sumTotal').textContent = money(subtotal + deliveryFee);
+  $('#sumTotal').textContent = money(subtotal + deliveryFee + bumpAmount);
 
   $('#goBtn').disabled = product.openQty ? count < 1 : count !== product.size;
 }
@@ -309,6 +336,11 @@ document.addEventListener('click', e => {
   render();
 });
 
+$('#bumpCheck').addEventListener('change', () => {
+  state.bump = $('#bumpCheck').checked;
+  render();
+});
+
 $('#coForm').addEventListener('submit', async e => {
   e.preventDefault();
   const finalCount = boxCount();
@@ -318,6 +350,7 @@ $('#coForm').addEventListener('submit', async e => {
   btn.disabled = true; btn.textContent = 'Saving your order…';
   const flavorsTxt = activeFlavors.filter(f => state.box[f.id] > 0).map(f => state.box[f.id] + '× ' + f.name).join(', ');
   const deliveryFee = state.fulfill === 'delivery' ? ZONES.find(z => z.id === state.zone).fee : 0;
+  const bumpAmount = state.bump ? BUMP_PRICE : 0;
   const fulfillName = { pickup:'Local Pickup', delivery:'Local Delivery' }[state.fulfill];
   const subtotal = product.openQty ? product.price * finalCount : product.price;
   const orderPayload = {
@@ -328,12 +361,13 @@ $('#coForm').addEventListener('submit', async e => {
     fulfillment: fulfillName,
     zone: state.fulfill === 'delivery' ? ZONES.find(z => z.id === state.zone).name : '',
     deliveryFee,
+    bumpIslandTea: state.bump,
     name: $('#coName').value,
     email: $('#coEmail').value,
     phone: $('#coPhone').value,
     address: $('#coAddress').value,
     notes: $('#coNotes').value,
-    total: money(subtotal + deliveryFee)
+    total: money(subtotal + deliveryFee + bumpAmount)
   };
 
   /* Save the order first, status "Pending Payment," so nothing is lost
@@ -357,35 +391,41 @@ $('#coForm').addEventListener('submit', async e => {
      Shane in that rare case -- tracked as a follow-up in
      PROJECT-STATUS.md to build a better fallback. */
 
-  /* Static Stripe Payment Links can't be pre-filled with a quantity via
-     URL parameter (confirmed by hand -- Stripe silently ignores it), so
-     the openQty product (Single Bottle) can't use the same flat
-     redirect as the fixed-size packs. Instead it asks
-     create-checkout-session to build a real Checkout Session server-side
-     with the right quantity as a line item, which always charges
-     correctly. */
+  /* All 4 products go through create-checkout-session now, since the
+     optional Island Citrus Tea bonus-bottle bump needs to be combined
+     with the base product as a second line item in one transaction --
+     something a static Stripe Payment Link can't do. (Single Bottle
+     also needs this regardless of the bump: static Payment Links can't
+     be pre-filled with a quantity via URL parameter -- confirmed by
+     hand, Stripe silently ignores it -- so its charge only ever comes
+     out right through a real Checkout Session.) */
   let stripeUrl = '';
-  if (product.openQty) {
-    try {
-      const sessionRes = await fetch('/.netlify/functions/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ quantity: finalCount, orderId: orderId || undefined })
-      });
-      if (sessionRes.ok) { const data = await sessionRes.json(); stripeUrl = data.url || ''; }
-    } catch (_) { stripeUrl = ''; }
-  } else {
+  try {
+    const sessionRes = await fetch('/.netlify/functions/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        product: product.id,
+        quantity: product.openQty ? finalCount : 1,
+        bump: state.bump,
+        orderId: orderId || undefined
+      })
+    });
+    if (sessionRes.ok) { const data = await sessionRes.json(); stripeUrl = data.url || ''; }
+  } catch (_) { stripeUrl = ''; }
+
+  if (!stripeUrl) {
+    /* Checkout Session creation failed -- fall back to the static
+       Payment Link so the customer can still pay. A static link can't
+       include the optional bump, so if one was selected it won't be
+       charged here; it's still recorded on the saved order
+       (bumpIslandTea) so Shane can follow up if the two ever disagree. */
     stripeUrl = product.stripe || '';
     if (stripeUrl && orderId) stripeUrl += '?client_reference_id=' + encodeURIComponent(orderId);
   }
 
   if (stripeUrl) {
     window.location.href = stripeUrl;
-  } else if (product.openQty) {
-    /* Checkout Session creation failed -- fall back to the static
-       Payment Link so the customer can still pay, though quantity
-       adjustment on that page is manual (Qty selector is enabled). */
-    window.location.href = product.stripe;
   } else {
     $('#coForm').style.display = 'none';
     document.querySelector('h1').style.display = 'none';

@@ -40,6 +40,7 @@ exports.handler = async (event) => {
     fulfillment: payload.fulfillment,
     zone: payload.zone || '',
     deliveryFee: payload.deliveryFee || 0,
+    bumpIslandTea: payload.bumpIslandTea === true,
     name: payload.name,
     email: payload.email,
     phone: payload.phone,

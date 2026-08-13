@@ -22,12 +22,18 @@ the checkout form, then confirmed as "Paid" by a Stripe webhook.
   customers pick any quantity at $9/bottle, mix and match. Pickup or
   local delivery only — no shipping anywhere in Phase 1. Delivery
   requires 6+ bottles (works for Single Bottle too once quantity hits
-  6). Saves the order via `create-order`, then for fixed-size products
-  redirects to that product's Stripe Payment Link with
-  `client_reference_id` attached; for Single Bottle, calls
-  `create-checkout-session` instead to build a real Stripe Checkout
-  Session with the correct quantity (Payment Links can't be pre-filled
-  with quantity via URL, confirmed by testing).
+  6). A checkbox order bump right above the payment button lets anyone
+  add a bonus bottle of Island Citrus Tea for a flat $7, with the
+  summary total updating live — available on all 4 products. Saves the
+  order via `create-order` (including whether the bump was selected),
+  then calls `create-checkout-session` to build a real Stripe Checkout
+  Session combining the base product and the optional bump into one
+  charge (a static Payment Link can't include a second, page-decided
+  line item, and separately can't be pre-filled with a quantity via URL
+  for Single Bottle — confirmed by testing). If that call fails, falls
+  back to the product's static Stripe Payment Link so the customer can
+  still pay; a bump selected in that fallback case won't be charged
+  there, but is still recorded on the saved order for Shane to check.
 - **thank-you.html** — post-purchase page. "Love FreshStart?" Juice Plan
   (Subscribe & Save 5%) pitch, collapsed behind "Learn About Juice Plans."
   Requires Shane to set each Stripe Payment Link's after-payment redirect
@@ -35,16 +41,27 @@ the checkout form, then confirmed as "Paid" by a Stripe webhook.
 - **subscribe.html** — old subscribe entry point, now just redirects to
   Shop.html (Subscribe & Save moved to post-purchase, Phase 2).
 - **netlify/functions/create-order.js** — saves a new order (status
-  "Pending Payment") to Netlify Blobs when checkout.html submits.
-- **netlify/functions/create-checkout-session.js** — Single Bottle only.
-  Creates a real Stripe Checkout Session server-side with the customer's
-  chosen quantity as a line item (using the Single Bottle Price ID,
-  `price_1TlfyvLObZrlzLTVufjhhFdQ`), so the charge always matches what
-  was selected in checkout.html. Reuses the same `STRIPE_SECRET_KEY`
-  already set in Netlify — no new env var needed.
+  "Pending Payment") to Netlify Blobs when checkout.html submits,
+  including `bumpIslandTea` (true/false) if the order bump was selected.
+- **netlify/functions/create-checkout-session.js** — used by all 4
+  products now. Creates a real Stripe Checkout Session server-side with
+  the base product's real Stripe Price as one line item (quantity =
+  customer's chosen count for Single Bottle, always 1 for the 3 fixed
+  packs since their Price already covers the whole pack) plus, when
+  selected, a second $7 "Island Citrus Tea — Bonus Bottle" line item
+  using inline `price_data` (not a stored Price, since it's a promo
+  add-on). Price IDs: Single `price_1TlfyvLObZrlzLTVufjhhFdQ`, Wellness
+  `price_1Tr28JLObZrlzLTVn9Sk23Wt`, Family `price_1Tr2NpLObZrlzLTVlGwPoWEA`,
+  3-Day Reset `price_1Tr2cHLObZrlzLTVOuiHIL44`. Reuses the same
+  `STRIPE_SECRET_KEY` already set in Netlify — no new env var needed.
 - **netlify/functions/stripe-webhook.js** — Stripe calls this on
   `checkout.session.completed`; verifies the signature, flips the
-  matching order to "Paid," emails Shane the completed order.
+  matching order to "Paid," emails Shane the completed order (including
+  whether the Island Citrus Tea bump was added), and writes the
+  flavors/fulfillment/bump/notes onto the Stripe PaymentIntent itself
+  (description + metadata) so they're visible directly in the Stripe
+  dashboard, not just in the email — Stripe only ever showed price and
+  payer by default.
 - **shop.js** — retired, no page currently loads it. Left in the repo,
   not deleted, in case any of its logic is useful again.
 - **Label History.html** — timeline of every label/photo era.
@@ -61,22 +78,26 @@ the checkout form, then confirmed as "Paid" by a Stripe webhook.
   the 3-per-blend math even), substitutions via Special Instructions
 - Island Citrus Tea — 7th flavor, our first botanical tea (caffeine-free,
   brewed from pineapple/orange/lime peel). Selectable on Single Bottle,
-  Wellness, and Family; not part of the 3-Day Reset assortment.
+  Wellness, and Family; not part of the 3-Day Reset assortment. Also
+  offered as a $7 checkout order bump (1 bonus bottle) on all 4
+  products, to promote the newest flavor.
 
 Not on the public Shop page right now (kept in Stripe/code, not deleted):
 the 4-Pack Intro concept, and the premium Wellness Reset Kits ($72 / $179
 with guide + checklist + card).
 
 ## Order flow (Phase 2, new)
-1. Customer fills out checkout.html and submits.
-2. `create-order` saves the full order to Netlify Blobs, status
-   "Pending Payment," returns an `orderId`.
-3. Browser redirects to Stripe. Wellness/Family/3-Day Reset go straight
-   to their static Payment Link with `?client_reference_id=<orderId>`
-   appended. Single Bottle instead calls `create-checkout-session` with
-   the chosen quantity and orderId, and redirects to the Checkout
-   Session URL it returns — this is what makes the total charge match
-   the quantity picked in checkout.html.
+1. Customer fills out checkout.html — optionally checking the "Add a
+   bonus bottle of Island Citrus Tea" order bump for $7 — and submits.
+2. `create-order` saves the full order (including `bumpIslandTea`) to
+   Netlify Blobs, status "Pending Payment," returns an `orderId`.
+3. Browser calls `create-checkout-session` with the product, quantity
+   (Single Bottle only), bump flag, and orderId, and redirects to the
+   Checkout Session URL it returns — one Stripe charge covering the
+   base product plus the bump if selected. If that call fails, it falls
+   back to the product's static Payment Link with
+   `?client_reference_id=<orderId>` appended instead (the bump can't
+   ride along on a static link in that fallback case).
 4. Stripe confirms payment → fires `checkout.session.completed` →
    `stripe-webhook` verifies the signature, looks up the order by that
    same ID, flips it to "Paid," records the Stripe session ID and amount,
@@ -102,12 +123,21 @@ Delivery requires 6+ bottles; Single Bottle can reach that threshold too
 since it now allows any quantity.
 
 ## OPEN — next steps
-- **Test the new `create-checkout-session` function live once pushed.**
-  It can't be exercised from this sandbox (no live Netlify deploy here).
-  Buy at least 2 Single Bottles in one order on the live site and confirm:
-  the Stripe page shows the correct total ($9 × quantity, not just $9),
-  the order in Netlify Blobs flips to "Paid" via the webhook same as
-  before, and the owner notification email arrives.
+- **Verify the order bump live.** Regression-tested with mock Stripe/
+  Blobs (all 4 products, with and without the bump, plus the
+  create-checkout-session failure fallback) but not yet run through an
+  actual live Stripe test payment. Worth placing one real test order
+  with the bump checked to confirm the $7 line item shows up correctly
+  in Stripe and the webhook writes it onto the PaymentIntent.
+- **Confirm flavors now show up in Stripe.** Shane confirmed the
+  multi-quantity Single Bottle checkout charges correctly, but flagged
+  that Stripe's dashboard only ever showed price and payer — no flavor
+  info. Fixed by having `stripe-webhook` write flavors/fulfillment/notes
+  onto the PaymentIntent (description shows in the Payments list,
+  full detail in Metadata on the payment page) — applies to all 4
+  products. This only takes effect for orders placed *after* this
+  deploys; past payments won't be updated retroactively. Worth checking
+  the next live order shows flavors directly in Stripe.
 - Single Bottle's static Payment Link (`buy.stripe.com/9B6bJ2co...`) now
   also has "Allow customers to adjust quantity" turned on in Stripe, as
   a manual-fallback safety net (used if `create-checkout-session` ever
