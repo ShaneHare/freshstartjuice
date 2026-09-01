@@ -49,6 +49,7 @@
     .header-inner { max-width:var(--max-w); margin:0 auto; padding:0 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
     .brand-link { display:inline-flex; align-items:center; }
     .brand-logo { height:64px; width:auto; display:block; }
+    .header-nav { display:flex; gap:1.25rem; }
     .header-nav a { font-size:var(--text-sm); font-weight:600; color:var(--green-dark); }
     .header-nav a:hover { color:var(--green-fresh); }
 
@@ -85,6 +86,12 @@
     .single-row .pcard { max-width:340px; width:100%; }
     .pcard-visual.single-img { display:flex; align-items:center; justify-content:center; }
     .pcard-visual.single-img img { position:static; width:44%; }
+
+    /* ---- freshness & storage ---- */
+    .freshness-box { max-width:680px; margin:1.5rem auto 0; background:var(--green-light); border-radius:var(--r-lg); padding:1.75rem 2rem; }
+    .freshness-box p { font-size:var(--text-sm); color:var(--charcoal); line-height:var(--lh-prose); margin-bottom:0.9rem; }
+    .freshness-box p:last-child { margin-bottom:0; }
+    .freshness-box strong { color:var(--green-dark); font-family:'Montserrat',sans-serif; font-weight:700; }
 
     /* ---- FAQ ---- */
     .sec { padding:3rem 0; }
@@ -124,6 +131,7 @@
     <div class="header-inner">
       <a href="index.html" class="brand-link" aria-label="Freshstart Juices - home"><img src="images/logo-2026-v2.png" alt="Freshstart Juices" class="brand-logo" width="848" height="854" decoding="async"></a>
       <nav class="header-nav">
+        <a href="#freshness">Freshness</a>
         <a href="#faq">FAQ</a>
       </nav>
     </div>
@@ -219,15 +227,27 @@
     </div>
   </section>
 
+  <!-- ============ FRESHNESS & STORAGE ============ -->
+  <section class="sec" id="freshness">
+    <div class="container">
+      <h2 class="sec-title">Freshness &amp; Storage</h2>
+      <div class="freshness-box">
+        <p>Fresh Start juices are fresh-pressed in small batches with no added water and no preservatives.</p>
+        <p>For the best experience, enjoy your juices by the Best if Used By date printed on each bottle and keep refrigerated at 40&deg;F or below.</p>
+        <p><strong>Need more time?</strong><br>Freeze your juice on or before the Best if Used By date and enjoy within 30 days. Thaw in the refrigerator, shake well, and enjoy promptly after thawing. Do not freeze juice that has already passed its Best if Used By date.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FAQ ============ -->
   <section class="sec sec-alt" id="faq">
     <div class="container">
       <h2 class="sec-title">Frequently asked</h2>
       <div class="faq">
         <div class="faq-item"><button class="faq-q">Can I choose my flavors?</button><div class="faq-a"><p>Wellness and Family Packs are fully customizable. The 3-Day Wellness Reset includes a curated assortment designed around the FreshStart wellness schedule. Need a substitution? Add it to Special Instructions during checkout.</p></div></div>
-        <div class="faq-item"><button class="faq-q">How long do the juices stay fresh?</button><div class="faq-a"><p>Because our juice is cold-pressed and never heat-treated, it's best enjoyed within 5 days of its Fresh Pressed date and kept refrigerated.</p></div></div>
+        <div class="faq-item"><button class="faq-q">How long do Fresh Start juices last?</button><div class="faq-a"><p>Our fresh-pressed juices are best enjoyed by the Best if Used By date printed on each bottle. Always keep your juices refrigerated at 40&deg;F or below. If you won't be able to enjoy them in time, freeze them on or before the Best if Used By date and enjoy within 30 days. When you're ready, thaw your juice in the refrigerator, shake well, and enjoy promptly after thawing.</p></div></div>
         <div class="faq-item"><button class="faq-q">What are my pickup and delivery options?</button><div class="faq-a"><p>Local pickup in San Leandro is always free with no minimum. Local delivery is available across the East Bay with a 6-bottle minimum and a small fee by zone.</p></div></div>
-        <div class="faq-item"><button class="faq-q">What's your Freshness Guarantee?</button><div class="faq-a"><p>Every Freshstart bottle is cold-pressed in small batches and should be enjoyed within 5 days of its Fresh Pressed date for the best flavor and quality. Always keep refrigerated.</p></div></div>
+        <div class="faq-item"><button class="faq-q">What's your Freshness Guarantee?</button><div class="faq-a"><p>Every Freshstart bottle is fresh-pressed in small batches with no added water and no preservatives. For the best flavor and quality, enjoy it by the Best if Used By date printed on the bottle and keep it refrigerated at 40&deg;F or below. Need more time? Freeze it on or before the Best if Used By date and enjoy within 30 days.</p></div></div>
       </div>
     </div>
   </section>
